@@ -1,0 +1,16 @@
+---
+version: 1
+build_arg_defaults:
+  EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:latest'
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+additional_build_steps:
+  append:
+    - COPY egad_intermediate_ca.crt /etc/pki/ca-trust/source/anchors/
+    - COPY egad_root_ca.pem /etc/pki/ca-trust/source/anchors/
+    - RUN update-ca-trust extract
+    - COPY terraform /usr/local/bin/terraform
+    - COPY server_info.py /usr/share/ansible/collections/ansible_collections/openstack/cloud/plugins/modules/server_info.py
+    - COPY helm /usr/local/bin/helm
+    - RUN chmod 755 /usr/local/bin/terraform /usr/local/bin/helm

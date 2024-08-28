@@ -1,0 +1,21 @@
+---
+controller_templates:
+  - name: "Rollback SSL Cert"
+    description: ""
+    organization: "DE"
+    project: "infra-openstack"
+    playbook: "cloud_automation/update_ssl_cert.yaml"
+    job_type: "run"
+    fact_caching_enabled: "False"
+    credentials:
+      - "awx_ssh"
+    concurrent_jobs_enabled: "True"
+    ask_scm_branch_on_launch: "False"
+    ask_tags_on_launch: "False"
+    ask_verbosity_on_launch: "False"
+    ask_variables_on_launch: "False"
+    ask_inventory_on_launch: "True"
+    execution_environment: "awx-base"
+    survey_enabled: False
+    survey_spec: {}
+...

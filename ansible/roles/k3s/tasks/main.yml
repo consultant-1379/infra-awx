@@ -1,0 +1,160 @@
+---
+# tasks file for k3s
+- name: Copy K3s install script
+  copy:
+    src: k3s.sh
+    dest: /tmp
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Check if K3s is installed
+  stat:
+    path: /usr/local/bin/k3s
+    get_checksum: False
+  register: k3s_installed
+
+- name: Set first K3s server IP address as fact
+  set_fact:
+    k3s_server0_ip: '{{ hostvars["infra-awx-k3s-server-0"]["ansible_host"] }}'
+  run_once: True
+
+- name: Install first K3s server
+  shell: '/tmp/k3s.sh server --cluster-init'
+  args:
+    warn: False
+  environment:
+    K3S_TOKEN: SECRET
+    INSTALL_K3S_EXEC: '{{ k3s_server_options }}'
+    INSTALL_K3S_VERSION: '{{ k3s_version }}'
+  when: 'not k3s_installed.stat.exists and inventory_hostname == "infra-awx-k3s-server-0"'
+
+- name: Download K3s server token
+  fetch:
+    src: /var/lib/rancher/k3s/server/token
+    dest: k3s_token
+    flat: True
+  delegate_to:  "infra-awx-k3s-server-0"
+  run_once: True
+
+- name: Wait for first K3s server node to start
+  pause:
+    seconds: 30
+  when: not k3s_installed.stat.exists
+
+- name: Install K3s servers
+  shell: '/tmp/k3s.sh server --server https://{{ k3s_server0_ip }}:6443'
+  args:
+    warn: False
+  environment:
+    K3S_TOKEN: '{{ lookup("file","k3s_token") }}'
+    INSTALL_K3S_EXEC: '{{ k3s_server_options }}'
+    INSTALL_K3S_VERSION: '{{ k3s_version }}'
+  when: 'not k3s_installed.stat.exists and inventory_hostname in groups["k3s_servers"] and inventory_hostname != "infra-awx-k3s-server-0"'
+  ignore_errors: True
+
+- name: Install K3s agent
+  shell: '/tmp/k3s.sh agent'
+  args:
+    warn: False
+  environment:
+    K3S_TOKEN: '{{ lookup("file","k3s_token") }}'
+    INSTALL_K3S_VERSION: '{{ k3s_version }}'
+    K3S_URL: 'https://{{ k3s_server0_ip }}:6443'
+  when: 'not k3s_installed.stat.exists and inventory_hostname in groups["k3s_agents"]'
+  ignore_errors: True
+
+- name: Create .kube directory
+  file:
+    path: '/home/{{ ansible_user}}/.kube/'
+    state: directory
+    mode: 0700
+    owner: '{{ ansible_user}}'
+    group: '{{ ansible_user}}'
+
+- name: Copy KUBECONFIG to home directory
+  copy:
+    src: /etc/rancher/k3s/k3s.yaml
+    dest: '/home/{{ ansible_user }}/.kube/config'
+    mode: 0600
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
+    remote_src: True
+  when: inventory_hostname in groups["k3s_servers"]
+
+- name: Download KUBECONFIG
+  slurp:
+    src: '/home/{{ ansible_user }}/.kube/config'
+  register: local_kubeconfig
+  delegate_to: infra-awx-k3s-server-0
+  run_once: True
+
+- name: Save KUBECONFIG to file
+  copy:
+    content: '{{ local_kubeconfig["content"] | b64decode | regex_replace("127.0.0.1",k3s_api_fqdn) }}'
+    dest: k3s_kubeconfig
+    mode: 0400
+  delegate_to: localhost
+  become: false
+  run_once: True
+
+- name: Setup Keepalived
+  import_tasks: setup_ha.yml
+
+- name: Configure Calico
+  kubernetes.core.k8s:
+    definition: '{{ lookup("file",item) }}'
+    state: present
+  run_once: True
+  become: false
+  delegate_to: localhost
+  environment:
+    K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+  loop: 
+    - tigera-operator.yaml
+    - calico-install.yaml
+    - calicoctl.yaml
+
+- name: Configure EWS-CCM
+  kubernetes.core.k8s:
+    definition: '{{ lookup("template","ccm.yaml.j2") }}'
+    state: present
+  run_once: True
+  become: false
+  delegate_to: localhost
+  environment:
+    K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+
+- name: Taint master nodes
+  kubernetes.core.k8s_taint:
+    state: present
+    name: '{{ node }}'
+    taints:
+      - effect: NoSchedule
+        key: "node.cloudprovider.kubernetes.io/uninitialized"
+        value: "true"
+  loop: '{{ groups["k3s"] }}'
+  loop_control:
+    loop_var: node
+    label: '{{ node }}'
+  delegate_to: localhost
+  become: false
+  environment:
+    K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+  when: inventory_hostname in groups["k3s_servers"]
+
+- name: Wait until all nodes are ready
+  kubernetes.core.k8s_info:
+    kind: Node
+  run_once: True
+  become: false
+  delegate_to: localhost
+  register: k3s_nodes
+  environment:
+    K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+  until: k3s_nodes.resources|json_query(query_ready_nodes) | reject("eq",[]) | length == groups["k3s"] | length
+  retries: 12
+  delay: 5
+  no_log: True
+  vars:
+    query_ready_nodes: '[].status.conditions[?type==`Ready` && status == `True`]'

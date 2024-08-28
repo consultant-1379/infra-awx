@@ -1,0 +1,76 @@
+---
+controller_groups:
+  - name: "racks"
+    description: ""
+    inventory: "bmccd4_CCD_deploy"
+    hosts:
+      - ieatbmx7869-master-0
+      - ieatbmx7870-master-1
+      - ieatbmx7871-master-2
+      - ieatbmx7872-worker-0
+      - ieatbmx7873-worker-1
+      - ieatbmx7874-worker-2
+      - ieatbmx7875-worker-3
+      - ieatbmx7876-worker-4
+      - ieatbmx7877-worker-5
+      - ieatbmx7878-worker-6
+      - ieatbmx7879-worker-7
+      - ieatbmx7880-worker-8
+      - ieatbmx7881-worker-9
+      - ieatbmx7882-worker-10
+      - ieatbmx7883-worker-11
+      - ieatbmx7884-worker-12
+      - ieatbmx7885-worker-13
+      - ieatbmx7886-worker-14
+    children:
+      []
+  - name: "nodes"
+    description: ""
+    inventory: "bmccd4_CCD_deploy"
+    variables:
+      ansible_ssh_common_args: ' -o StrictHostKeyChecking=no '
+      ansible_user: bmadm
+    hosts:
+      []
+    children:
+      - racks
+  - name: "etcd"
+    description: ""
+    inventory: "bmccd4_CCD_deploy"
+    hosts:
+      - ieatbmx7869-master-0
+      - ieatbmx7870-master-1
+      - ieatbmx7871-master-2
+    children:
+      []
+  - name: "master"
+    description: ""
+    inventory: "bmccd4_CCD_deploy"
+    hosts:
+      - ieatbmx7869-master-0
+      - ieatbmx7870-master-1
+      - ieatbmx7871-master-2
+    children:
+      []
+  - name: "worker"
+    description: ""
+    inventory: "bmccd4_CCD_deploy"
+    hosts:
+      - ieatbmx7872-worker-0
+      - ieatbmx7873-worker-1
+      - ieatbmx7874-worker-2
+      - ieatbmx7875-worker-3
+      - ieatbmx7876-worker-4
+      - ieatbmx7877-worker-5
+      - ieatbmx7878-worker-6
+      - ieatbmx7879-worker-7
+      - ieatbmx7880-worker-8
+      - ieatbmx7881-worker-9
+      - ieatbmx7882-worker-10
+      - ieatbmx7883-worker-11
+      - ieatbmx7884-worker-12
+      - ieatbmx7885-worker-13
+      - ieatbmx7886-worker-14
+    children:
+      []
+...

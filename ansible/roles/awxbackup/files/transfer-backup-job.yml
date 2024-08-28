@@ -1,0 +1,56 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: awx-transfer-backup-job
+  namespace: awx
+spec:
+  ttlSecondsAfterFinished: 60
+  podFailurePolicy:
+    rules:
+      - action: FailJob
+        onExitCodes:
+          containerName: transfer-backup
+          operator: NotIn
+          values: [0]
+  template:
+    metadata:
+      name: awx-backup-transfer
+      namespace: awx
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      restartPolicy: Never
+      containers:
+      - name: transfer-backup
+        image: 'registry.infra-awx-k3s.athtem.eei.ericsson.se/awxbackup:latest'
+        args:
+        - rsync
+        - -av
+        - /backups/
+        - awxbackup@infra-awx-backup.athtem.eei.ericsson.se:/var/awxbackups/
+        volumeMounts:
+          - name: backups
+            mountPath: /backups
+          - name: ssh-keys
+            mountPath: /home/awxbackup/.ssh
+      volumes:
+        - name: backups
+          persistentVolumeClaim:
+            claimName: infra-awx-backups
+        - name: ssh-keys
+          secret:
+            secretName: awx-transfer-sshkey
+            items:
+              - key: id_rsa
+                path: id_rsa
+              - key: id_rsa.pub
+                path: id_rsa.pub
+              - key: config
+                path: config
+              - key: authorized_keys
+                path: authorized_keys
+            defaultMode: 0600
+

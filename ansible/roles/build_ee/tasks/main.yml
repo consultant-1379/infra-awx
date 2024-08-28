@@ -1,0 +1,82 @@
+- name: 'Copy files to the buildhost'
+  copy:
+    src: '/runner/ee/{{ ee }}'
+    dest: '~/build/'
+- name: Ensure the context directory exists
+  file:
+    name: '~/build/{{ ee }}/context'
+    state: directory
+
+- name: Download dependencies
+  get_url:
+    url: '{{ repo_host }}/awx/ee/{{ item }}'
+    dest: '~/build/{{ ee }}/context'
+  loop: '{{ download_files[ee] }}'
+  when: ee in download_files
+
+- name: Get list of repositories from registry
+  uri:
+    url: 'https://{{ registry_host }}/v2/_catalog'
+    return_content: true
+  register: repo_list
+
+- name: 'Set first_build if {{ ee }} is not in the list of repositories'
+  set_fact:
+    first_build: '{{ false if ee in repo_list.json.repositories else true }}'
+
+- name: Get image tags from registry
+  uri:
+    url: 'https://{{ registry_host }}/v2/{{ ee }}/tags/list'
+    return_content: true
+  register: tags_list
+  when: not first_build
+
+- name: Set new image version
+  set_fact:
+    new_version: '{{ [ nv[0], nv[1]|int +1 ,nv[2] ] | join(".") }}'
+  vars:
+    nv: '{{ tags_list.json.tags | reject("match","latest") | community.general.version_sort | last | split(".") }}'
+  when: not first_build
+
+- name: Set image version to 0.1.0 for first image build
+  set_fact:
+    new_version: '0.1.0'
+  when: first_build
+
+- debug:
+    msg: "The new image will be tagged {{ registry_host }}/{{ ee }}:{{ new_version }}"
+
+- name: Build a new image
+  shell: '. ~/builder/bin/activate; ansible-builder build -t {{ registry_host }}/{{ ee }}:{{ new_version }} -v 3 --prune-images --no-cache'
+  args:
+    chdir: '~/build/{{ ee }}'
+    executable: /bin/bash
+  register: jdtest
+
+- name: Get image id of the new image
+  shell: "podman image inspect {{ registry_host }}/{{ ee }}:{{ new_version }} | jq  -r '.[0].Id'"
+  register: image_id
+
+- name: 'Push tag {{ registry_host }}/{{ ee }}:{{ new_version }}'
+  shell: 'podman push {{ registry_host }}/{{ ee }}:{{ new_version }}'
+
+- name: 'Tag image as {{ registry_host }}/{{ ee }}:latest'
+  shell: 'podman tag {{ image_id.stdout }} {{ registry_host }}/{{ ee }}:latest'
+
+- name: 'Push tag {{ registry_host }}/{{ ee }}:latest'
+  shell: 'podman push {{ registry_host }}/{{ ee }}:latest'
+
+- name: Get list of repositories from registry
+  uri:
+    url: 'https://{{ registry_host }}/v2/_catalog'
+    return_content: true
+  register: new_repo_list
+
+- name: Get image tags from registry
+  uri:
+    url: 'https://{{ registry_host }}/v2/{{ ee }}/tags/list'
+    return_content: true
+  register: new_tags_list
+
+- debug:
+    msg: 'Repositories: {{ new_repo_list.json.repositories }} tags for {{ ee }}: {{ new_tags_list.json.tags }}'

@@ -1,0 +1,109 @@
+---
+controller_groups:
+  - name: "overcloud_Compute"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir12a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: d417bec8-ca07-4571-8fd1-56ddb3fc8d00
+      serial: '1'
+      tripleo_role_name: Compute
+      tripleo_role_networks:
+      - ctlplane
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - cloud12a-compute-std-0
+      - cloud12a-compute-std-1
+      - cloud12a-compute-std-10
+      - cloud12a-compute-std-11
+      - cloud12a-compute-std-12
+      - cloud12a-compute-std-13
+      - cloud12a-compute-std-14
+      - cloud12a-compute-std-15
+      - cloud12a-compute-std-2
+      - cloud12a-compute-std-3
+      - cloud12a-compute-std-4
+      - cloud12a-compute-std-5
+      - cloud12a-compute-std-6
+      - cloud12a-compute-std-7
+      - cloud12a-compute-std-8
+      - cloud12a-compute-std-9
+    children:
+      []
+  - name: "overcloud_Controller"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir12a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: d417bec8-ca07-4571-8fd1-56ddb3fc8d00
+      serial: '1'
+      tripleo_role_name: Controller
+      tripleo_role_networks:
+      - ctlplane
+      - external
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - cloud12a-controller-0
+      - cloud12a-controller-1
+      - cloud12a-controller-2
+    children:
+      []
+  - name: "overcloud_allovercloud"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir12a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      container_cli: podman
+      ctlplane_vip: 10.151.110.85
+      external_vip: 10.32.133.136
+      internal_api_vip: 10.151.110.14
+      redis_vip: 10.151.110.15
+      storage_mgmt_vip: 10.150.93.197
+      storage_vip: 10.150.93.132
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+      - overcloud_Controller
+  - name: "Compute"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir12a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+  - name: "Controller"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir12a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Controller
+  - name: "overcloud"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir12a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_allovercloud
+...

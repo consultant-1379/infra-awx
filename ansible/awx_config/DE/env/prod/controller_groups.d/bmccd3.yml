@@ -1,0 +1,11 @@
+---
+controller_groups:
+  - name: "infra"
+    description: ""
+    inventory: "bmccd3"
+    variables:
+      ansible_ssh_common_args: " -o StrictHostKeyChecking=no "
+    hosts:
+      - phost
+      - kickstart
+...

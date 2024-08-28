@@ -1,0 +1,29 @@
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+---
+controller_groups:
+{# groups must be created in a certain order so that parent group is not created before its child group exists #}
+{# groups_to_create is the list of groups to be created. current_groups_asset_value is the list of group
+objects from the AWX API for a particular inventory #}
+{% for g in groups_to_create %}
+{% set group = current_groups_asset_value |json_query("[?name=='" + g + "']|[0]") %}
+{% if group %}
+  - name: "{{ group.name }}"
+    description: "{{ group.description }}"
+    inventory: "{{ group.summary_fields.inventory.name }}"
+{% if group.variables and group.variables != '---' and group.variables != '' %}
+    variables:
+      {{ group.variables | from_yaml | to_nice_yaml(indent=2) | indent(width=6, first=False) | replace("'{{", "!unsafe \'{{") }}
+{%- endif %}
+    hosts:
+{{ query(controller_api_plugin, group.related.hosts,
+         host=controller_hostname, oauth_token=controller_oauthtoken, verify_ssl=controller_validate_certs,
+         return_all=true, max_objects=10000
+   ) | selectattr("name", "defined") | map(attribute="name") |to_nice_yaml(indent=2) | indent(width=6, first=True) }}
+    children:
+{{ query(controller_api_plugin, group.related.children,
+         host=controller_hostname, oauth_token=controller_oauthtoken, verify_ssl=controller_validate_certs,
+         return_all=true, max_objects=10000
+   ) | selectattr("name", "defined") | map(attribute="name") | to_nice_yaml(indent=2) | indent(width=6, first=True) }}
+{%- endif %}
+{% endfor %}
+...

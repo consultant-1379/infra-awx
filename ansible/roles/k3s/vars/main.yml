@@ -1,0 +1,8 @@
+---
+# vars file for k3s
+# Keeping the options for the installation server and agent separate for now.
+# see https://confluence-oss.seli.wh.rnd.internal.ericsson.com/x/NtHwHw for details 
+
+k3s_server_options: '--disable-cloud-controller --disable servicelb --disable local-storage --cluster-cidr 172.16.0.0/16,fd42::/56 --service-cidr 172.17.0.0/16,fd43::/112 --flannel-backend none --tls-san {{ k3s_api_fqdn }} --disable-network-policy --write-kubeconfig-mode 644 --node-taint node-role.kubernetes.io/control-plane=:NoSchedule --node-taint node-role.kubernetes.io/master:NoSchedule'
+# k3s_agent_options: '--flannel-iface ens224'
+k3s_version: 'v1.27.1+k3s1'

@@ -1,0 +1,148 @@
+---
+- hosts: localhost
+  gather_facts: False
+  vars_files:
+    - cloud_passwords.yml
+  vars:
+    deosinfra_ssh: "{{ lookup('file','keys/deosinfra.pem') }}"
+    awx_ssh: "{{ lookup('file','keys/awx.pem') }}"
+    vault_pass: "{{ lookup('file','pass') }}"
+    stack_pass: "{{ lookup('file','pass') }}"
+    infra_pass: "{{ lookup('file','pass') }}"
+    awx_tls_key: "{{ lookup('file','ssl/infra-awx.key')  | b64encode }}"
+    awx_tls_cert: "{{ lookup('file','ssl/infra-awx.crt') | b64encode }}"
+    # set variables for the infra.controller_configuration roles
+    controller_username: "admin"
+    controller_password: '{{ awx_admin_password }}'
+    controller_hostname: "{{ awx_host }}"
+    controller_validate_certs: "true"
+    # directory structure for awx configuration
+    # described in detail here: https://confluence-oss.seli.wh.rnd.internal.ericsson.com/display/CI/AWX+Configuration
+    dir_orgs_vars: awx_config
+    orgs: DE
+    env: prod
+    # use AWX controller API plugin not Ansible Automation Controller API plugin
+    controller_api_plugin: awx.awx.controller_api
+    # override some defaults from the filetree_read role
+    filetree_controller_organizations: '{{ dir_orgs_vars }}/{{ orgs }}/env/{{ env }}/controller_organizations.d/'
+    filetree_controller_inventories: '{{ dir_orgs_vars }}/{{ orgs }}/env/{{ env }}/controller_inventories.d/'
+    filetree_controller_groups: '{{ dir_orgs_vars }}/{{ orgs }}/env/{{ env }}/controller_groups.d/'
+    filetree_controller_projects: '{{ dir_orgs_vars }}/{{ orgs }}/env/{{ env }}/controller_projects.d/'
+    filetree_controller_schedules: '{{ dir_orgs_vars }}/{{ orgs }}/env/{{ env }}/controller_schedules.d/'
+    filetree_controller_templates: '{{ dir_orgs_vars }}/{{ orgs }}/env/{{ env }}/controller_job_templates.d/'
+    # hide credentials from playbook output/log
+    controller_configuration_credentials_secure_logging: True
+  pre_tasks:
+    - name: Ensure awx namespace exists
+      kubernetes.core.k8s:
+        kind: Namespace
+        name: awx
+        state: present
+      environment:
+        K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+    - name: Check if AWX deployment exists
+      kubernetes.core.k8s_info:
+        api_version: awx.ansible.com/v1beta1
+        kind: AWX
+        name: infra-awx
+        namespace: awx
+      no_log: false
+      register: awx_info
+      environment:
+        K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+
+    - name: Save result to 'awx_exists' variable
+      set_fact:
+        awx_exists: '{{ awx_info.resources|length == 1 }}'
+
+    - name: "Setup authentication (block)"
+      block:
+        - name: "Get the Authentication Token for the future requests"
+          ansible.builtin.uri:
+            url: "https://{{ controller_hostname }}/api/v2/tokens/"
+            user: "{{ controller_username }}"
+            password: "{{ awx_admin_password }}"
+            method: POST
+            force_basic_auth: true
+            validate_certs: "{{ controller_validate_certs }}"
+            status_code: 201
+          register: authtoken_res
+
+        - name: "Set the oauth token to be used since now"
+          ansible.builtin.set_fact:
+            controller_oauthtoken: "{{ authtoken_res.json.token }}"
+            controller_oauthtoken_url: "{{ authtoken_res.json.url }}"
+
+      when: controller_oauthtoken is not defined and awx_exists
+      tags:
+        - always
+        - awx_config
+
+  roles:
+    - name: awx
+      tags:
+        - deploy_awx
+      when: not awx_exists
+    - name: infra.controller_configuration.filetree_read
+      tags:
+        - awx_config
+      when: awx_exists
+    - name: infra.controller_configuration.object_diff
+      vars:
+        controller_configuration_object_diff_tasks:
+          - {name: workflow_job_templates, var: controller_workflows, tags: workflow_job_templates}
+          - {name: job_templates, var: controller_templates, tags: job_templates}
+          - {name: user_accounts, var: controller_user_accounts, tags: users}
+          - {name: groups, var: controller_groups, tags: groups}
+          - {name: hosts, var: controller_hosts, tags: hosts}
+          - {name: inventory_sources, var: controller_inventory_sources, tags: inventory_sources}
+          - {name: inventories, var: controller_inventories, tags: inventories}
+          - {name: projects, var: controller_projects, tags: projects}
+          - {name: credentials, var: controller_credentials, tags: credentials}
+          - {name: credential_types, var: controller_credential_types, tags: credential_types}
+          - {name: organizations, var: controller_organizations, tags: organizations}
+    - name: infra.controller_configuration.dispatch
+      tags:
+        - awx_config
+      vars:
+        controller_configuration_dispatcher_roles:
+          - {role: execution_environments, var: controller_execution_environments, tags: execution_environments}
+          - {role: inventories, var: controller_inventories, tags: inventories}
+          - {role: hosts, var: controller_hosts, tags: hosts}
+          - {role: groups, var: controller_groups, tags: inventories}
+          - {role: credentials, var: controller_credentials, tags: credentials}
+          - {role: projects, var: controller_projects, tags: projects}
+          - {role: job_templates, var: controller_templates, tags: job_templates}
+          - {role: schedules, var: controller_schedules, tags: schedules}
+      when: awx_exists
+    - name: awxbackup
+      tags:
+        - awxbackup
+      environment:
+        K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+  tasks:
+    - name: Configure the SSH known_hosts for the default instance group
+      awx.awx.instance_group:
+        name: default
+        controller_host: "https://{{ controller_hostname }}"
+        controller_oauthtoken: "{{ controller_oauthtoken }}"
+        is_container_group: true
+        policy_instance_percentage: null
+        pod_spec_override: "{{ lookup('file','pod_spec_override') }}"
+      tags:
+        - known_hosts
+      when: awx_exists
+  post_tasks:
+    - name: "Delete the Authentication Token used"
+      ansible.builtin.uri:
+        url: "https://{{ controller_hostname }}{{ controller_oauthtoken_url }}"
+        user: "{{ controller_username }}"
+        password: "{{ awx_admin_password }}"
+        method: DELETE
+        force_basic_auth: true
+        validate_certs: "{{ controller_validate_certs }}"
+        status_code: 204
+      when: controller_oauthtoken_url is defined
+      tags:
+        - always
+        - awx_config

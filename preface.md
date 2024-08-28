@@ -1,0 +1,1 @@
+<span style="text-align:center;background-color:yellow;padding:2px;border-style: 1px solid black;color:red;font-weight:bold;font-size:20px;">Contents are auto-generated, do not edit</span>

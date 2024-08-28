@@ -1,0 +1,176 @@
+---
+- name: Restore AWX
+  hosts: localhost
+  gather_subset: min
+  vars:
+    deployment_name: "infra-awx"
+  pre_tasks:
+    - name: Ensure awx namespace exists
+      kubernetes.core.k8s:
+        kind: Namespace
+        name: awx
+        state: present
+      environment:
+        K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+  roles:
+    - name: Run awxbackup role to configure prerequisite K8s objects
+      role: awxbackup
+      tags:
+        - awxbackup
+      vars:
+        suspend_backup_job: true
+      environment:
+        K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+  tasks:
+    - block:
+        - name: Check backup exists
+          block:
+            - name: 'Check if an AWXBackup named "{{ backup_name }}" exists'
+              kubernetes.core.k8s_info:
+                api_version: awx.ansible.com/v1beta1
+                kind: AWXBackup
+                name: "{{ backup_name }}"
+                namespace: awx
+              register: awx_backup_exists
+            - name: Fail if specified backup does not exist
+              assert:
+                that: 'awx_backup_exists.resources|length >0 and awx_backup_exists.resources[0].metadata.name == backup_name'
+                fail_msg: "There is no AWXBackup named '{{ backup_name }}'."
+                success_msg: "Confirmed that an AWXBackup named '{{ backup_name }}' exists."
+          when: backup_name is defined and backup_name != ""
+
+        - name: List available backups
+          block:
+            - name: Get list of backups
+              kubernetes.core.k8s_info:
+                api_version: awx.ansible.com/v1beta1
+                kind: AWXBackup
+                namespace: awx
+              register: awx_backup_list
+
+            - name: List available backups
+              debug:
+                msg: "Here are the available backups: {{ backups }}"
+              vars:
+                backups: '{{ awx_backup_list.resources | map(attribute="metadata.name") | list }}'
+
+            - name: Exit after listing available backups
+              meta: end_play
+          when: backup_name is not defined and disaster_recovery != "yes"
+
+        - name: Set the restore name as a fact
+          set_fact:
+            restore_name: '{{ [deployment_name,"restore",ansible_date_time.date,ansible_date_time.time | replace(":","")] | join("-") }}'
+        - debug:
+            var: restore_name
+        - name: Get the name of the AWX deployment
+          kubernetes.core.k8s_info:
+            api_version: awx.ansible.com/v1beta1
+            kind: AWX
+            name: infra-awx
+            namespace: awx
+          no_log: true
+          register: awx_info
+
+        - name: Check if the deployment still exists
+          assert:
+            that: 'awx_info.resources|length == 0'
+            fail_msg: 'The deployment must be deleted before restoring.'
+            success_msg: 'The deployment does not exist - continuing with the restore.'
+
+        - name: Restore AWX from backup
+          kubernetes.core.k8s:
+            state: present
+            definition:
+              apiVersion: awx.ansible.com/v1beta1
+              kind: AWXRestore
+              metadata:
+                name: '{{ restore_name }}'
+                namespace: awx
+              spec:
+                deployment_name: '{{ deployment_name }}'
+                backup_name: '{{ backup_name }}'
+                backup_pvc: infra-awx-backups
+          no_log: false
+          register: awx_restore
+          when: disaster_recovery is not defined and disaster_recovery != "yes"
+
+        - name: Disaster Recovery restore
+          block:
+            - name: Check that the backup directory has been provided
+              assert:
+                that: backup_dir is defined and backup_dir != ""
+                fail_msg: "The 'backup_dir' variable is not defined or is empty."
+                success_msg: 'The backup directory is /backups/{{ backup_dir }}'
+
+            - name: Transfer AWX Backups from an external VM
+              kubernetes.core.k8s:
+                state: present
+                definition: '{{ lookup("file",playbook_dir + "/roles/awxbackup/files/restore-job.yaml") | from_yaml }}'
+                wait: true
+                wait_sleep: 10
+                wait_timeout: 120
+                wait_condition:
+                  type: Complete
+                  status: True
+              register: transfer_backup_status
+
+            - name: Get the logs from the 'restore-backup' pod
+              kubernetes.core.k8s_log:
+                namespace: awx
+                label_selectors:
+                  - job-name=awx-transfer-restore-job
+              register: transfer_backup_logs
+            - name: Deploy the AWX operator
+              import_role:
+                name: awx
+                tasks_from: operator
+              vars:
+                deploy_awx: false
+                awx_tls_key: "{{ lookup('file','ssl/infra-awx.key')  | b64encode }}"
+                awx_tls_cert: "{{ lookup('file','ssl/infra-awx.crt') | b64encode }}"
+
+            - name: Restore AWX from backup
+              kubernetes.core.k8s:
+                state: present
+                definition:
+                  apiVersion: awx.ansible.com/v1beta1
+                  kind: AWXRestore
+                  metadata:
+                    name: '{{ restore_name }}'
+                    namespace: awx
+                  spec:
+                    deployment_name: '{{ deployment_name }}'
+                    backup_dir: '/backups/{{ backup_dir }}'
+                    backup_pvc: infra-awx-backups
+              no_log: false
+              register: awx_restore
+          when: disaster_recovery == "yes"
+
+        - name: Wait until the restore has completed
+          kubernetes.core.k8s_info:
+            api_version: awx.ansible.com/v1beta1
+            kind: AWXRestore
+            wait: yes
+            name: '{{ restore_name }}'
+            namespace: awx
+            wait_sleep: 10
+            wait_timeout: 300
+            wait_condition:
+                type: Successful
+                status: True
+          register: awx_restore_status
+          ignore_errors: true
+
+        - debug:
+            msg: 'Restore {{ restore_name }} {{ result }}\n\nRestore Output\n\n{{ restore_output }}'
+          vars:
+            result: '{{ "completed successfully" if not awx_restore_status.failed else "failed" }}'
+            restore_output: '{{ awx_restore_status.resources[0].status if not awx_restore_status.failed else awx_restore_status.msg }}'
+
+        - name: Fail Restore Job if restore was unsuccessful
+          fail:
+            msg: 'The {{ restore_name }} backup failed.'
+          when: awx_restore_status.failed
+      environment:
+        K8S_AUTH_KUBECONFIG: k3s_kubeconfig

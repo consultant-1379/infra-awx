@@ -1,0 +1,4 @@
+- name: Deploy container registry
+  kubernetes.core.k8s:
+    state: present
+    template: registry.yml.j2

@@ -1,0 +1,8 @@
+---
+controller_hosts:
+  - name: "atclvm875.athtem.eei.ericsson.se"
+    description: ""
+    inventory: "meteo_prod"
+    variables:
+      ansible_user: meteo
+    enabled: true

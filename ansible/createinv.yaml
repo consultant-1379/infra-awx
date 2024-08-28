@@ -1,0 +1,106 @@
+---
+- hosts: localhost
+  name: Run jobs in AWX to import inventory
+  connection: local
+  gather_facts: false
+  vars_files:
+    - roles/awx/defaults/main.yml
+    - roles/awx/vars/main.yml
+    - roles/import_inventory/vars/main.yml
+  vars:
+    controller_username: "admin"
+    controller_password: "{{ awx_admin_password }}"
+    controller_hostname: "https://{{ awx_host }}"
+    controller_validate_certs: "false"
+    controller_api_plugin: awx.awx.controller_api
+    bmccd_deployments:
+      - bmccd0
+      - bmccd1
+      - bmccd2
+      - bmccd3
+      - bmccd4
+      - bmccd5
+    clouds:
+      - cloud3a
+      - cloud3b
+      - cloud4a
+      - cloud4b
+      - cloud5a
+      - cloud5b
+      - cloud6a
+      - cloud6b
+      - cloud7b
+      - cloud10a
+      - cloud11a
+      - cloud12a
+      - cloud13a
+      - cloud14a
+      - cloud15a
+      - cloud16a
+      - cloud16b
+      - cloud16c
+      - clouddeva
+      - cloudenv1
+
+  pre_tasks:
+    - name: "Create AWX Authentication Token"
+      block:
+        - name: "Get the Authentication Token for the future requests"
+          ansible.builtin.uri:
+            url: "{{ controller_hostname }}/api/v2/tokens/"
+            user: "{{ controller_username }}"
+            password: "{{ controller_password }}"
+            method: POST
+            force_basic_auth: true
+            validate_certs: "{{ controller_validate_certs }}"
+            status_code: 201
+          register: authtoken_res
+
+        - name: "Save the token and token URL"
+          ansible.builtin.set_fact:
+            controller_oauthtoken: "{{ authtoken_res.json.token }}"
+            controller_oauthtoken_url: "{{ authtoken_res.json.url }}"
+      no_log: true
+      when: controller_oauthtoken is not defined
+      tags:
+        - always
+
+
+  tasks:
+    - name: Launch jobs to import bmccd inventories
+      awx.awx.job_launch:
+        job_template: "Import bmccdX_CCD_deploy inventory"
+        controller_host: '{{ controller_hostname }}'
+        controller_oauthtoken: '{{ controller_oauthtoken }}'
+        extra_vars:
+          inventory_name: '{{ item }}_CCD_deploy'
+          first_host: '{{ item }}-ks'
+      loop: '{{ bmccd_deployments }}'
+      loop_control:
+        label: '{{ item }}_CCD_deploy'
+      tags:
+        - bmccd
+    - name: Import OpenStack inventories
+      awx.awx.job_launch:
+        job_template: "Import OpenStack Inventory"
+        controller_host: '{{ controller_hostname }}'
+        controller_oauthtoken: '{{ controller_oauthtoken }}'
+        credentials:
+          - '{{ item }}'
+        extra_vars:
+          inventory_name: '{{ item }}'
+          first_host: 'ieatrheldir{{ item | replace("cloud","") }}'
+      loop: '{{ clouds }}'
+      tags:
+        - cloud
+  post_tasks:
+    - name: "Delete the Authentication Token used"
+      ansible.builtin.uri:
+        url: "{{ controller_hostname }}{{ controller_oauthtoken_url }}"
+        user: "{{ controller_username }}"
+        password: "{{ controller_password }}"
+        method: DELETE
+        force_basic_auth: true
+        validate_certs: "{{ controller_validate_certs }}"
+        status_code: 204
+      when: controller_oauthtoken_url is defined

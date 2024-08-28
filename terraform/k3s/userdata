@@ -1,0 +1,23 @@
+#cloud-config
+# Password login only allowed from the VMware Web/Remote Console
+password: $6$A5pa4hj8QFV2VrRS$.X2HTwYfIXAn27cvl//yN.UQvZIuy.HijeuxmTlaXkvRVQ0uSRrIl14tivTSd91XHxpQPU.h5WETxbGdTQHM71
+ssh_pwauth: False
+chpasswd:
+  expire: False
+
+timezone: Europe/Dublin
+# Ubuntu uses systemd-timesyncd to sync time from NTP servers
+# It is only an NTP client
+ntp:
+  servers:
+    - 159.107.173.12
+    - 159.107.173.223
+
+# adds entry for server hostname to /etc/hosts
+manage_etc_hosts: localhost
+
+# disable network config on reboot
+write_files:
+  - path: /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+    content: |
+      network: {config: disabled}

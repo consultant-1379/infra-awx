@@ -1,0 +1,122 @@
+---
+controller_groups:
+  - name: "overcloud_Compute"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16c -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: de3162e8-0a8a-497e-801f-ff53ecc331ee
+      serial: '1'
+      tripleo_role_name: Compute
+      tripleo_role_networks:
+      - ctlplane
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - cloud16c-compute-std-0
+      - cloud16c-compute-std-1
+      - cloud16c-compute-std-10
+      - cloud16c-compute-std-11
+      - cloud16c-compute-std-12
+      - cloud16c-compute-std-13
+      - cloud16c-compute-std-14
+      - cloud16c-compute-std-15
+      - cloud16c-compute-std-16
+      - cloud16c-compute-std-17
+      - cloud16c-compute-std-18
+      - cloud16c-compute-std-19
+      - cloud16c-compute-std-2
+      - cloud16c-compute-std-20
+      - cloud16c-compute-std-21
+      - cloud16c-compute-std-22
+      - cloud16c-compute-std-23
+      - cloud16c-compute-std-24
+      - cloud16c-compute-std-25
+      - cloud16c-compute-std-26
+      - cloud16c-compute-std-27
+      - cloud16c-compute-std-28
+      - cloud16c-compute-std-3
+      - cloud16c-compute-std-4
+      - cloud16c-compute-std-5
+      - cloud16c-compute-std-6
+      - cloud16c-compute-std-7
+      - cloud16c-compute-std-8
+      - cloud16c-compute-std-9
+    children:
+      []
+  - name: "overcloud_Controller"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16c -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: de3162e8-0a8a-497e-801f-ff53ecc331ee
+      serial: '1'
+      tripleo_role_name: Controller
+      tripleo_role_networks:
+      - ctlplane
+      - external
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - cloud16c-controller-0
+      - cloud16c-controller-1
+      - cloud16c-controller-2
+    children:
+      []
+  - name: "overcloud_allovercloud"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16c -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      container_cli: podman
+      ctlplane_vip: 10.150.51.21
+      external_vip: 10.150.56.8
+      internal_api_vip: 10.150.50.14
+      redis_vip: 10.150.50.15
+      storage_mgmt_vip: 10.150.48.4
+      storage_vip: 10.150.47.4
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+      - overcloud_Controller
+  - name: "Compute"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16c -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+  - name: "Controller"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16c -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Controller
+  - name: "overcloud"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16c -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_allovercloud
+...

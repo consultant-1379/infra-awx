@@ -1,0 +1,4 @@
+# The 'backup_schedule' variable defines when the backup cronjob runs
+# Refer to https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#schedule-syntax
+# for more details of K8s CronJobs Schedules and https://crontab.guru to generate cron schedule expressions
+backup_schedule: "00 22 * * wed,sat"

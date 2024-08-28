@@ -1,0 +1,23 @@
+---
+controller_hosts:
+  - name: "phost"
+    description: "physical server where the kickstart VM runs"
+    inventory: "bmccd2"
+    variables:
+      ansible_host: 10.32.132.136
+      ansible_user: root
+    enabled: true
+  - name: "kickstart"
+    inventory: "bmccd2"
+    variables:
+      ansible_host: 10.232.170.11
+      ansible_user: root
+    enabled: true
+  - name: "hpe_3par"
+    description: "HPE 3PAR storage array"
+    inventory: "bmccd2"
+    variables:
+      ansible_host: ieat3par-12
+      ansible_user: ostkadm
+      ansible_ssh_pass: '{{ hpe3par_password }}'
+    enabled: true

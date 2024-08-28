@@ -1,0 +1,23 @@
+# This is a dynamic inventory file. It allows you to run playbooks locally
+# using an inventory defined in AWX.
+# To use a particular inventory, update the inventory_id below.
+#
+# Do NOT change anything other than the inventory_id in this file.
+#
+# Reference: https://docs.ansible.com/ansible/latest/collections/awx/awx/controller_inventory.html#ansible-collections-awx-awx-controller-inventory
+
+plugin: awx.awx.controller
+host: https://infra-awx.athtem.eei.ericsson.se/
+username: admin
+password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          31623931656263316339386263343039306462376135663764633032343365353864633264616430
+          3738373836643166353365643734333064653039373131350a663537313037333433383364383561
+          35363362386565626433616364336464366633383361303431613930623838383265386266663834
+          6561643733376536390a383532626235393830623539653031326235393165313166646334663831
+          31373733393435303432633165633262646262363737323732393930613432633130
+
+# The inventory_id defines which inventory from AWX that you want to use.
+# It is specified as <inventory_name>++<organization_name>. For example, to use the clouddeva inventory
+# which is in the DE organisation in AWX, the inventory_id is specified as clouddeva++DE
+#inventory_id:

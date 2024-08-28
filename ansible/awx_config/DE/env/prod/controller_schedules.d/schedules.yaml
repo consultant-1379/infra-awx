@@ -1,0 +1,371 @@
+# Refer to https://github.com/redhat-cop/controller_configuration/tree/devel/roles/schedules#data-structure for further information
+# on creating schedules.
+---
+controller_schedules:
+  - name: Check detaching volumes in cloud3b
+    enabled: false
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud3b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Daily Multipath Fault check cloud3b
+    enabled: true
+    inventory: cloud3b
+    organization: DE
+    rrule: DTSTART;TZID=Europe/Dublin:20230210T063500 RRULE:FREQ=DAILY;INTERVAL=1
+    unified_job_template: "Multipath Fault Detection"
+
+  - name: Cinder Compare check cloud3b
+    enabled: true
+    organization: DE
+    credentials: cloud3b
+    inventory: cloud3b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud4a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud4a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Daily Multipath Fault check cloud4a
+    enabled: true
+    inventory: cloud4a
+    organization: DE
+    rrule: DTSTART;TZID=Europe/Dublin:20230210T063500 RRULE:FREQ=DAILY;INTERVAL=1
+    unified_job_template: "Multipath Fault Detection"
+
+  - name: Cinder Compare check cloud4a
+    enabled: true
+    organization: DE
+    credentials: cloud4a
+    inventory: cloud4a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud4b
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud4b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Daily Multipath Fault check cloud4b
+    enabled: true
+    inventory: cloud4b
+    organization: DE
+    rrule: DTSTART;TZID=Europe/Dublin:20230210T063500 RRULE:FREQ=DAILY;INTERVAL=1
+    unified_job_template: "Multipath Fault Detection"
+
+  - name: Cinder Compare check cloud4b
+    enabled: true
+    organization: DE
+    credentials: cloud4b
+    inventory: cloud4b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud5a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud5a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Daily Multipath Fault check cloud5a
+    enabled: true
+    inventory: cloud5a
+    organization: DE
+    rrule: DTSTART;TZID=Europe/Dublin:20230210T063500 RRULE:FREQ=DAILY;INTERVAL=1
+    unified_job_template: "Multipath Fault Detection"
+
+  - name: Cinder Compare check cloud5a
+    enabled: true
+    organization: DE
+    credentials: cloud5a
+    inventory: cloud5a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud5b
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud5b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Daily Multipath Fault check cloud5b
+    enabled: true
+    inventory: cloud5b
+    organization: DE
+    rrule: DTSTART;TZID=Europe/Dublin:20230210T063500 RRULE:FREQ=DAILY;INTERVAL=1
+    unified_job_template: "Multipath Fault Detection"
+
+  - name: Cinder Compare check cloud5b
+    enabled: true
+    organization: DE
+    credentials: cloud5b
+    inventory: cloud5b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud6a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud6a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud6a
+    enabled: true
+    organization: DE
+    credentials: cloud6a
+    inventory: cloud6a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud6b
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud6b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud6b
+    enabled: true
+    organization: DE
+    credentials: cloud6b
+    inventory: cloud6b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud7b
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud7b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud7b
+    enabled: true
+    organization: DE
+    credentials: cloud7b
+    inventory: cloud7b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud10a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud10a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud10a
+    enabled: true
+    organization: DE
+    credentials: cloud10a
+    inventory: cloud10a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud11a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud11a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud11a
+    enabled: true
+    organization: DE
+    credentials: cloud11a
+    inventory: cloud11a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud12a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud12a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud12a
+    enabled: true
+    organization: DE
+    credentials: cloud12a
+    inventory: cloud12a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud13a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud13a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud13a
+    enabled: true
+    organization: DE
+    credentials: cloud13a
+    inventory: cloud13a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud14a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud14a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud14a
+    enabled: true
+    organization: DE
+    credentials: cloud14a
+    inventory: cloud14a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud15a
+    enabled: false
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud15a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud15a
+    enabled: true
+    organization: DE
+    credentials: cloud15a
+    inventory: cloud15a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud16a
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud16a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud16a
+    enabled: true
+    organization: DE
+    credentials: cloud16a
+    inventory: cloud16a
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud16b
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud16b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud16b
+    enabled: true
+    organization: DE
+    credentials: cloud16b
+    inventory: cloud16b
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloud16c
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloud16c
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloud16c
+    enabled: true
+    organization: DE
+    credentials: cloud16c
+    inventory: cloud16c
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in clouddeva
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - clouddeva
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check clouddeva
+    enabled: false
+    organization: DE
+    credentials: clouddeva
+    inventory: clouddeva
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+  - name: Check detaching volumes in cloudenv1
+    enabled: false
+    inventory: awx_local
+    organization: DE
+    credentials:
+      - cloudenv1
+    rrule: "DTSTART;TZID=Europe/Dublin:20230210T1800 RRULE:FREQ=HOURLY;INTERVAL=1"
+    unified_job_template: "Check detaching volumes"
+
+  - name: Cinder Compare check cloudenv1
+    enabled: false
+    organization: DE
+    credentials: cloudenv1
+    inventory: cloudenv1
+    rrule: "DTSTART;TZID=Europe/Dublin:20230212T010000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU,WE"
+    unified_job_template: "Cinder Compare"
+
+
+  - description: Check OpenStack cloud SSL cert expiration every week on Monday, Friday
+    enabled: true
+    inventory: awx_local
+    organization: DE
+    name: ssl_expiry_weekly_check
+    rrule: "DTSTART;TZID=Europe/Dublin:20230213T060000 RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,FR"
+    unified_job_template: "Expired SSL Certs check"
+

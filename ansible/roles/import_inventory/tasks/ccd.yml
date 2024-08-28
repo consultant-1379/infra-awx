@@ -1,0 +1,28 @@
+- name: "CCD: Add kickstart to the inventory"
+  add_host:
+    name: '{{ first_host }}'
+    ansible_user: root
+
+- name: "CCD: Get inventory file from the director"
+  slurp:
+    path: /root/ccd_inventory.yml
+  register: ccd_inventory
+  delegate_to: "{{ first_host }}"
+
+- name: "CCD: Read inventory file"
+  set_fact:
+    new_inventory: '{{ ccd_inventory["content"]|b64decode |from_yaml }}'
+
+- name: "CCD: Set inventory_groups fact"
+  set_fact:
+    inventory_groups: '{{ new_inventory.keys() |list | select("in",groups_to_include["ccd"]) | list  }}'
+
+- name: "CCD: Create inventory item for the kickstart VM"
+  set_fact:
+    first_host_inventory_item:
+      key: "kickstart"
+      value:
+        ansible_host: "{{ first_host }}"
+        ansible_user: root
+        vars:
+          ansible_ssh_common_args: '-o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null'

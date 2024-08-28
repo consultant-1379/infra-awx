@@ -1,0 +1,810 @@
+---
+controller_hosts:
+  - name: "cloud5b-compute-std-0"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.45
+      ctlplane_ip: 10.148.43.45
+      deploy_server_id: 0c63bae9-ed6e-40f9-8495-987b41a0dd19
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.45
+      ilo_ip: 10.224.52.20
+      internal_api_ip: 10.148.42.146
+      management_ip: 10.148.43.45
+      storage_ip: 10.148.43.143
+      storage_mgmt_ip: 10.148.44.14
+      storage_nfs_ip: 10.148.45.142
+      tenant_ip: 10.148.44.142
+    enabled: true
+  - name: "cloud5b-compute-std-1"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.29
+      ctlplane_ip: 10.148.43.29
+      deploy_server_id: a8ef85d7-a957-4a51-b811-1c7cc0773451
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.29
+      ilo_ip: 10.224.52.21
+      internal_api_ip: 10.148.42.147
+      management_ip: 10.148.43.29
+      storage_ip: 10.148.43.144
+      storage_mgmt_ip: 10.148.44.15
+      storage_nfs_ip: 10.148.45.143
+      tenant_ip: 10.148.44.143
+    enabled: true
+  - name: "cloud5b-compute-std-10"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.23
+      ctlplane_ip: 10.148.43.23
+      deploy_server_id: 2531fc19-649e-4399-89e3-d54775e2ddcf
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.23
+      ilo_ip: 10.224.52.45
+      internal_api_ip: 10.148.42.156
+      management_ip: 10.148.43.23
+      storage_ip: 10.148.43.153
+      storage_mgmt_ip: 10.148.44.24
+      storage_nfs_ip: 10.148.45.152
+      tenant_ip: 10.148.44.152
+    enabled: true
+  - name: "cloud5b-compute-std-11"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.54
+      ctlplane_ip: 10.148.43.54
+      deploy_server_id: 8b398caf-6d0f-4f86-8bdc-ba06e096add8
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.54
+      ilo_ip: 10.224.52.46
+      internal_api_ip: 10.148.42.157
+      management_ip: 10.148.43.54
+      storage_ip: 10.148.43.154
+      storage_mgmt_ip: 10.148.44.25
+      storage_nfs_ip: 10.148.45.153
+      tenant_ip: 10.148.44.153
+    enabled: true
+  - name: "cloud5b-compute-std-12"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.32
+      ctlplane_ip: 10.148.43.32
+      deploy_server_id: 7cbda0e6-24ff-45da-b141-8f3aa6aa882f
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.32
+      ilo_ip: 10.224.52.47
+      internal_api_ip: 10.148.42.158
+      management_ip: 10.148.43.32
+      storage_ip: 10.148.43.155
+      storage_mgmt_ip: 10.148.44.26
+      storage_nfs_ip: 10.148.45.154
+      tenant_ip: 10.148.44.154
+    enabled: true
+  - name: "cloud5b-compute-std-13"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.19
+      ctlplane_ip: 10.148.43.19
+      deploy_server_id: ee96a74a-adff-480a-a744-d70fcc84c448
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.19
+      ilo_ip: 10.224.52.48
+      internal_api_ip: 10.148.42.159
+      management_ip: 10.148.43.19
+      storage_ip: 10.148.43.156
+      storage_mgmt_ip: 10.148.44.27
+      storage_nfs_ip: 10.148.45.155
+      tenant_ip: 10.148.44.155
+    enabled: true
+  - name: "cloud5b-compute-std-14"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.46
+      ctlplane_ip: 10.148.43.46
+      deploy_server_id: f2030a28-baf9-4a15-bce7-2e8f4d8f31e6
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.46
+      ilo_ip: 10.224.52.64
+      internal_api_ip: 10.148.42.160
+      management_ip: 10.148.43.46
+      storage_ip: 10.148.43.157
+      storage_mgmt_ip: 10.148.44.28
+      storage_nfs_ip: 10.148.45.156
+      tenant_ip: 10.148.44.156
+    enabled: true
+  - name: "cloud5b-compute-std-15"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.27
+      ctlplane_ip: 10.148.43.27
+      deploy_server_id: 7a840d41-ee21-427a-bed0-529d478db01c
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.27
+      ilo_ip: 10.224.52.65
+      internal_api_ip: 10.148.42.161
+      management_ip: 10.148.43.27
+      storage_ip: 10.148.43.158
+      storage_mgmt_ip: 10.148.44.29
+      storage_nfs_ip: 10.148.45.157
+      tenant_ip: 10.148.44.157
+    enabled: true
+  - name: "cloud5b-compute-std-16"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.37
+      ctlplane_ip: 10.148.43.37
+      deploy_server_id: 9ac27024-2f87-431e-93b4-b77a093a5ce2
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.37
+      ilo_ip: 10.224.52.66
+      internal_api_ip: 10.148.42.162
+      management_ip: 10.148.43.37
+      storage_ip: 10.148.43.159
+      storage_mgmt_ip: 10.148.44.30
+      storage_nfs_ip: 10.148.45.158
+      tenant_ip: 10.148.44.158
+    enabled: true
+  - name: "cloud5b-compute-std-17"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.20
+      ctlplane_ip: 10.148.43.20
+      deploy_server_id: 58f344b3-1305-4998-bc6d-2092d8d1308b
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.20
+      ilo_ip: 10.224.52.67
+      internal_api_ip: 10.148.42.163
+      management_ip: 10.148.43.20
+      storage_ip: 10.148.43.160
+      storage_mgmt_ip: 10.148.44.31
+      storage_nfs_ip: 10.148.45.159
+      tenant_ip: 10.148.44.159
+    enabled: true
+  - name: "cloud5b-compute-std-18"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.47
+      ctlplane_ip: 10.148.43.47
+      deploy_server_id: 56e85797-480d-461a-9073-f47de676a2e1
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.47
+      ilo_ip: 10.224.52.68
+      internal_api_ip: 10.148.42.164
+      management_ip: 10.148.43.47
+      storage_ip: 10.148.43.161
+      storage_mgmt_ip: 10.148.44.32
+      storage_nfs_ip: 10.148.45.160
+      tenant_ip: 10.148.44.160
+    enabled: true
+  - name: "cloud5b-compute-std-19"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.30
+      ctlplane_ip: 10.148.43.30
+      deploy_server_id: 5bb6d70c-123f-46bf-866f-fd57980d23bc
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.30
+      ilo_ip: 10.224.52.69
+      internal_api_ip: 10.148.42.165
+      management_ip: 10.148.43.30
+      storage_ip: 10.148.43.162
+      storage_mgmt_ip: 10.148.44.33
+      storage_nfs_ip: 10.148.45.161
+      tenant_ip: 10.148.44.161
+    enabled: true
+  - name: "cloud5b-compute-std-2"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.34
+      ctlplane_ip: 10.148.43.34
+      deploy_server_id: 7dcdcaa7-cbe6-40c5-ba9a-f7fb780fc771
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.34
+      ilo_ip: 10.224.52.22
+      internal_api_ip: 10.148.42.148
+      management_ip: 10.148.43.34
+      storage_ip: 10.148.43.145
+      storage_mgmt_ip: 10.148.44.16
+      storage_nfs_ip: 10.148.45.144
+      tenant_ip: 10.148.44.144
+    enabled: true
+  - name: "cloud5b-compute-std-20"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.22
+      ctlplane_ip: 10.148.43.22
+      deploy_server_id: 53878e9c-185e-4bc7-b9ac-814c09b193be
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.22
+      ilo_ip: 10.224.52.70
+      internal_api_ip: 10.148.42.166
+      management_ip: 10.148.43.22
+      storage_ip: 10.148.43.163
+      storage_mgmt_ip: 10.148.44.34
+      storage_nfs_ip: 10.148.45.162
+      tenant_ip: 10.148.44.162
+    enabled: true
+  - name: "cloud5b-compute-std-21"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.51
+      ctlplane_ip: 10.148.43.51
+      deploy_server_id: f387663e-b0f0-45a7-833c-e7f2d13f0b14
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.51
+      ilo_ip: 10.224.52.86
+      internal_api_ip: 10.148.42.167
+      management_ip: 10.148.43.51
+      storage_ip: 10.148.43.164
+      storage_mgmt_ip: 10.148.44.35
+      storage_nfs_ip: 10.148.45.163
+      tenant_ip: 10.148.44.163
+    enabled: true
+  - name: "cloud5b-compute-std-22"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.39
+      ctlplane_ip: 10.148.43.39
+      deploy_server_id: 364915f6-7ba3-4382-8f26-a4ed86575d51
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.39
+      ilo_ip: 10.224.52.87
+      internal_api_ip: 10.148.42.168
+      management_ip: 10.148.43.39
+      storage_ip: 10.148.43.165
+      storage_mgmt_ip: 10.148.44.36
+      storage_nfs_ip: 10.148.45.164
+      tenant_ip: 10.148.44.164
+    enabled: true
+  - name: "cloud5b-compute-std-23"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.38
+      ctlplane_ip: 10.148.43.38
+      deploy_server_id: 58d2b8c6-e159-49ca-b7be-fd0b56887906
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.38
+      ilo_ip: 10.224.52.88
+      internal_api_ip: 10.148.42.169
+      management_ip: 10.148.43.38
+      storage_ip: 10.148.43.166
+      storage_mgmt_ip: 10.148.44.37
+      storage_nfs_ip: 10.148.45.165
+      tenant_ip: 10.148.44.165
+    enabled: true
+  - name: "cloud5b-compute-std-24"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.21
+      ctlplane_ip: 10.148.43.21
+      deploy_server_id: c4bc9493-be1b-44c1-b6e1-f00de0c6780a
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.21
+      ilo_ip: 10.224.52.89
+      internal_api_ip: 10.148.42.170
+      management_ip: 10.148.43.21
+      storage_ip: 10.148.43.167
+      storage_mgmt_ip: 10.148.44.38
+      storage_nfs_ip: 10.148.45.166
+      tenant_ip: 10.148.44.166
+    enabled: true
+  - name: "cloud5b-compute-std-25"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.41
+      ctlplane_ip: 10.148.43.41
+      deploy_server_id: 21b2d89e-c800-40eb-b025-bbb03cceafa1
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.41
+      ilo_ip: 10.224.52.90
+      internal_api_ip: 10.148.42.171
+      management_ip: 10.148.43.41
+      storage_ip: 10.148.43.168
+      storage_mgmt_ip: 10.148.44.39
+      storage_nfs_ip: 10.148.45.167
+      tenant_ip: 10.148.44.167
+    enabled: true
+  - name: "cloud5b-compute-std-26"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.63
+      ctlplane_ip: 10.148.43.63
+      deploy_server_id: 28934b6e-4f5c-4b78-88a4-c66c7a3282ff
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.63
+      ilo_ip: 10.224.52.91
+      internal_api_ip: 10.148.42.172
+      management_ip: 10.148.43.63
+      storage_ip: 10.148.43.169
+      storage_mgmt_ip: 10.148.44.40
+      storage_nfs_ip: 10.148.45.168
+      tenant_ip: 10.148.44.168
+    enabled: true
+  - name: "cloud5b-compute-std-27"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.16
+      ctlplane_ip: 10.148.43.16
+      deploy_server_id: 15eba637-911d-44db-9a88-acf92557e226
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.16
+      ilo_ip: 10.224.52.92
+      internal_api_ip: 10.148.42.173
+      management_ip: 10.148.43.16
+      storage_ip: 10.148.43.170
+      storage_mgmt_ip: 10.148.44.41
+      storage_nfs_ip: 10.148.45.169
+      tenant_ip: 10.148.44.169
+    enabled: true
+  - name: "cloud5b-compute-std-28"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.24
+      ctlplane_ip: 10.148.43.24
+      deploy_server_id: cde7dd93-d1e5-4303-b413-4adfe733b55a
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.24
+      ilo_ip: 10.224.52.93
+      internal_api_ip: 10.148.42.174
+      management_ip: 10.148.43.24
+      storage_ip: 10.148.43.171
+      storage_mgmt_ip: 10.148.44.42
+      storage_nfs_ip: 10.148.45.170
+      tenant_ip: 10.148.44.170
+    enabled: true
+  - name: "cloud5b-compute-std-3"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.52
+      ctlplane_ip: 10.148.43.52
+      deploy_server_id: 6ba037fe-5d3a-4ef8-8890-abb69d7a1848
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.52
+      ilo_ip: 10.224.52.23
+      internal_api_ip: 10.148.42.149
+      management_ip: 10.148.43.52
+      storage_ip: 10.148.43.146
+      storage_mgmt_ip: 10.148.44.17
+      storage_nfs_ip: 10.148.45.145
+      tenant_ip: 10.148.44.145
+    enabled: true
+  - name: "cloud5b-compute-std-4"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.43
+      ctlplane_ip: 10.148.43.43
+      deploy_server_id: b28675ce-bd1b-434e-b663-8b4bcd0291d8
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.43
+      ilo_ip: 10.224.52.24
+      internal_api_ip: 10.148.42.150
+      management_ip: 10.148.43.43
+      storage_ip: 10.148.43.147
+      storage_mgmt_ip: 10.148.44.18
+      storage_nfs_ip: 10.148.45.146
+      tenant_ip: 10.148.44.146
+    enabled: true
+  - name: "cloud5b-compute-std-5"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.31
+      ctlplane_ip: 10.148.43.31
+      deploy_server_id: 98bd266b-f867-466b-9a8e-3ab3dbc2d2c7
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.31
+      ilo_ip: 10.224.52.25
+      internal_api_ip: 10.148.42.151
+      management_ip: 10.148.43.31
+      storage_ip: 10.148.43.148
+      storage_mgmt_ip: 10.148.44.19
+      storage_nfs_ip: 10.148.45.147
+      tenant_ip: 10.148.44.147
+    enabled: true
+  - name: "cloud5b-compute-std-6"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.35
+      ctlplane_ip: 10.148.43.35
+      deploy_server_id: e059fa27-bd4f-484d-aa81-ac48f63433c7
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.35
+      ilo_ip: 10.224.52.26
+      internal_api_ip: 10.148.42.152
+      management_ip: 10.148.43.35
+      storage_ip: 10.148.43.149
+      storage_mgmt_ip: 10.148.44.20
+      storage_nfs_ip: 10.148.45.148
+      tenant_ip: 10.148.44.148
+    enabled: true
+  - name: "cloud5b-compute-std-7"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.17
+      ctlplane_ip: 10.148.43.17
+      deploy_server_id: b416b6c1-6871-4ba2-aad0-bf3f58a0a161
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.17
+      ilo_ip: 10.224.52.42
+      internal_api_ip: 10.148.42.153
+      management_ip: 10.148.43.17
+      storage_ip: 10.148.43.150
+      storage_mgmt_ip: 10.148.44.21
+      storage_nfs_ip: 10.148.45.149
+      tenant_ip: 10.148.44.149
+    enabled: true
+  - name: "cloud5b-compute-std-8"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.26
+      ctlplane_ip: 10.148.43.26
+      deploy_server_id: 0909dd7f-ee0d-4b28-bbf6-4876cbc30565
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.26
+      ilo_ip: 10.224.52.43
+      internal_api_ip: 10.148.42.154
+      management_ip: 10.148.43.26
+      storage_ip: 10.148.43.151
+      storage_mgmt_ip: 10.148.44.22
+      storage_nfs_ip: 10.148.45.150
+      tenant_ip: 10.148.44.150
+    enabled: true
+  - name: "cloud5b-compute-std-9"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.42
+      ctlplane_ip: 10.148.43.42
+      deploy_server_id: ca1a5ac3-cc68-4857-b0e4-5404df0c2044
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.43.42
+      ilo_ip: 10.224.52.44
+      internal_api_ip: 10.148.42.155
+      management_ip: 10.148.43.42
+      storage_ip: 10.148.43.152
+      storage_mgmt_ip: 10.148.44.23
+      storage_nfs_ip: 10.148.45.151
+      tenant_ip: 10.148.44.151
+    enabled: true
+  - name: "cloud5b-controller-0"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.33
+      ctlplane_ip: 10.148.43.33
+      deploy_server_id: b85cf4b5-6cc9-48f9-a3f3-1ff28154c748
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 131.160.194.226
+      ilo_ip: 10.224.52.27
+      internal_api_ip: 10.148.42.143
+      management_ip: 10.148.43.33
+      storage_ip: 10.148.43.140
+      storage_mgmt_ip: 10.148.44.11
+      storage_nfs_ip: 10.148.45.139
+      tenant_ip: 10.148.44.139
+    enabled: true
+  - name: "cloud5b-controller-1"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.25
+      ctlplane_ip: 10.148.43.25
+      deploy_server_id: deb81db7-f5da-411c-af29-e58e2ce6b0fd
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 131.160.194.227
+      ilo_ip: 10.224.52.49
+      internal_api_ip: 10.148.42.144
+      management_ip: 10.148.43.25
+      storage_ip: 10.148.43.141
+      storage_mgmt_ip: 10.148.44.12
+      storage_nfs_ip: 10.148.45.140
+      tenant_ip: 10.148.44.140
+    enabled: true
+  - name: "cloud5b-controller-2"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: 10.148.43.55
+      ctlplane_ip: 10.148.43.55
+      deploy_server_id: 81218854-13fd-4eaa-a871-1c5bfd564e4b
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 131.160.194.228
+      ilo_ip: 10.224.52.71
+      internal_api_ip: 10.148.42.145
+      management_ip: 10.148.43.55
+      storage_ip: 10.148.43.142
+      storage_mgmt_ip: 10.148.44.13
+      storage_nfs_ip: 10.148.45.141
+      tenant_ip: 10.148.44.141
+    enabled: true
+  - name: "director"
+    description: ""
+    inventory: "cloud5b"
+    variables:
+      ansible_host: ieatrheldir5b
+      vars:
+        ansible_ssh_common_args: -o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
+    enabled: true

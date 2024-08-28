@@ -1,0 +1,751 @@
+---
+controller_hosts:
+  - name: "cloud7b-compute-std-0"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.37
+      canonical_hostname: cloud7b-compute-std-0.localdomain
+      ctlplane_hostname: cloud7b-compute-std-0.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.37
+      deploy_server_id: 4aa59e12-71a7-48a2-a4c8-edd2e5e06625
+      ilo_ip: 10.150.37.91
+      internal_api_hostname: cloud7b-compute-std-0.internalapi.localdomain
+      internal_api_ip: 10.150.151.15
+      storage_hostname: cloud7b-compute-std-0.storage.localdomain
+      storage_ip: 10.150.151.139
+      storage_mgmt_hostname: cloud7b-compute-std-0.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.14
+      storage_nfs_hostname: cloud7b-compute-std-0.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.138
+      tenant_hostname: cloud7b-compute-std-0.tenant.localdomain
+      tenant_ip: 10.150.145.13
+    enabled: true
+  - name: "cloud7b-compute-std-1"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.18
+      canonical_hostname: cloud7b-compute-std-1.localdomain
+      ctlplane_hostname: cloud7b-compute-std-1.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.18
+      deploy_server_id: b2681dd8-0749-4d48-b958-6bcca35cfc75
+      ilo_ip: 10.150.37.92
+      internal_api_hostname: cloud7b-compute-std-1.internalapi.localdomain
+      internal_api_ip: 10.150.151.16
+      storage_hostname: cloud7b-compute-std-1.storage.localdomain
+      storage_ip: 10.150.151.140
+      storage_mgmt_hostname: cloud7b-compute-std-1.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.15
+      storage_nfs_hostname: cloud7b-compute-std-1.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.139
+      tenant_hostname: cloud7b-compute-std-1.tenant.localdomain
+      tenant_ip: 10.150.145.14
+    enabled: true
+  - name: "cloud7b-compute-std-10"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.32
+      canonical_hostname: cloud7b-compute-std-10.localdomain
+      ctlplane_hostname: cloud7b-compute-std-10.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.32
+      deploy_server_id: 5f5d1a49-889b-4d46-9b84-d89e1ec839cc
+      ilo_ip: 10.150.37.101
+      internal_api_hostname: cloud7b-compute-std-10.internalapi.localdomain
+      internal_api_ip: 10.150.151.25
+      storage_hostname: cloud7b-compute-std-10.storage.localdomain
+      storage_ip: 10.150.151.149
+      storage_mgmt_hostname: cloud7b-compute-std-10.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.24
+      storage_nfs_hostname: cloud7b-compute-std-10.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.148
+      tenant_hostname: cloud7b-compute-std-10.tenant.localdomain
+      tenant_ip: 10.150.145.23
+    enabled: true
+  - name: "cloud7b-compute-std-11"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.55
+      canonical_hostname: cloud7b-compute-std-11.localdomain
+      ctlplane_hostname: cloud7b-compute-std-11.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.55
+      deploy_server_id: 30ad43a0-55ec-4c4d-9952-cd2ad05a9a7a
+      ilo_ip: 10.150.37.102
+      internal_api_hostname: cloud7b-compute-std-11.internalapi.localdomain
+      internal_api_ip: 10.150.151.26
+      storage_hostname: cloud7b-compute-std-11.storage.localdomain
+      storage_ip: 10.150.151.150
+      storage_mgmt_hostname: cloud7b-compute-std-11.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.25
+      storage_nfs_hostname: cloud7b-compute-std-11.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.149
+      tenant_hostname: cloud7b-compute-std-11.tenant.localdomain
+      tenant_ip: 10.150.145.24
+    enabled: true
+  - name: "cloud7b-compute-std-12"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.46
+      canonical_hostname: cloud7b-compute-std-12.localdomain
+      ctlplane_hostname: cloud7b-compute-std-12.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.46
+      deploy_server_id: daecd700-3be0-4f94-b954-cecdf4943468
+      ilo_ip: 10.150.37.103
+      internal_api_hostname: cloud7b-compute-std-12.internalapi.localdomain
+      internal_api_ip: 10.150.151.27
+      storage_hostname: cloud7b-compute-std-12.storage.localdomain
+      storage_ip: 10.150.151.151
+      storage_mgmt_hostname: cloud7b-compute-std-12.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.26
+      storage_nfs_hostname: cloud7b-compute-std-12.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.150
+      tenant_hostname: cloud7b-compute-std-12.tenant.localdomain
+      tenant_ip: 10.150.145.25
+    enabled: true
+  - name: "cloud7b-compute-std-13"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.27
+      canonical_hostname: cloud7b-compute-std-13.localdomain
+      ctlplane_hostname: cloud7b-compute-std-13.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.27
+      deploy_server_id: 96e0063f-6193-4b99-bf28-f6a64ecf6209
+      ilo_ip: 10.150.37.104
+      internal_api_hostname: cloud7b-compute-std-13.internalapi.localdomain
+      internal_api_ip: 10.150.151.28
+      storage_hostname: cloud7b-compute-std-13.storage.localdomain
+      storage_ip: 10.150.151.152
+      storage_mgmt_hostname: cloud7b-compute-std-13.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.27
+      storage_nfs_hostname: cloud7b-compute-std-13.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.151
+      tenant_hostname: cloud7b-compute-std-13.tenant.localdomain
+      tenant_ip: 10.150.145.26
+    enabled: true
+  - name: "cloud7b-compute-std-14"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.24
+      canonical_hostname: cloud7b-compute-std-14.localdomain
+      ctlplane_hostname: cloud7b-compute-std-14.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.24
+      deploy_server_id: 2c863920-4469-4836-af63-62a85be96e3c
+      ilo_ip: 10.150.37.105
+      internal_api_hostname: cloud7b-compute-std-14.internalapi.localdomain
+      internal_api_ip: 10.150.151.29
+      storage_hostname: cloud7b-compute-std-14.storage.localdomain
+      storage_ip: 10.150.151.153
+      storage_mgmt_hostname: cloud7b-compute-std-14.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.28
+      storage_nfs_hostname: cloud7b-compute-std-14.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.152
+      tenant_hostname: cloud7b-compute-std-14.tenant.localdomain
+      tenant_ip: 10.150.145.27
+    enabled: true
+  - name: "cloud7b-compute-std-15"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.52
+      canonical_hostname: cloud7b-compute-std-15.localdomain
+      ctlplane_hostname: cloud7b-compute-std-15.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.52
+      deploy_server_id: 62589be3-778e-43d5-b50c-214084a2e498
+      ilo_ip: 10.150.37.106
+      internal_api_hostname: cloud7b-compute-std-15.internalapi.localdomain
+      internal_api_ip: 10.150.151.30
+      storage_hostname: cloud7b-compute-std-15.storage.localdomain
+      storage_ip: 10.150.151.154
+      storage_mgmt_hostname: cloud7b-compute-std-15.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.29
+      storage_nfs_hostname: cloud7b-compute-std-15.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.153
+      tenant_hostname: cloud7b-compute-std-15.tenant.localdomain
+      tenant_ip: 10.150.145.28
+    enabled: true
+  - name: "cloud7b-compute-std-16"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.16
+      canonical_hostname: cloud7b-compute-std-16.localdomain
+      ctlplane_hostname: cloud7b-compute-std-16.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.16
+      deploy_server_id: f635dab3-b413-4632-9f3f-9484c61071bb
+      ilo_ip: 10.150.37.107
+      internal_api_hostname: cloud7b-compute-std-16.internalapi.localdomain
+      internal_api_ip: 10.150.151.31
+      storage_hostname: cloud7b-compute-std-16.storage.localdomain
+      storage_ip: 10.150.151.155
+      storage_mgmt_hostname: cloud7b-compute-std-16.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.30
+      storage_nfs_hostname: cloud7b-compute-std-16.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.154
+      tenant_hostname: cloud7b-compute-std-16.tenant.localdomain
+      tenant_ip: 10.150.145.29
+    enabled: true
+  - name: "cloud7b-compute-std-17"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.14
+      canonical_hostname: cloud7b-compute-std-17.localdomain
+      ctlplane_hostname: cloud7b-compute-std-17.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.14
+      deploy_server_id: fa9ee228-c423-40e9-bfd7-cf3c764061ff
+      ilo_ip: 10.150.37.108
+      internal_api_hostname: cloud7b-compute-std-17.internalapi.localdomain
+      internal_api_ip: 10.150.151.32
+      storage_hostname: cloud7b-compute-std-17.storage.localdomain
+      storage_ip: 10.150.151.156
+      storage_mgmt_hostname: cloud7b-compute-std-17.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.31
+      storage_nfs_hostname: cloud7b-compute-std-17.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.155
+      tenant_hostname: cloud7b-compute-std-17.tenant.localdomain
+      tenant_ip: 10.150.145.30
+    enabled: true
+  - name: "cloud7b-compute-std-18"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.11
+      canonical_hostname: cloud7b-compute-std-18.localdomain
+      ctlplane_hostname: cloud7b-compute-std-18.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.11
+      deploy_server_id: 640cfc07-0e34-448c-9623-e8a10cba8f75
+      ilo_ip: 10.150.37.109
+      internal_api_hostname: cloud7b-compute-std-18.internalapi.localdomain
+      internal_api_ip: 10.150.151.33
+      storage_hostname: cloud7b-compute-std-18.storage.localdomain
+      storage_ip: 10.150.151.157
+      storage_mgmt_hostname: cloud7b-compute-std-18.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.32
+      storage_nfs_hostname: cloud7b-compute-std-18.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.156
+      tenant_hostname: cloud7b-compute-std-18.tenant.localdomain
+      tenant_ip: 10.150.145.31
+    enabled: true
+  - name: "cloud7b-compute-std-19"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.25
+      canonical_hostname: cloud7b-compute-std-19.localdomain
+      ctlplane_hostname: cloud7b-compute-std-19.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.25
+      deploy_server_id: d0d95d18-13c9-42c6-9c0b-657bc05832d8
+      ilo_ip: 10.150.37.110
+      internal_api_hostname: cloud7b-compute-std-19.internalapi.localdomain
+      internal_api_ip: 10.150.151.34
+      storage_hostname: cloud7b-compute-std-19.storage.localdomain
+      storage_ip: 10.150.151.158
+      storage_mgmt_hostname: cloud7b-compute-std-19.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.33
+      storage_nfs_hostname: cloud7b-compute-std-19.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.157
+      tenant_hostname: cloud7b-compute-std-19.tenant.localdomain
+      tenant_ip: 10.150.145.32
+    enabled: true
+  - name: "cloud7b-compute-std-2"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.33
+      canonical_hostname: cloud7b-compute-std-2.localdomain
+      ctlplane_hostname: cloud7b-compute-std-2.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.33
+      deploy_server_id: 494da6a4-6018-4c81-ba64-b101373d30c7
+      ilo_ip: 10.150.37.93
+      internal_api_hostname: cloud7b-compute-std-2.internalapi.localdomain
+      internal_api_ip: 10.150.151.17
+      storage_hostname: cloud7b-compute-std-2.storage.localdomain
+      storage_ip: 10.150.151.141
+      storage_mgmt_hostname: cloud7b-compute-std-2.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.16
+      storage_nfs_hostname: cloud7b-compute-std-2.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.140
+      tenant_hostname: cloud7b-compute-std-2.tenant.localdomain
+      tenant_ip: 10.150.145.15
+    enabled: true
+  - name: "cloud7b-compute-std-20"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.39
+      canonical_hostname: cloud7b-compute-std-20.localdomain
+      ctlplane_hostname: cloud7b-compute-std-20.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.39
+      deploy_server_id: f854d866-3edf-4787-82f3-7d75a67059b4
+      ilo_ip: 10.150.37.111
+      internal_api_hostname: cloud7b-compute-std-20.internalapi.localdomain
+      internal_api_ip: 10.150.151.35
+      storage_hostname: cloud7b-compute-std-20.storage.localdomain
+      storage_ip: 10.150.151.159
+      storage_mgmt_hostname: cloud7b-compute-std-20.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.34
+      storage_nfs_hostname: cloud7b-compute-std-20.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.158
+      tenant_hostname: cloud7b-compute-std-20.tenant.localdomain
+      tenant_ip: 10.150.145.33
+    enabled: true
+  - name: "cloud7b-compute-std-21"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.53
+      canonical_hostname: cloud7b-compute-std-21.localdomain
+      ctlplane_hostname: cloud7b-compute-std-21.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.53
+      deploy_server_id: 192b3863-33b2-4b65-83e3-b696215420ac
+      ilo_ip: 10.150.37.112
+      internal_api_hostname: cloud7b-compute-std-21.internalapi.localdomain
+      internal_api_ip: 10.150.151.36
+      storage_hostname: cloud7b-compute-std-21.storage.localdomain
+      storage_ip: 10.150.151.160
+      storage_mgmt_hostname: cloud7b-compute-std-21.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.35
+      storage_nfs_hostname: cloud7b-compute-std-21.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.159
+      tenant_hostname: cloud7b-compute-std-21.tenant.localdomain
+      tenant_ip: 10.150.145.34
+    enabled: true
+  - name: "cloud7b-compute-std-22"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.42
+      canonical_hostname: cloud7b-compute-std-22.localdomain
+      ctlplane_hostname: cloud7b-compute-std-22.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.42
+      deploy_server_id: 92409d1a-336d-4335-94be-ce55edc6fef4
+      ilo_ip: 10.150.37.113
+      internal_api_hostname: cloud7b-compute-std-22.internalapi.localdomain
+      internal_api_ip: 10.150.151.37
+      storage_hostname: cloud7b-compute-std-22.storage.localdomain
+      storage_ip: 10.150.151.161
+      storage_mgmt_hostname: cloud7b-compute-std-22.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.36
+      storage_nfs_hostname: cloud7b-compute-std-22.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.160
+      tenant_hostname: cloud7b-compute-std-22.tenant.localdomain
+      tenant_ip: 10.150.145.35
+    enabled: true
+  - name: "cloud7b-compute-std-23"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.38
+      canonical_hostname: cloud7b-compute-std-23.localdomain
+      ctlplane_hostname: cloud7b-compute-std-23.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.38
+      deploy_server_id: 557a20bc-8ebd-445a-b4d6-f7879015ca7a
+      ilo_ip: 10.150.37.114
+      internal_api_hostname: cloud7b-compute-std-23.internalapi.localdomain
+      internal_api_ip: 10.150.151.38
+      storage_hostname: cloud7b-compute-std-23.storage.localdomain
+      storage_ip: 10.150.151.162
+      storage_mgmt_hostname: cloud7b-compute-std-23.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.37
+      storage_nfs_hostname: cloud7b-compute-std-23.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.161
+      tenant_hostname: cloud7b-compute-std-23.tenant.localdomain
+      tenant_ip: 10.150.145.36
+    enabled: true
+  - name: "cloud7b-compute-std-24"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.40
+      canonical_hostname: cloud7b-compute-std-24.localdomain
+      ctlplane_hostname: cloud7b-compute-std-24.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.40
+      deploy_server_id: 1d3eef5d-edfb-4266-a752-feeec1b00b57
+      ilo_ip: 10.150.37.115
+      internal_api_hostname: cloud7b-compute-std-24.internalapi.localdomain
+      internal_api_ip: 10.150.151.39
+      storage_hostname: cloud7b-compute-std-24.storage.localdomain
+      storage_ip: 10.150.151.163
+      storage_mgmt_hostname: cloud7b-compute-std-24.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.38
+      storage_nfs_hostname: cloud7b-compute-std-24.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.162
+      tenant_hostname: cloud7b-compute-std-24.tenant.localdomain
+      tenant_ip: 10.150.145.37
+    enabled: true
+  - name: "cloud7b-compute-std-25"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.20
+      canonical_hostname: cloud7b-compute-std-25.localdomain
+      ctlplane_hostname: cloud7b-compute-std-25.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.20
+      deploy_server_id: c350475c-7338-44ef-a59d-24ef2a8e725a
+      ilo_ip: 10.150.37.116
+      internal_api_hostname: cloud7b-compute-std-25.internalapi.localdomain
+      internal_api_ip: 10.150.151.40
+      storage_hostname: cloud7b-compute-std-25.storage.localdomain
+      storage_ip: 10.150.151.164
+      storage_mgmt_hostname: cloud7b-compute-std-25.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.39
+      storage_nfs_hostname: cloud7b-compute-std-25.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.163
+      tenant_hostname: cloud7b-compute-std-25.tenant.localdomain
+      tenant_ip: 10.150.145.38
+    enabled: true
+  - name: "cloud7b-compute-std-26"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.23
+      canonical_hostname: cloud7b-compute-std-26.localdomain
+      ctlplane_hostname: cloud7b-compute-std-26.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.23
+      deploy_server_id: 4e62a4d9-7046-40e9-a804-70f31659ffff
+      ilo_ip: 10.150.37.117
+      internal_api_hostname: cloud7b-compute-std-26.internalapi.localdomain
+      internal_api_ip: 10.150.151.41
+      storage_hostname: cloud7b-compute-std-26.storage.localdomain
+      storage_ip: 10.150.151.165
+      storage_mgmt_hostname: cloud7b-compute-std-26.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.40
+      storage_nfs_hostname: cloud7b-compute-std-26.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.164
+      tenant_hostname: cloud7b-compute-std-26.tenant.localdomain
+      tenant_ip: 10.150.145.39
+    enabled: true
+  - name: "cloud7b-compute-std-27"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.21
+      canonical_hostname: cloud7b-compute-std-27.localdomain
+      ctlplane_hostname: cloud7b-compute-std-27.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.21
+      deploy_server_id: c31350a0-122a-4a86-b032-30736d16eb69
+      ilo_ip: 10.150.37.118
+      internal_api_hostname: cloud7b-compute-std-27.internalapi.localdomain
+      internal_api_ip: 10.150.151.42
+      storage_hostname: cloud7b-compute-std-27.storage.localdomain
+      storage_ip: 10.150.151.166
+      storage_mgmt_hostname: cloud7b-compute-std-27.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.41
+      storage_nfs_hostname: cloud7b-compute-std-27.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.165
+      tenant_hostname: cloud7b-compute-std-27.tenant.localdomain
+      tenant_ip: 10.150.145.40
+    enabled: true
+  - name: "cloud7b-compute-std-28"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.44
+      canonical_hostname: cloud7b-compute-std-28.localdomain
+      ctlplane_hostname: cloud7b-compute-std-28.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.44
+      deploy_server_id: 0a4bd983-20cc-4e2a-9167-2f038a51d4e4
+      ilo_ip: 10.150.37.119
+      internal_api_hostname: cloud7b-compute-std-28.internalapi.localdomain
+      internal_api_ip: 10.150.151.43
+      storage_hostname: cloud7b-compute-std-28.storage.localdomain
+      storage_ip: 10.150.151.167
+      storage_mgmt_hostname: cloud7b-compute-std-28.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.42
+      storage_nfs_hostname: cloud7b-compute-std-28.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.166
+      tenant_hostname: cloud7b-compute-std-28.tenant.localdomain
+      tenant_ip: 10.150.145.41
+    enabled: true
+  - name: "cloud7b-compute-std-29"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.22
+      canonical_hostname: cloud7b-compute-std-29.localdomain
+      ctlplane_hostname: cloud7b-compute-std-29.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.22
+      deploy_server_id: 62073ad5-b690-4e67-9e67-97f77b685715
+      ilo_ip: 10.150.37.120
+      internal_api_hostname: cloud7b-compute-std-29.internalapi.localdomain
+      internal_api_ip: 10.150.151.44
+      storage_hostname: cloud7b-compute-std-29.storage.localdomain
+      storage_ip: 10.150.151.168
+      storage_mgmt_hostname: cloud7b-compute-std-29.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.43
+      storage_nfs_hostname: cloud7b-compute-std-29.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.167
+      tenant_hostname: cloud7b-compute-std-29.tenant.localdomain
+      tenant_ip: 10.150.145.42
+    enabled: true
+  - name: "cloud7b-compute-std-3"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.12
+      canonical_hostname: cloud7b-compute-std-3.localdomain
+      ctlplane_hostname: cloud7b-compute-std-3.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.12
+      deploy_server_id: 9c0e2a86-7098-465a-ab2a-12cfa2847e44
+      ilo_ip: 10.150.37.94
+      internal_api_hostname: cloud7b-compute-std-3.internalapi.localdomain
+      internal_api_ip: 10.150.151.18
+      storage_hostname: cloud7b-compute-std-3.storage.localdomain
+      storage_ip: 10.150.151.142
+      storage_mgmt_hostname: cloud7b-compute-std-3.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.17
+      storage_nfs_hostname: cloud7b-compute-std-3.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.141
+      tenant_hostname: cloud7b-compute-std-3.tenant.localdomain
+      tenant_ip: 10.150.145.16
+    enabled: true
+  - name: "cloud7b-compute-std-30"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.48
+      canonical_hostname: cloud7b-compute-std-30.localdomain
+      ctlplane_hostname: cloud7b-compute-std-30.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.48
+      deploy_server_id: 9f9aff99-604f-4577-a235-dc97d7a22ddf
+      ilo_ip: 10.150.37.121
+      internal_api_hostname: cloud7b-compute-std-30.internalapi.localdomain
+      internal_api_ip: 10.150.151.45
+      storage_hostname: cloud7b-compute-std-30.storage.localdomain
+      storage_ip: 10.150.151.169
+      storage_mgmt_hostname: cloud7b-compute-std-30.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.44
+      storage_nfs_hostname: cloud7b-compute-std-30.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.168
+      tenant_hostname: cloud7b-compute-std-30.tenant.localdomain
+      tenant_ip: 10.150.145.43
+    enabled: true
+  - name: "cloud7b-compute-std-31"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.57
+      canonical_hostname: cloud7b-compute-std-31.localdomain
+      ctlplane_hostname: cloud7b-compute-std-31.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.57
+      deploy_server_id: a0e2eaf4-b427-408d-aeb7-7468cdd928a0
+      ilo_ip: 10.150.37.122
+      internal_api_hostname: cloud7b-compute-std-31.internalapi.localdomain
+      internal_api_ip: 10.150.151.46
+      storage_hostname: cloud7b-compute-std-31.storage.localdomain
+      storage_ip: 10.150.151.170
+      storage_mgmt_hostname: cloud7b-compute-std-31.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.45
+      storage_nfs_hostname: cloud7b-compute-std-31.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.169
+      tenant_hostname: cloud7b-compute-std-31.tenant.localdomain
+      tenant_ip: 10.150.145.44
+    enabled: true
+  - name: "cloud7b-compute-std-4"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.15
+      canonical_hostname: cloud7b-compute-std-4.localdomain
+      ctlplane_hostname: cloud7b-compute-std-4.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.15
+      deploy_server_id: c8044306-8c21-4f95-b546-4a885a3b6aad
+      ilo_ip: 10.150.37.95
+      internal_api_hostname: cloud7b-compute-std-4.internalapi.localdomain
+      internal_api_ip: 10.150.151.19
+      storage_hostname: cloud7b-compute-std-4.storage.localdomain
+      storage_ip: 10.150.151.143
+      storage_mgmt_hostname: cloud7b-compute-std-4.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.18
+      storage_nfs_hostname: cloud7b-compute-std-4.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.142
+      tenant_hostname: cloud7b-compute-std-4.tenant.localdomain
+      tenant_ip: 10.150.145.17
+    enabled: true
+  - name: "cloud7b-compute-std-5"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.51
+      canonical_hostname: cloud7b-compute-std-5.localdomain
+      ctlplane_hostname: cloud7b-compute-std-5.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.51
+      deploy_server_id: 14564830-d7ce-4b95-ae46-83fbb3468870
+      ilo_ip: 10.150.37.96
+      internal_api_hostname: cloud7b-compute-std-5.internalapi.localdomain
+      internal_api_ip: 10.150.151.20
+      storage_hostname: cloud7b-compute-std-5.storage.localdomain
+      storage_ip: 10.150.151.144
+      storage_mgmt_hostname: cloud7b-compute-std-5.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.19
+      storage_nfs_hostname: cloud7b-compute-std-5.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.143
+      tenant_hostname: cloud7b-compute-std-5.tenant.localdomain
+      tenant_ip: 10.150.145.18
+    enabled: true
+  - name: "cloud7b-compute-std-6"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.49
+      canonical_hostname: cloud7b-compute-std-6.localdomain
+      ctlplane_hostname: cloud7b-compute-std-6.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.49
+      deploy_server_id: a3c7c60c-0b57-4b2d-9270-b6b5d4ddfa8d
+      ilo_ip: 10.150.37.97
+      internal_api_hostname: cloud7b-compute-std-6.internalapi.localdomain
+      internal_api_ip: 10.150.151.21
+      storage_hostname: cloud7b-compute-std-6.storage.localdomain
+      storage_ip: 10.150.151.145
+      storage_mgmt_hostname: cloud7b-compute-std-6.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.20
+      storage_nfs_hostname: cloud7b-compute-std-6.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.144
+      tenant_hostname: cloud7b-compute-std-6.tenant.localdomain
+      tenant_ip: 10.150.145.19
+    enabled: true
+  - name: "cloud7b-compute-std-7"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.41
+      canonical_hostname: cloud7b-compute-std-7.localdomain
+      ctlplane_hostname: cloud7b-compute-std-7.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.41
+      deploy_server_id: 819e43cf-9b93-441a-89e7-e4a887014a5d
+      ilo_ip: 10.150.37.98
+      internal_api_hostname: cloud7b-compute-std-7.internalapi.localdomain
+      internal_api_ip: 10.150.151.22
+      storage_hostname: cloud7b-compute-std-7.storage.localdomain
+      storage_ip: 10.150.151.146
+      storage_mgmt_hostname: cloud7b-compute-std-7.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.21
+      storage_nfs_hostname: cloud7b-compute-std-7.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.145
+      tenant_hostname: cloud7b-compute-std-7.tenant.localdomain
+      tenant_ip: 10.150.145.20
+    enabled: true
+  - name: "cloud7b-compute-std-8"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.43
+      canonical_hostname: cloud7b-compute-std-8.localdomain
+      ctlplane_hostname: cloud7b-compute-std-8.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.43
+      deploy_server_id: 503d2936-4ebf-43c2-8832-a3cd39e16fa2
+      ilo_ip: 10.150.37.99
+      internal_api_hostname: cloud7b-compute-std-8.internalapi.localdomain
+      internal_api_ip: 10.150.151.23
+      storage_hostname: cloud7b-compute-std-8.storage.localdomain
+      storage_ip: 10.150.151.147
+      storage_mgmt_hostname: cloud7b-compute-std-8.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.22
+      storage_nfs_hostname: cloud7b-compute-std-8.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.146
+      tenant_hostname: cloud7b-compute-std-8.tenant.localdomain
+      tenant_ip: 10.150.145.21
+    enabled: true
+  - name: "cloud7b-compute-std-9"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.35
+      canonical_hostname: cloud7b-compute-std-9.localdomain
+      ctlplane_hostname: cloud7b-compute-std-9.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.35
+      deploy_server_id: df644fc3-8af1-416d-88d4-430f662fe0a9
+      ilo_ip: 10.150.37.100
+      internal_api_hostname: cloud7b-compute-std-9.internalapi.localdomain
+      internal_api_ip: 10.150.151.24
+      storage_hostname: cloud7b-compute-std-9.storage.localdomain
+      storage_ip: 10.150.151.148
+      storage_mgmt_hostname: cloud7b-compute-std-9.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.23
+      storage_nfs_hostname: cloud7b-compute-std-9.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.147
+      tenant_hostname: cloud7b-compute-std-9.tenant.localdomain
+      tenant_ip: 10.150.145.22
+    enabled: true
+  - name: "cloud7b-controller-0"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.29
+      canonical_hostname: cloud7b-controller-0.localdomain
+      ctlplane_hostname: cloud7b-controller-0.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.29
+      deploy_server_id: feed3c2b-6b13-44dc-9d07-24f5ea430448
+      external_hostname: cloud7b-controller-0.external.localdomain
+      external_ip: 10.150.150.142
+      ilo_ip: 10.150.37.123
+      internal_api_hostname: cloud7b-controller-0.internalapi.localdomain
+      internal_api_ip: 10.150.151.12
+      storage_hostname: cloud7b-controller-0.storage.localdomain
+      storage_ip: 10.150.151.136
+      storage_mgmt_hostname: cloud7b-controller-0.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.11
+      storage_nfs_hostname: cloud7b-controller-0.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.135
+      tenant_hostname: cloud7b-controller-0.tenant.localdomain
+      tenant_ip: 10.150.145.10
+    enabled: true
+  - name: "cloud7b-controller-1"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.36
+      canonical_hostname: cloud7b-controller-1.localdomain
+      ctlplane_hostname: cloud7b-controller-1.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.36
+      deploy_server_id: 6dea0ae1-0f75-49ee-accb-4d38fe18ca65
+      external_hostname: cloud7b-controller-1.external.localdomain
+      external_ip: 10.150.150.143
+      ilo_ip: 10.150.37.124
+      internal_api_hostname: cloud7b-controller-1.internalapi.localdomain
+      internal_api_ip: 10.150.151.13
+      storage_hostname: cloud7b-controller-1.storage.localdomain
+      storage_ip: 10.150.151.137
+      storage_mgmt_hostname: cloud7b-controller-1.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.12
+      storage_nfs_hostname: cloud7b-controller-1.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.136
+      tenant_hostname: cloud7b-controller-1.tenant.localdomain
+      tenant_ip: 10.150.145.11
+    enabled: true
+  - name: "cloud7b-controller-2"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: 10.150.144.30
+      canonical_hostname: cloud7b-controller-2.localdomain
+      ctlplane_hostname: cloud7b-controller-2.ctlplane.localdomain
+      ctlplane_ip: 10.150.144.30
+      deploy_server_id: 266c4006-b58f-460b-9b37-4c1ffdd2d5cb
+      external_hostname: cloud7b-controller-2.external.localdomain
+      external_ip: 10.150.150.144
+      ilo_ip: 10.150.37.125
+      internal_api_hostname: cloud7b-controller-2.internalapi.localdomain
+      internal_api_ip: 10.150.151.14
+      storage_hostname: cloud7b-controller-2.storage.localdomain
+      storage_ip: 10.150.151.138
+      storage_mgmt_hostname: cloud7b-controller-2.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.152.13
+      storage_nfs_hostname: cloud7b-controller-2.storagenfs.localdomain
+      storage_nfs_ip: 10.150.152.137
+      tenant_hostname: cloud7b-controller-2.tenant.localdomain
+      tenant_ip: 10.150.145.12
+    enabled: true
+  - name: "director"
+    description: ""
+    inventory: "cloud7b"
+    variables:
+      ansible_host: ieatrheldir7b
+      vars:
+        ansible_ssh_common_args: -o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
+    enabled: true

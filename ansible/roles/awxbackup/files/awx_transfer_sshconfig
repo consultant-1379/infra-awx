@@ -1,0 +1,2 @@
+Host infra-awx-backup.athtem.eei.ericsson.se
+    StrictHostKeyChecking no

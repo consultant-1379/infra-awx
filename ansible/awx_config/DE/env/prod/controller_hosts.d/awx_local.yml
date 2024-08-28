@@ -1,0 +1,8 @@
+---
+controller_hosts:
+  - name: "localhost"
+    description: ""
+    inventory: "awx_local"
+    variables:
+      ansible_connection: local
+    enabled: true

@@ -1,0 +1,91 @@
+---
+- name: Backup AWX
+  hosts: localhost
+  gather_subset: min
+  tasks:
+    - block:
+        - name: Get the name of the AWX deployment
+          kubernetes.core.k8s_info:
+            api_version: awx.ansible.com/v1beta1
+            kind: AWX
+            namespace: awx
+          no_log: true
+          register: awx_info
+
+        - name: Set the deployment name
+          set_fact:
+            deployment_name: '{{ awx_info.resources|map(attribute="metadata.name")|first }}'
+
+        - name: Create a backup of AWX
+          kubernetes.core.k8s:
+            state: present
+            definition:
+              apiVersion: awx.ansible.com/v1beta1
+              kind: AWXBackup
+              metadata:
+                name: '{{ deployment_name + "-" + ansible_date_time.date + "-" + ansible_date_time.time | replace(":","") }}'
+                namespace: awx
+              spec:
+                deployment_name: '{{ deployment_name }}'
+          no_log: false
+          register: awx_backup
+
+        - name: Set the name of the backup
+          ansible.builtin.set_fact:
+            backup_name: '{{ awx_backup.result.metadata.name }}'
+
+        - name: Wait until the backup is created
+          kubernetes.core.k8s_info:
+            api_version: awx.ansible.com/v1beta1
+            kind: AWXBackup
+            wait: yes
+            name: '{{ backup_name }}'
+            namespace: awx
+            wait_sleep: 10
+            wait_timeout: 300
+            wait_condition:
+                type: Successful
+                status: True
+          register: awx_backup_status
+          ignore_errors: true
+
+        - name: Transfer AWX Backups to an external VM
+          kubernetes.core.k8s:
+            state: present
+            definition: '{{ lookup("file","transfer-backup-job.yml") | from_yaml }}'
+            wait: true
+            wait_sleep: 10
+            wait_timeout: 120
+            wait_condition:
+              type: Complete
+              status: True
+          register: transfer_backup_status
+
+        - name: Get the logs from the 'awx-backup-transfer' pod
+          kubernetes.core.k8s_log:
+            namespace: awx
+            label_selectors:
+              - job-name=awx-transfer-backup-job
+          register: transfer_backup_logs
+
+        - name: Post result to teams
+          community.general.mail:
+            subject: 'AWX Backup'
+            sender: infra-awx@ericsson.com (Infra AWX)
+            body: '<h1>Backup {{ backup_name }} {{ result }}</h1><hr /><br /><h2>Backup Output</h2><p>{{ backup_output }}</p><h2>Backup Transfer Output</h2<p>{{ transfer_output }}<p>'
+            subtype: html
+            charset: utf-8
+            to: '764f6be1.ericsson.onmicrosoft.com@emea.teams.ms (DE Openstack Infra - General channel)'
+            host: ieatansible4b
+          vars:
+            result: '{{ "completed successfully" if not awx_backup_status.failed else "failed" }}'
+            backup_output: '{{ awx_backup_status.resources[0].status if not awx_backup_status.failed else awx_backup_status.msg }}'
+            transfer_output: '{{ transfer_backup_logs.log_lines |join("<br />") }}'
+
+        - name: Fail Backup CronJob if backup was unsuccessful
+          fail:
+            msg: 'The {{ backup_name }} backup failed.'
+          when: awx_backup_status.failed
+      environment:
+        K8S_AUTH_API_KEY: '{{ lookup("file","/var/run/secrets/kubernetes.io/serviceaccount/token") }}'
+        K8S_AUTH_SSL_CA_CERT: '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'

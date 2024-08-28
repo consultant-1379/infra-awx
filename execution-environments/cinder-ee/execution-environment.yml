@@ -1,0 +1,13 @@
+---
+version: 1
+build_arg_defaults:
+  EE_BASE_IMAGE: 'registry.infra-awx-k3s.athtem.eei.ericsson.se/awx-base:latest'
+dependencies:
+  python: requirements.txt
+additional_build_steps:
+  append:
+    - COPY libnsl.rpm /runner # dependency for naviseccli
+    - RUN rpm -ivh libnsl.rpm --nodeps
+    - COPY naviseccli.rpm /runner # dependency of storops - required for VNX
+    - RUN rpm -ivh /runner/naviseccli.rpm --nodeps
+    - RUN /opt/Navisphere/bin/naviseccli security -certificate -setLevel low

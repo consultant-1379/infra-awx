@@ -1,0 +1,25 @@
+---
+controller_settings:
+  - settings:
+      AUTH_LDAP_GROUP_TYPE_PARAMS:
+          name_attr: cn
+      AUTH_LDAP_ORGANIZATION_MAP:
+          DE:
+              admins: CN=PDLDEOPENS,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se
+              remove_admins: false
+              remove_users: false
+              users:
+              - CN=PDLDEOPENS,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se
+              - CN=PDLSTACKCE,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se
+      AUTH_LDAP_TEAM_MAP:
+          OpenStack_Infra:
+              organization: DE
+              remove: true
+              users: CN=PDLDEOPENS,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se
+          StackCentric:
+              organization: DE
+              remove: true
+              users: CN=PDLSTACKCE,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se
+      INSTALL_UUID: 473bf87a-dfdf-4d2f-a4de-f94d648bb3cd
+
+...

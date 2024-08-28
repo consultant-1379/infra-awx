@@ -1,0 +1,20 @@
+instance-id: "${hostname}"
+local-hostname: "${hostname}"
+public-keys-data: "${ssh_public_key}"
+
+network:
+  version: 2
+  ethernets:
+    ens192:
+      addresses:
+        - ${external_ip}
+        - ${externalv6_ip}
+      gateway4: ${gateway}
+      gateway6: ${gatewayv6}
+      nameservers:
+        search: [athtem.eei.ericsson.se, ericsson.se]
+        addresses: [159.107.173.3,159.107.173.12]
+    ens224:
+      addresses:
+        - ${internal_ip}
+        - ${internalv6_ip}

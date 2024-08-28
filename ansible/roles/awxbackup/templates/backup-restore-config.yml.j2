@@ -1,0 +1,133 @@
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: awx-backup-restore-config
+  namespace: awx
+data:
+  ansible.cfg: |
+    [defaults]
+    callbacks_enabled=ansible.posix.profile_tasks
+  backup.yml: |
+{{ backup_playbook | from_yaml | indent(width=4, first=True) }}
+  transfer-backup-job.yml: |
+{{ transfer_backup_jobspec | from_yaml | indent(width=4, first=True) }}
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: awx-transfer-sshkey
+  namespace: awx
+data:
+  authorized_keys: ""
+  config: {{ lookup('file','awx_transfer_sshconfig') | b64encode}}
+{# rstrip=False needed to prevent last '\n' from being removed.
+Otherwise you get a 'Load key "/root/.ssh/id_rsa": invalid format' 
+error when trying to use the key #}
+  id_rsa: {{ lookup('file','awx_transfer.pem',rstrip=False) | b64encode}}
+  id_rsa.pub: {{ lookup('file','awx_transfer.pub') | b64encode}}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: awx-backup-restore-sa
+  namespace: awx
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: awx
+  name: awx-backup-restore-role
+rules:
+- apiGroups: ["awx.ansible.com"] 
+  resources: ["awxs"]
+  verbs: ["get", "watch", "list"]
+- apiGroups: ["awx.ansible.com"] 
+  resources: ["awxbackups","awxrestores"]
+  verbs: ["delete","deletecollection","get","list","patch","create","update","watch"]
+- apiGroups: [""]
+  resources: ["pods","pods/log"]
+  verbs: ["get","list"]
+- apiGroups: ["batch"]
+  resources: ["jobs"]
+  verbs: ["delete","deletecollection","get","list","patch","create","update","watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: awx-backup-restore-rolebinding
+  namespace: awx
+subjects:
+- kind: ServiceAccount
+  name: awx-backup-restore-sa
+  namespace: awx
+roleRef:
+  kind: Role
+  name: awx-backup-restore-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: infra-awx-backups
+  namespace: awx
+spec:
+  storageClassName: vsphere-block
+  resources:
+    requests:
+      storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: awx-backup-job
+  namespace: awx
+spec:
+  concurrencyPolicy: Forbid
+  suspend: {{ suspend_backup_job | default(false) }}
+  schedule: "{{ backup_schedule }}"
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 60
+      podFailurePolicy:
+        rules:
+          - action: FailJob
+            onExitCodes:
+              containerName: run-backup
+              operator: NotIn
+              values: [0]
+      template:
+        metadata:
+          name: awx-backup
+          namespace: awx
+        spec:
+          restartPolicy: Never
+          serviceAccountName: awx-backup-restore-sa
+          containers:
+          - name: run-backup
+            image: registry.infra-awx-k3s.athtem.eei.ericsson.se/awx-base:latest
+            args:
+            - ansible-playbook
+            - /tmp/playbook/backup.yml
+            - -vv
+            env:
+              - name: ANSIBLE_CONFIG
+                value: /tmp/playbook/ansible.cfg
+            volumeMounts:
+              - name: playbook
+                mountPath: /tmp/playbook
+          volumes:
+            - name: playbook
+              configMap:
+                name: awx-backup-restore-config
+                items:
+                  - key: ansible.cfg
+                    path: ansible.cfg
+                  - key: backup.yml
+                    path: backup.yml
+                  - key: transfer-backup-job.yml
+                    path: transfer-backup-job.yml

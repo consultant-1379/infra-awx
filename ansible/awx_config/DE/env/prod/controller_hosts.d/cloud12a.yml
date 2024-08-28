@@ -1,0 +1,415 @@
+---
+controller_hosts:
+  - name: "cloud12a-compute-std-0"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.88
+      canonical_hostname: cloud12a-compute-std-0.localdomain
+      ctlplane_hostname: cloud12a-compute-std-0.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.88
+      deploy_server_id: 2c853d96-0429-4351-8790-86e4759c8eb5
+      ilo_ip: 10.224.53.167
+      internal_api_hostname: cloud12a-compute-std-0.internalapi.localdomain
+      internal_api_ip: 10.151.110.19
+      storage_hostname: cloud12a-compute-std-0.storage.localdomain
+      storage_ip: 10.150.93.136
+      storage_mgmt_hostname: cloud12a-compute-std-0.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.201
+      storage_nfs_hostname: cloud12a-compute-std-0.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.7
+      tenant_hostname: cloud12a-compute-std-0.tenant.localdomain
+      tenant_ip: 10.151.111.15
+    enabled: true
+  - name: "cloud12a-compute-std-1"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.90
+      canonical_hostname: cloud12a-compute-std-1.localdomain
+      ctlplane_hostname: cloud12a-compute-std-1.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.90
+      deploy_server_id: aedac719-a88e-4db1-b7a4-552ffd0f2f79
+      ilo_ip: 10.224.53.168
+      internal_api_hostname: cloud12a-compute-std-1.internalapi.localdomain
+      internal_api_ip: 10.151.110.20
+      storage_hostname: cloud12a-compute-std-1.storage.localdomain
+      storage_ip: 10.150.93.137
+      storage_mgmt_hostname: cloud12a-compute-std-1.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.202
+      storage_nfs_hostname: cloud12a-compute-std-1.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.8
+      tenant_hostname: cloud12a-compute-std-1.tenant.localdomain
+      tenant_ip: 10.151.111.16
+    enabled: true
+  - name: "cloud12a-compute-std-10"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.76
+      canonical_hostname: cloud12a-compute-std-10.localdomain
+      ctlplane_hostname: cloud12a-compute-std-10.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.76
+      deploy_server_id: 014bf49d-c6c2-40db-9c99-db3c426d2ab4
+      ilo_ip: 10.224.53.177
+      internal_api_hostname: cloud12a-compute-std-10.internalapi.localdomain
+      internal_api_ip: 10.151.110.29
+      storage_hostname: cloud12a-compute-std-10.storage.localdomain
+      storage_ip: 10.150.93.146
+      storage_mgmt_hostname: cloud12a-compute-std-10.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.211
+      storage_nfs_hostname: cloud12a-compute-std-10.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.17
+      tenant_hostname: cloud12a-compute-std-10.tenant.localdomain
+      tenant_ip: 10.151.111.25
+    enabled: true
+  - name: "cloud12a-compute-std-11"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.91
+      canonical_hostname: cloud12a-compute-std-11.localdomain
+      ctlplane_hostname: cloud12a-compute-std-11.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.91
+      deploy_server_id: 5b0c0cc7-abfc-452a-84cf-d173835ab135
+      ilo_ip: 10.224.53.178
+      internal_api_hostname: cloud12a-compute-std-11.internalapi.localdomain
+      internal_api_ip: 10.151.110.30
+      storage_hostname: cloud12a-compute-std-11.storage.localdomain
+      storage_ip: 10.150.93.147
+      storage_mgmt_hostname: cloud12a-compute-std-11.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.212
+      storage_nfs_hostname: cloud12a-compute-std-11.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.18
+      tenant_hostname: cloud12a-compute-std-11.tenant.localdomain
+      tenant_ip: 10.151.111.26
+    enabled: true
+  - name: "cloud12a-compute-std-12"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.100
+      canonical_hostname: cloud12a-compute-std-12.localdomain
+      ctlplane_hostname: cloud12a-compute-std-12.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.100
+      deploy_server_id: e217eaf2-58d3-4548-89c5-a59c3ecc1f86
+      ilo_ip: 10.224.53.179
+      internal_api_hostname: cloud12a-compute-std-12.internalapi.localdomain
+      internal_api_ip: 10.151.110.31
+      storage_hostname: cloud12a-compute-std-12.storage.localdomain
+      storage_ip: 10.150.93.148
+      storage_mgmt_hostname: cloud12a-compute-std-12.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.213
+      storage_nfs_hostname: cloud12a-compute-std-12.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.19
+      tenant_hostname: cloud12a-compute-std-12.tenant.localdomain
+      tenant_ip: 10.151.111.27
+    enabled: true
+  - name: "cloud12a-compute-std-13"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.99
+      canonical_hostname: cloud12a-compute-std-13.localdomain
+      ctlplane_hostname: cloud12a-compute-std-13.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.99
+      deploy_server_id: 75c733d7-829d-49ff-af9b-d14b68ce288c
+      ilo_ip: 10.224.53.180
+      internal_api_hostname: cloud12a-compute-std-13.internalapi.localdomain
+      internal_api_ip: 10.151.110.32
+      storage_hostname: cloud12a-compute-std-13.storage.localdomain
+      storage_ip: 10.150.93.149
+      storage_mgmt_hostname: cloud12a-compute-std-13.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.214
+      storage_nfs_hostname: cloud12a-compute-std-13.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.20
+      tenant_hostname: cloud12a-compute-std-13.tenant.localdomain
+      tenant_ip: 10.151.111.28
+    enabled: true
+  - name: "cloud12a-compute-std-14"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.77
+      canonical_hostname: cloud12a-compute-std-14.localdomain
+      ctlplane_hostname: cloud12a-compute-std-14.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.77
+      deploy_server_id: 291a2068-e403-4712-bac1-fab91f481179
+      ilo_ip: 10.224.53.181
+      internal_api_hostname: cloud12a-compute-std-14.internalapi.localdomain
+      internal_api_ip: 10.151.110.33
+      storage_hostname: cloud12a-compute-std-14.storage.localdomain
+      storage_ip: 10.150.93.150
+      storage_mgmt_hostname: cloud12a-compute-std-14.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.215
+      storage_nfs_hostname: cloud12a-compute-std-14.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.21
+      tenant_hostname: cloud12a-compute-std-14.tenant.localdomain
+      tenant_ip: 10.151.111.29
+    enabled: true
+  - name: "cloud12a-compute-std-15"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.79
+      canonical_hostname: cloud12a-compute-std-15.localdomain
+      ctlplane_hostname: cloud12a-compute-std-15.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.79
+      deploy_server_id: ece87277-949a-4dc7-b6d9-2d655c5da0ff
+      ilo_ip: 10.224.53.182
+      internal_api_hostname: cloud12a-compute-std-15.internalapi.localdomain
+      internal_api_ip: 10.151.110.34
+      storage_hostname: cloud12a-compute-std-15.storage.localdomain
+      storage_ip: 10.150.93.151
+      storage_mgmt_hostname: cloud12a-compute-std-15.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.216
+      storage_nfs_hostname: cloud12a-compute-std-15.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.22
+      tenant_hostname: cloud12a-compute-std-15.tenant.localdomain
+      tenant_ip: 10.151.111.30
+    enabled: true
+  - name: "cloud12a-compute-std-2"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.92
+      canonical_hostname: cloud12a-compute-std-2.localdomain
+      ctlplane_hostname: cloud12a-compute-std-2.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.92
+      deploy_server_id: bad02ec9-6fe0-4f82-9c9c-924662cc33fc
+      ilo_ip: 10.224.53.169
+      internal_api_hostname: cloud12a-compute-std-2.internalapi.localdomain
+      internal_api_ip: 10.151.110.21
+      storage_hostname: cloud12a-compute-std-2.storage.localdomain
+      storage_ip: 10.150.93.138
+      storage_mgmt_hostname: cloud12a-compute-std-2.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.203
+      storage_nfs_hostname: cloud12a-compute-std-2.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.9
+      tenant_hostname: cloud12a-compute-std-2.tenant.localdomain
+      tenant_ip: 10.151.111.17
+    enabled: true
+  - name: "cloud12a-compute-std-3"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.84
+      canonical_hostname: cloud12a-compute-std-3.localdomain
+      ctlplane_hostname: cloud12a-compute-std-3.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.84
+      deploy_server_id: 1d6e71e5-0771-4902-a033-a8b002c98755
+      ilo_ip: 10.224.53.170
+      internal_api_hostname: cloud12a-compute-std-3.internalapi.localdomain
+      internal_api_ip: 10.151.110.22
+      storage_hostname: cloud12a-compute-std-3.storage.localdomain
+      storage_ip: 10.150.93.139
+      storage_mgmt_hostname: cloud12a-compute-std-3.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.204
+      storage_nfs_hostname: cloud12a-compute-std-3.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.10
+      tenant_hostname: cloud12a-compute-std-3.tenant.localdomain
+      tenant_ip: 10.151.111.18
+    enabled: true
+  - name: "cloud12a-compute-std-4"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.94
+      canonical_hostname: cloud12a-compute-std-4.localdomain
+      ctlplane_hostname: cloud12a-compute-std-4.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.94
+      deploy_server_id: 11159c07-9f78-4943-b251-0db5be7a08cd
+      ilo_ip: 10.224.53.171
+      internal_api_hostname: cloud12a-compute-std-4.internalapi.localdomain
+      internal_api_ip: 10.151.110.23
+      storage_hostname: cloud12a-compute-std-4.storage.localdomain
+      storage_ip: 10.150.93.140
+      storage_mgmt_hostname: cloud12a-compute-std-4.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.205
+      storage_nfs_hostname: cloud12a-compute-std-4.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.11
+      tenant_hostname: cloud12a-compute-std-4.tenant.localdomain
+      tenant_ip: 10.151.111.19
+    enabled: true
+  - name: "cloud12a-compute-std-5"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.78
+      canonical_hostname: cloud12a-compute-std-5.localdomain
+      ctlplane_hostname: cloud12a-compute-std-5.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.78
+      deploy_server_id: cc0ed311-1d51-49f1-97d1-41a6999faf43
+      ilo_ip: 10.224.53.172
+      internal_api_hostname: cloud12a-compute-std-5.internalapi.localdomain
+      internal_api_ip: 10.151.110.24
+      storage_hostname: cloud12a-compute-std-5.storage.localdomain
+      storage_ip: 10.150.93.141
+      storage_mgmt_hostname: cloud12a-compute-std-5.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.206
+      storage_nfs_hostname: cloud12a-compute-std-5.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.12
+      tenant_hostname: cloud12a-compute-std-5.tenant.localdomain
+      tenant_ip: 10.151.111.20
+    enabled: true
+  - name: "cloud12a-compute-std-6"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.97
+      canonical_hostname: cloud12a-compute-std-6.localdomain
+      ctlplane_hostname: cloud12a-compute-std-6.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.97
+      deploy_server_id: 01fcdcd8-22a6-4934-be95-91a062866332
+      ilo_ip: 10.224.53.173
+      internal_api_hostname: cloud12a-compute-std-6.internalapi.localdomain
+      internal_api_ip: 10.151.110.25
+      storage_hostname: cloud12a-compute-std-6.storage.localdomain
+      storage_ip: 10.150.93.142
+      storage_mgmt_hostname: cloud12a-compute-std-6.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.207
+      storage_nfs_hostname: cloud12a-compute-std-6.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.13
+      tenant_hostname: cloud12a-compute-std-6.tenant.localdomain
+      tenant_ip: 10.151.111.21
+    enabled: true
+  - name: "cloud12a-compute-std-7"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.93
+      canonical_hostname: cloud12a-compute-std-7.localdomain
+      ctlplane_hostname: cloud12a-compute-std-7.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.93
+      deploy_server_id: 1e39770c-8adc-45d4-a3e7-27441e5efe48
+      ilo_ip: 10.224.53.174
+      internal_api_hostname: cloud12a-compute-std-7.internalapi.localdomain
+      internal_api_ip: 10.151.110.26
+      storage_hostname: cloud12a-compute-std-7.storage.localdomain
+      storage_ip: 10.150.93.143
+      storage_mgmt_hostname: cloud12a-compute-std-7.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.208
+      storage_nfs_hostname: cloud12a-compute-std-7.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.14
+      tenant_hostname: cloud12a-compute-std-7.tenant.localdomain
+      tenant_ip: 10.151.111.22
+    enabled: true
+  - name: "cloud12a-compute-std-8"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.95
+      canonical_hostname: cloud12a-compute-std-8.localdomain
+      ctlplane_hostname: cloud12a-compute-std-8.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.95
+      deploy_server_id: 811ffbe4-8ae1-4615-b244-12bee296f992
+      ilo_ip: 10.224.53.175
+      internal_api_hostname: cloud12a-compute-std-8.internalapi.localdomain
+      internal_api_ip: 10.151.110.27
+      storage_hostname: cloud12a-compute-std-8.storage.localdomain
+      storage_ip: 10.150.93.144
+      storage_mgmt_hostname: cloud12a-compute-std-8.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.209
+      storage_nfs_hostname: cloud12a-compute-std-8.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.15
+      tenant_hostname: cloud12a-compute-std-8.tenant.localdomain
+      tenant_ip: 10.151.111.23
+    enabled: true
+  - name: "cloud12a-compute-std-9"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.96
+      canonical_hostname: cloud12a-compute-std-9.localdomain
+      ctlplane_hostname: cloud12a-compute-std-9.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.96
+      deploy_server_id: 6992f6db-74b1-456d-b26d-b6fb155cd30d
+      ilo_ip: 10.224.53.176
+      internal_api_hostname: cloud12a-compute-std-9.internalapi.localdomain
+      internal_api_ip: 10.151.110.28
+      storage_hostname: cloud12a-compute-std-9.storage.localdomain
+      storage_ip: 10.150.93.145
+      storage_mgmt_hostname: cloud12a-compute-std-9.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.210
+      storage_nfs_hostname: cloud12a-compute-std-9.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.16
+      tenant_hostname: cloud12a-compute-std-9.tenant.localdomain
+      tenant_ip: 10.151.111.24
+    enabled: true
+  - name: "cloud12a-controller-0"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.81
+      canonical_hostname: cloud12a-controller-0.localdomain
+      ctlplane_hostname: cloud12a-controller-0.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.81
+      deploy_server_id: d417bec8-ca07-4571-8fd1-56ddb3fc8d00
+      external_hostname: cloud12a-controller-0.external.localdomain
+      external_ip: 10.32.133.143
+      ilo_ip: 10.224.53.164
+      internal_api_hostname: cloud12a-controller-0.internalapi.localdomain
+      internal_api_ip: 10.151.110.16
+      storage_hostname: cloud12a-controller-0.storage.localdomain
+      storage_ip: 10.150.93.133
+      storage_mgmt_hostname: cloud12a-controller-0.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.198
+      storage_nfs_hostname: cloud12a-controller-0.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.4
+      tenant_hostname: cloud12a-controller-0.tenant.localdomain
+      tenant_ip: 10.151.111.12
+    enabled: true
+  - name: "cloud12a-controller-1"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.89
+      canonical_hostname: cloud12a-controller-1.localdomain
+      ctlplane_hostname: cloud12a-controller-1.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.89
+      deploy_server_id: bfad1229-a41e-4e1b-8739-aa5a2a0f8e29
+      external_hostname: cloud12a-controller-1.external.localdomain
+      external_ip: 10.32.133.144
+      ilo_ip: 10.224.53.165
+      internal_api_hostname: cloud12a-controller-1.internalapi.localdomain
+      internal_api_ip: 10.151.110.17
+      storage_hostname: cloud12a-controller-1.storage.localdomain
+      storage_ip: 10.150.93.134
+      storage_mgmt_hostname: cloud12a-controller-1.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.199
+      storage_nfs_hostname: cloud12a-controller-1.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.5
+      tenant_hostname: cloud12a-controller-1.tenant.localdomain
+      tenant_ip: 10.151.111.13
+    enabled: true
+  - name: "cloud12a-controller-2"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: 10.151.110.86
+      canonical_hostname: cloud12a-controller-2.localdomain
+      ctlplane_hostname: cloud12a-controller-2.ctlplane.localdomain
+      ctlplane_ip: 10.151.110.86
+      deploy_server_id: c3603904-dc02-4e43-958e-f6812bf8bbb6
+      external_hostname: cloud12a-controller-2.external.localdomain
+      external_ip: 10.32.133.145
+      ilo_ip: 10.224.53.166
+      internal_api_hostname: cloud12a-controller-2.internalapi.localdomain
+      internal_api_ip: 10.151.110.18
+      storage_hostname: cloud12a-controller-2.storage.localdomain
+      storage_ip: 10.150.93.135
+      storage_mgmt_hostname: cloud12a-controller-2.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.93.200
+      storage_nfs_hostname: cloud12a-controller-2.storagenfs.localdomain
+      storage_nfs_ip: 10.150.113.6
+      tenant_hostname: cloud12a-controller-2.tenant.localdomain
+      tenant_ip: 10.151.111.14
+    enabled: true
+  - name: "director"
+    description: ""
+    inventory: "cloud12a"
+    variables:
+      ansible_host: ieatrheldir12a
+      vars:
+        ansible_ssh_common_args: -o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
+    enabled: true

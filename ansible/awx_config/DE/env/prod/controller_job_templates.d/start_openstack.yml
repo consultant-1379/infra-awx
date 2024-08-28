@@ -1,0 +1,47 @@
+---
+controller_templates:
+  - name: "Power On OpenStack Cloud"
+    description: ""
+    organization: "DE"
+    project: "infra-openstack"
+    playbook: "cloud_automation/utils/poweron_cloud/power_on_cloud.yml"
+    job_type: "run"
+    fact_caching_enabled: "False"
+    credentials:
+      - "awx_ssh"
+      - "deployment_password"
+    concurrent_jobs_enabled: "False"
+    ask_scm_branch_on_launch: "False"
+    ask_tags_on_launch: "False"
+    ask_verbosity_on_launch: "False"
+    ask_variables_on_launch: "False"
+    ask_inventory_on_launch: "True"
+    execution_environment: "awx-base"
+    survey_enabled: True
+    survey_spec:
+      description: ''
+      name: ''
+      spec:
+        - question_name: Enter Hardware Type Of Controller Nodes
+          question_description: ''
+          choices: 
+            - HP
+            - Dell
+          default: ''
+          max: null
+          min: null
+          required: true
+          type: multiplechoice
+          variable: ctrl_hw_type
+        - question_name: Enter Hardware Type Of Compute Nodes
+          question_description: ''
+          choices: 
+            - HP
+            - Dell
+          default: ''
+          max: null
+          min: null
+          new_question: true         
+          required: true
+          type: multiplechoice
+          variable: comp_hw_type

@@ -1,0 +1,20 @@
+plugin: community.vmware.vmware_vm_inventory
+strict: False
+hostname: atvcen40.athtem.eei.ericsson.se
+username: osinfra2@vsphere.local
+password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          62633132373836323533666566306138393539343035383934306663333835613830653433303563
+          3438653765646566313365343632653738396431396163620a346239316133616337613763343963
+          31646135313434383234303333653761333738646563656233326235646362366265393662373161
+          3163363638353537630a306666306266303435316533623863316163356536333232646264373235
+          6461
+validate_certs: False
+compose:
+  ansible_host: 'guest.ipAddress'
+hostnames:
+  - 'config.name'
+groups:
+  k3s: config.name.startswith("infra-awx-k3s")
+  k3s_servers: config.name.startswith("infra-awx-k3s-server")
+  k3s_agents: config.name.startswith("infra-awx-k3s-agent")

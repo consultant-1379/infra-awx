@@ -1,0 +1,77 @@
+---
+- hosts: localhost
+  name: Create group files from AWX inventory
+  connection: local
+  gather_facts: false
+  vars_files:
+    - roles/awx/defaults/main.yml
+    - roles/awx/vars/main.yml
+    - roles/import_inventory/vars/main.yml
+  vars:
+    controller_username: "admin"
+    controller_password: "{{ awx_admin_password }}"
+    controller_hostname: "https://{{ awx_host }}"
+    controller_validate_certs: "false"
+    controller_api_plugin: awx.awx.controller_api
+  pre_tasks:
+    - name: "Setup authentication (block)"
+      block:
+        - name: "Get the Authentication Token for the future requests"
+          ansible.builtin.uri:
+            url: "{{ controller_hostname }}/api/v2/tokens/"
+            user: "{{ controller_username }}"
+            password: "{{ controller_password }}"
+            method: POST
+            force_basic_auth: true
+            validate_certs: "{{ controller_validate_certs }}"
+            status_code: 201
+          register: authtoken_res
+
+        - name: "Set the oauth token to be used since now"
+          ansible.builtin.set_fact:
+            controller_oauthtoken: "{{ authtoken_res.json.token }}"
+            controller_oauthtoken_url: "{{ authtoken_res.json.url }}"
+      no_log: "{{ controller_configuration_filetree_create_secure_logging | default('false') }}"
+      when: controller_oauthtoken is not defined
+      tags:
+        - always
+
+
+  tasks:
+    - name: "Get the inventories from the AWX API"
+      ansible.builtin.set_fact:
+        inventory_lookvar: "{{ query(controller_api_plugin, 'api/v2/inventories/',
+                                    query_params={'not__kind': 'smart','order_by': 'organization,id'},
+                                    host=controller_hostname, oauth_token=controller_oauthtoken, verify_ssl=controller_validate_certs,
+                                    return_all=true, max_objects=10000)
+                            }}"
+    - name: Create groups files in awx_config/DE/env/prod/controller_groups.d/
+      template:
+        src: group.yml.j2
+        dest: 'awx_config/DE/env/prod/controller_groups.d/{{ inventory_name }}.yml'
+      vars:
+        inventory_organization: "{{ current_inventory_groups.summary_fields.organization.name | default('ORGANIZATIONLESS') }}"
+        inventory_name: "{{ current_inventory_groups.name | regex_replace('/', '_') }}"
+        current_groups_asset_value: "{{ query(controller_api_plugin, current_inventory_groups.related.groups,
+                                                  host=controller_hostname, oauth_token=controller_oauthtoken, verify_ssl=controller_validate_certs,
+                                                  return_all=true, max_objects=10000)
+                                            if not current_inventory_groups.has_inventory_sources else []
+                                    }}"
+        groups_to_create: '{{ groups_to_include["openstack"] if inventory_name.startswith("cloud") else groups_to_include["ccd"] }}'
+      loop: "{{ inventory_lookvar }}"
+      loop_control:
+        loop_var: current_inventory_groups
+        label: "{{ inventory_name }}"
+      when: current_inventory_groups.total_groups >0
+
+  post_tasks:
+    - name: "Delete the Authentication Token used"
+      ansible.builtin.uri:
+        url: "{{ controller_hostname }}{{ controller_oauthtoken_url }}"
+        user: "{{ controller_username }}"
+        password: "{{ controller_password }}"
+        method: DELETE
+        force_basic_auth: true
+        validate_certs: "{{ controller_validate_certs }}"
+        status_code: 204
+      when: controller_oauthtoken_url is defined

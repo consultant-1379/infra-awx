@@ -1,0 +1,114 @@
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: registry-ingress
+  namespace: kube-system
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  tls:
+  - hosts:
+      - registry.infra-awx-k3s.athtem.eei.ericsson.se
+    secretName: registry-tls
+  rules:
+  - host: registry.infra-awx-k3s.athtem.eei.ericsson.se
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: docker-registry-service
+            port:
+              number: 5000
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: registry-tls
+  namespace: kube-system
+data:
+  tls.crt: '{{ lookup("file","ssl/registry_tls.crt") | b64encode }}'
+  tls.key: '{{ lookup("file","ssl/registry_tls.key") | b64encode }}'
+type: kubernetes.io/tls
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-registry-service
+  namespace: kube-system
+  labels:
+    run: docker-registry
+spec:
+  selector:
+    app: docker-registry
+  ports:
+    - protocol: TCP
+      port: 5000
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: registry-pvc
+  namespace: kube-system
+spec:
+  storageClassName: vsphere-block
+  resources:
+    requests:
+      storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: registry-config
+  namespace: kube-system
+data:
+  config.yml: |
+    {{ lookup('file','registry-config.yml') | indent(width=4) }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-registry
+  namespace: kube-system
+  labels:
+    app: docker-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-registry
+  template:
+    metadata:
+      labels:
+        app: docker-registry
+    spec:
+      containers:
+      - name: docker-registry
+        image: registry
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+        volumeMounts:
+        - name: storage
+          mountPath: /var/lib/registry
+        - name: registry-config
+          mountPath: /etc/docker/registry
+        env:
+        - name: REGISTRY_HTTP_ADDR
+          value: :5000
+        - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+          value: /var/lib/registry
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: registry-pvc
+      - name: registry-config
+        configMap:
+          name: registry-config

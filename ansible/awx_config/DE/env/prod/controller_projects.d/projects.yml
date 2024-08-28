@@ -1,0 +1,40 @@
+# Refer to https://github.com/redhat-cop/controller_configuration/tree/devel/roles/projects#data-structure for further information on 
+# creating projects
+---
+controller_projects:
+  - name: infra-awx
+    organization: DE
+    scm_branch: master
+    scm_clean: 'yes'
+    scm_delete_on_update: 'yes'
+    scm_type: git
+    scm_update_on_launch: 'no'
+    credential: deosinfra
+    scm_url: https://deosinfra@gerrit.ericsson.se/a/OSS/ENM-Parent/SQ-Gate/com.ericsson.de/infra-awx
+  - name: infra-baremetal
+    organization: DE
+    scm_branch: master
+    scm_clean: 'yes'
+    scm_delete_on_update: 'yes'
+    scm_type: git
+    scm_update_on_launch: 'no'
+    credential: deosinfra
+    scm_url: https://deosinfra@gerrit.ericsson.se/a/OSS/com.ericsson.de/infra-baremetal
+  - name: infra-openstack
+    organization: DE
+    scm_branch: master
+    scm_clean: 'yes'
+    scm_delete_on_update: 'yes'
+    scm_type: git
+    scm_update_on_launch: 'no'
+    credential: deosinfra
+    scm_url: https://deosinfra@gerrit.ericsson.se/a/OSS/com.ericsson.de/infra-openstack
+  - name: stackcentric-internal
+    organization: DE
+    scm_branch: master
+    scm_clean: 'yes'
+    scm_delete_on_update: 'yes'
+    scm_type: git
+    scm_update_on_launch: 'no'
+    credential: deosinfra
+    scm_url: https://deosinfra@gerrit.ericsson.se/a/OSS/OSS/com.ericsson.oss.de/stackcentric-internal

@@ -1,0 +1,20 @@
+---
+controller_templates:
+  - name: "Check detaching volumes"
+    description: ""
+    organization: "DE"
+    project: "infra-openstack"
+    inventory: "awx_local"
+    playbook: "cloud_automation/utils/check_detaching_vols.yml"
+    job_type: "run"
+    fact_caching_enabled: "False"
+    concurrent_jobs_enabled: "True"
+    ask_scm_branch_on_launch: "False"
+    ask_credential_on_launch: true
+    ask_tags_on_launch: "False"
+    ask_verbosity_on_launch: "False"
+    ask_variables_on_launch: "False"
+    execution_environment: "awx-base"
+    survey_enabled: False
+    survey_spec: {}
+...

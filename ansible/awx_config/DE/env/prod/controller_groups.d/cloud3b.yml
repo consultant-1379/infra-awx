@@ -1,0 +1,76 @@
+---
+controller_groups:
+  - name: "Compute"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir3b -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: 512bd50e-ed57-4599-9cae-acc1ce305353
+      role_name: Compute
+      tripleo_role_name: Compute
+    hosts:
+      - cloud3b-compute-std-0
+      - cloud3b-compute-std-1
+      - cloud3b-compute-std-10
+      - cloud3b-compute-std-11
+      - cloud3b-compute-std-12
+      - cloud3b-compute-std-13
+      - cloud3b-compute-std-14
+      - cloud3b-compute-std-15
+      - cloud3b-compute-std-16
+      - cloud3b-compute-std-17
+      - cloud3b-compute-std-18
+      - cloud3b-compute-std-19
+      - cloud3b-compute-std-2
+      - cloud3b-compute-std-20
+      - cloud3b-compute-std-21
+      - cloud3b-compute-std-22
+      - cloud3b-compute-std-23
+      - cloud3b-compute-std-24
+      - cloud3b-compute-std-25
+      - cloud3b-compute-std-26
+      - cloud3b-compute-std-27
+      - cloud3b-compute-std-28
+      - cloud3b-compute-std-3
+      - cloud3b-compute-std-4
+      - cloud3b-compute-std-5
+      - cloud3b-compute-std-6
+      - cloud3b-compute-std-7
+      - cloud3b-compute-std-8
+      - cloud3b-compute-std-9
+    children:
+      []
+  - name: "Controller"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir3b -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: 512bd50e-ed57-4599-9cae-acc1ce305353
+      role_name: Controller
+      tripleo_role_name: Controller
+    hosts:
+      - cloud3b-controller-0
+      - cloud3b-controller-1
+      - cloud3b-controller-2
+    children:
+      []
+  - name: "overcloud"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir3b -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      ctlplane_vip: 10.148.28.155
+      external_vip: 131.160.194.48
+      internal_api_vip: 10.148.28.13
+      redis_vip: 10.148.28.14
+      storage_mgmt_vip: 10.148.29.11
+      storage_vip: 10.148.29.139
+    hosts:
+      []
+    children:
+      - Compute
+      - Controller
+...

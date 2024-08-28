@@ -1,0 +1,10 @@
+---
+collections:
+  - name: kubernetes.core
+  - name: dellemc.unity
+    version: 1.4.1
+  - name: dellemc.powerstore
+    version: 1.4.0
+  - name: community.vmware # used for deploying VyOS VMs
+    version: 1.15.0
+  - name: amazon.aws # required for aws_s3 module used to upload to MinIO

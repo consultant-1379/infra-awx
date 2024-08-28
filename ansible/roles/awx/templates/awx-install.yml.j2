@@ -1,0 +1,103 @@
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: awx-admin-password
+  namespace: awx
+data:
+  password: {{ awx_admin_password | b64encode }}
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: awx-tls
+  namespace: awx
+data:
+  tls.key: |
+    {{ awx_tls_key  }}
+  tls.crt: |
+    {{ awx_tls_cert }}
+type: kubernetes.io/tls
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: infra-awx-ldap-password
+  namespace: awx
+data:
+  ldap-password: {{ ldap_password | b64encode }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name:  infra-awx-known-hosts
+  namespace: awx
+data:
+  known_hosts: |
+    {{ known_hosts | indent(width=4) }}
+
+{# AWX is deployed by AWXRestore during restore from backup. In this case we don't want to deploy AWX using the manifest below. #}
+{% if deploy_awx | default(true) %}
+---
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: infra-awx
+  namespace: awx
+spec:
+  ingress_type: ingress
+  ingress_tls_secret: awx-tls
+  hostname: {{ awx_host }}
+  admin_password_secret: awx-admin-password
+  garbage_collect_secrets: true
+  postgres_storage_class: vsphere-block
+  ldap_password_secret: infra-awx-ldap-password
+  extra_settings:
+    - setting: TOWER_URL_BASE
+      value: >-
+        "https://{{ awx_host }}"
+    - setting: AUTH_LDAP_SERVER_URI
+      value: >-
+        "ldaps://ldap-query.ss.sw.ericsson.se:3269"
+    # performance improvement - https://access.redhat.com/solutions/5823061
+    - setting: AUTH_LDAP_ALWAYS_UPDATE_USER
+      value: false
+    # search for user by signum
+    - setting: AUTH_LDAP_USER_SEARCH
+      value: 'LDAPSearch("OU=CA,OU=User,OU=P001,OU=ID,OU=Data,DC=ericsson,DC=se",ldap.SCOPE_SUBTREE,"(sAMAccountName=%(user)s)",)'
+    # search for LDAP/AD groups
+    - setting: AUTH_LDAP_GROUP_SEARCH
+      value: 'LDAPSearch("OU=GRP,OU=Data,DC=ericsson,DC=se",ldap.SCOPE_SUBTREE,"(objectClass=group)")'
+    - setting: AUTH_LDAP_GROUP_TYPE
+      value: 'NestedActiveDirectoryGroupType()'
+    # map LDAP user attributes to AWX user attributes
+    - setting: AUTH_LDAP_USER_ATTR_MAP
+      value: '{"first_name": "givenName","last_name": "sn","email": "mail"}'
+    # bind user - connect to LDAP server as this user
+    - setting: AUTH_LDAP_BIND_DN
+      value: >-
+        "CN=deosinfra,OU=CA,OU=SvcAccount,OU=P001,OU=ID,OU=Data,DC=ericsson,DC=se"
+    # users which have the 'infra-awx-admins' role in IDM to be given the
+    # Administrator role in AWX
+    - setting: AUTH_LDAP_USER_FLAGS_BY_GROUP
+      value: {
+        "is_superuser": [
+          "CN=idm-45d63ab6ecd1,OU=IDM,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se"
+        ]
+      }
+
+  postgres_resource_requirements:
+    requests:
+      cpu: 500m
+      memory: 2Gi
+    limits:
+      cpu: '1'
+      memory: 4Gi
+  postgres_storage_requirements:
+    requests:
+      storage: 8Gi
+    limits:
+      storage: 50Gi
+{% endif %}

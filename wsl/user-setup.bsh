@@ -1,0 +1,42 @@
+#!/bin/bash
+log() {
+    echo -e "\e[32m${1}\e[0m"
+  }
+username=$1
+if [ -z ${username} ]; then
+    echo "Run script ./user-setup.sh <username>"
+    exit 1
+fi
+log "Creating user ${username}"
+useradd -m ${username} -G sudo -s /bin/bash
+env_name="ansible_env"
+
+log "Setting ${username} as default user"
+echo """[user]                 
+default=${username}""" >> /etc/wsl.conf
+
+sudo -i -u ${username} << EOF
+# log() function must be redefined here
+# as sudo command creates a new shell
+# where log() doesn't exist
+log() {
+    echo -e "\e[32m\${1}\e[0m"
+  }
+log "Create ${env_name} python virtualenv"
+python3 -m venv ${env_name}
+
+log "Activate ${env_name}"
+. ~/${env_name}/bin/activate
+
+log "Installing ansible python packages in ${env_name}"
+pip install -U pip
+pip install -r /var/tmp/requirements.txt
+
+log "Update .bashrc to enable ${env_name} on login"
+echo ". ~/${env_name}/bin/activate" >> ~/.bashrc
+EOF
+registry="registry.infra-awx-k3s.athtem.eei.ericsson.se"
+log "Configuring podman to use ${registry}"
+echo """[[registry]]
+location = \"${registry}\"
+insecure = true""" >> /etc/containers/registries.conf

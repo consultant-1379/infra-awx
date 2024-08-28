@@ -1,0 +1,22 @@
+---
+controller_templates:
+  - name: "Power Off OpenStack Cloud"
+    description: ""
+    organization: "DE"
+    project: "infra-openstack"
+    playbook: "cloud_automation/utils/shutdown_cloud/shutdown_cloud.yml"
+    job_type: "run"
+    fact_caching_enabled: "False"
+    credentials:
+      - "awx_ssh"
+      - "deployment_password"
+    concurrent_jobs_enabled: "False"
+    ask_scm_branch_on_launch: "False"
+    ask_tags_on_launch: "False"
+    ask_verbosity_on_launch: "False"
+    ask_variables_on_launch: "False"
+    ask_inventory_on_launch: "True"
+    execution_environment: "awx-base"
+    survey_enabled: False
+    survey_spec: {}
+...

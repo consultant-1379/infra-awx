@@ -1,0 +1,25 @@
+---
+- hosts: k3s
+  gather_facts: True
+  become: True
+  user: ubuntu
+  roles:
+    - name: k3s
+      tags:
+        - deploy_k3s
+    - name: vsphere_csp
+      delegate_to: localhost
+      become: false
+      run_once: True
+      tags:
+        - vsphere_csp
+      environment:
+        K8S_AUTH_KUBECONFIG: k3s_kubeconfig
+    - name: registry
+      delegate_to: localhost
+      become: false
+      run_once: True
+      tags:
+        - registry
+      environment:
+        K8S_AUTH_KUBECONFIG: k3s_kubeconfig

@@ -1,0 +1,105 @@
+---
+controller_groups:
+  - name: "overcloud_Compute"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirdeva -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: f547194f-8aa6-4117-844f-acb2030f4a31
+      serial: '1'
+      tripleo_role_name: Compute
+      tripleo_role_networks:
+      - ctlplane
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - clouddeva-compute-std-0
+      - clouddeva-compute-std-1
+      - clouddeva-compute-std-10
+      - clouddeva-compute-std-11
+      - clouddeva-compute-std-2
+      - clouddeva-compute-std-3
+      - clouddeva-compute-std-4
+      - clouddeva-compute-std-5
+      - clouddeva-compute-std-6
+      - clouddeva-compute-std-7
+      - clouddeva-compute-std-8
+      - clouddeva-compute-std-9
+    children:
+      []
+  - name: "overcloud_Controller"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirdeva -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: f547194f-8aa6-4117-844f-acb2030f4a31
+      serial: '1'
+      tripleo_role_name: Controller
+      tripleo_role_networks:
+      - ctlplane
+      - external
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - clouddeva-controller-0
+      - clouddeva-controller-1
+      - clouddeva-controller-2
+    children:
+      []
+  - name: "overcloud_allovercloud"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirdeva -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      container_cli: podman
+      ctlplane_vip: 10.150.0.160
+      external_vip: 10.150.3.137
+      internal_api_vip: 10.150.0.14
+      redis_vip: 10.150.0.15
+      storage_mgmt_vip: 10.150.4.140
+      storage_vip: 10.150.4.12
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+      - overcloud_Controller
+  - name: "Compute"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirdeva -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+  - name: "Controller"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirdeva -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Controller
+  - name: "overcloud"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirdeva -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_allovercloud
+...

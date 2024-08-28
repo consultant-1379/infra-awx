@@ -1,0 +1,124 @@
+---
+controller_groups:
+  - name: "overcloud_Compute"
+    description: ""
+    inventory: "cloud11a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir11a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: 323f4ecf-2b5d-4a63-ad6a-b4c3fad328fb
+      serial: '1'
+      tripleo_role_name: Compute
+      tripleo_role_networks:
+      - ctlplane
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - cloud11a-compute-std-0
+      - cloud11a-compute-std-1
+      - cloud11a-compute-std-10
+      - cloud11a-compute-std-11
+      - cloud11a-compute-std-12
+      - cloud11a-compute-std-13
+      - cloud11a-compute-std-14
+      - cloud11a-compute-std-15
+      - cloud11a-compute-std-16
+      - cloud11a-compute-std-17
+      - cloud11a-compute-std-18
+      - cloud11a-compute-std-19
+      - cloud11a-compute-std-2
+      - cloud11a-compute-std-20
+      - cloud11a-compute-std-21
+      - cloud11a-compute-std-22
+      - cloud11a-compute-std-23
+      - cloud11a-compute-std-24
+      - cloud11a-compute-std-25
+      - cloud11a-compute-std-26
+      - cloud11a-compute-std-27
+      - cloud11a-compute-std-28
+      - cloud11a-compute-std-29
+      - cloud11a-compute-std-3
+      - cloud11a-compute-std-30
+      - cloud11a-compute-std-4
+      - cloud11a-compute-std-5
+      - cloud11a-compute-std-6
+      - cloud11a-compute-std-7
+      - cloud11a-compute-std-8
+      - cloud11a-compute-std-9
+    children:
+      []
+  - name: "overcloud_Controller"
+    description: ""
+    inventory: "cloud11a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir11a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: 323f4ecf-2b5d-4a63-ad6a-b4c3fad328fb
+      serial: '1'
+      tripleo_role_name: Controller
+      tripleo_role_networks:
+      - ctlplane
+      - external
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - cloud11a-controller-0
+      - cloud11a-controller-1
+      - cloud11a-controller-2
+    children:
+      []
+  - name: "overcloud_allovercloud"
+    description: ""
+    inventory: "cloud11a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir11a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      container_cli: podman
+      ctlplane_vip: 10.232.75.147
+      external_vip: 10.59.149.9
+      internal_api_vip: 10.232.75.13
+      redis_vip: 10.232.75.14
+      storage_mgmt_vip: 10.150.111.11
+      storage_vip: 10.150.110.11
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+      - overcloud_Controller
+  - name: "Compute"
+    description: ""
+    inventory: "cloud11a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir11a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+  - name: "Controller"
+    description: ""
+    inventory: "cloud11a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir11a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Controller
+  - name: "overcloud"
+    description: ""
+    inventory: "cloud11a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir11a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_allovercloud
+...

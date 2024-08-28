@@ -1,0 +1,9 @@
+[Global]
+cluster-id = "k3s-vsphere"
+
+[VirtualCenter "{{ vcenter_name }}.athtem.eei.ericsson.se"]
+insecure-flag = "true"
+user = "{{ vcenter_csi_username }}"
+password = "{{ vcenter_csi_password }}"
+port = "443"
+datacenters = "{{ vcenter_datacenter }}"

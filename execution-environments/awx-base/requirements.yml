@@ -1,0 +1,10 @@
+---
+collections:
+  - name: cloud.common
+  - name: openstack.cloud
+  - name: awx.awx
+  - name: ansible.posix
+  - name: ansible.utils
+  - name: community.general
+  - name: kubernetes.core
+  - name: community.crypto

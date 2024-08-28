@@ -1,0 +1,29 @@
+- name: Configure Keepalived
+  block:
+    - name: Install keepalived
+      apt:
+        name: keepalived
+        state: present
+        update_cache: true
+
+    - name: Create keepalived config for worker VIP
+      template:
+        src: keepalived.conf.j2
+        dest: /etc/keepalived/keepalived.conf
+
+    - name: Enabled and Start Keepalived
+      systemd:
+        name: keepalived
+        state: started
+        daemon_reload: yes
+        enabled: yes
+
+    - name: Set rp_filter=2 on all nodes
+      sysctl:
+        name: 'net.ipv4.conf.{{ ansible_default_ipv4["interface"] }}.rp_filter'
+        value: '2'
+        sysctl_set: yes
+  when: inventory_hostname in groups["k3s_servers"]
+
+
+

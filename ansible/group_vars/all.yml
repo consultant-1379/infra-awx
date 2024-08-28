@@ -1,0 +1,24 @@
+k3s_vip: 10.150.196.16
+k3s_api_fqdn: api.infra-awx-k3s.athtem.eei.ericsson.se
+ansible_ssh_common_args: "-oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null"
+dns_servers:
+  - 159.107.173.3
+  - 159.107.173.12
+vcenter_name: atvcen40
+vcenter_ip: 10.150.113.134
+vcenter_datacenter: ATVCEN40
+vcenter_csi_username: osinfra-csi@vsphere.local
+vcenter_csi_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          37313763326566333137346261373833363732636165613237326133303737323035333361366237
+          3366306366643837643338366430386335613862303333650a633863343932326535386431623262
+          65353762336566636239643661623865643630383337393434313862363663303039623562313963
+          6333636561396666310a303764346537663933643738393137396533613132336661333133306430
+          30666435353735663062353039316334626634326637363034346432353664393331
+
+
+csi_datastore_url: ds:///vmfs/volumes/6336f952-47e8cb0b-47ba-9cdc71652920/
+
+
+repo_host: http://ieatreposvr01.athtem.eei.ericsson.se
+registry_host: registry.infra-awx-k3s.athtem.eei.ericsson.se

@@ -1,0 +1,52 @@
+# For further information on creating job templates see https://github.com/redhat-cop/controller_configuration/tree/devel/roles/job_templates#data-structure
+# ---
+# controller_templates:
+#   - name: "< job template name>"
+#     description: ""
+#     organization: "DE"
+#     project: "< project (git repo) which contains the playbook for the job>"
+#     inventory: "< name of the inventory to use>"
+#     playbook: "< path to the playbook relative to the root of the project>"
+#     job_type: "run"
+#     extra_vars:
+#       my_custom_var: <value>
+#     concurrent_jobs_enabled: "True"
+#     ask_variables_on_launch: "False"
+# use this if this job will be run against multiple inventories
+# remove the inventory variable if ask_inventory_on_launch is set to True
+#     ask_inventory_on_launch: "True" 
+#     execution_environment: "awx-base"
+# set survey_enabled to True if using a survey to collect input from the user
+#     survey_enabled: False
+# the survey_spec defines the questions presented to the user and the variables to save the inputs
+# jobs which are non-interactive can pass parameters using extra_vars variable above
+#     survey_spec: 
+#       description: ''
+#       name: ''
+#       spec:
+#          - question_name: Are you an administrator user?
+#            question_description: ''
+#            required: true
+#            type: multiplechoice
+#            variable: is_admin
+#            new_question: true
+#            choices:
+#              - "yes"
+#              - "no"
+#          - question_name: Enter your username
+#            question_description: 'e.g. your signum'
+#            required: true
+#            type: text
+#            variable: username
+#            new_question: true
+#          - question_name: 'Enter your password:'
+#            question_description: ''
+#            choices: ''
+#            default: ''
+#            max: 32
+#            min: 0
+#            new_question: true
+#            required: true
+#            type: password
+#            variable: user_pass
+# # ...

@@ -1,0 +1,34 @@
+---
+- name: Update Image
+  hosts: default
+  become: true
+  tasks:
+    - name: Update/install grub-efi-amd64-signed separately to prevent conflicts
+      apt:
+        update_cache: true
+        name: 'grub-efi-amd64-signed'
+        state: latest
+
+    - name: Update all packages to the latest versions
+      apt:
+       name: '*'
+       state: latest
+
+    - name: Copy Ericsson Internal CA certs
+      copy:
+        src: '{{ item }}'
+        dest: '/usr/local/share/ca-certificates/'
+      loop:
+        - egad_intermediate_ca.crt
+        - egad_root_ca.crt
+
+    - name: Update CA certificates
+      shell: update-ca-certificates
+      register: cert_update
+
+    - name: Print result of 'update-ca-certificates' command
+      debug:
+        msg: '{{ cert_update.stdout_lines }}'
+
+    - name: Cleanup cloud-init
+      shell: 'cloud-init clean --logs'

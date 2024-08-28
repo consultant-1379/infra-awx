@@ -1,0 +1,47 @@
+---
+controller_templates:
+  - name: "Import bmccdX_CCD_deploy inventory"
+    description: "Pulls from ccd_inventory.yml on the kickstart VM (bmccdX-ks)"
+    organization: "DE"
+    project: "infra-awx"
+    inventory: "awx_local"
+    playbook: "ansible/import_inventory_to_awx.yml"
+    job_type: "run"
+    fact_caching_enabled: "False"
+    credentials:
+      - "awx_ssh_as_root"
+      - "deployment_password"
+    concurrent_jobs_enabled: "True"
+    ask_scm_branch_on_launch: "False"
+    ask_tags_on_launch: "False"
+    ask_verbosity_on_launch: "False"
+    ask_variables_on_launch: "True"
+    extra_vars:
+      inventory_type: ccd
+    execution_environment: "awx-base"
+    survey_enabled: True
+    survey_spec:
+      description: ""
+      name: ""
+      spec:
+        - question_description: The hostname of the kickstart VM e.g. bmccd0-ks
+          question_name: Enter the hostname of the kickstart
+          required: true
+          type: text
+          variable: first_host
+          choices: ""
+          default: ""
+          max: 1024
+          min: 0
+        - question_description: e.g. bmccd0
+          question_name: Enter the name of the inventory
+          required: true
+          type: text
+          variable: inventory_name
+          choices: ""
+          default: ""
+          max: 1024
+          min: 0
+          new_question: true
+  
+...

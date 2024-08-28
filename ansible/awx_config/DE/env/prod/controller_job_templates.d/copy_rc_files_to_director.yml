@@ -1,0 +1,19 @@
+---
+controller_templates:
+  - name: "Copy RC Files"
+    description: "Copy RC Files to cloud director"
+    organization: "DE"
+    project: "stackcentric-internal"
+    playbook: "playbooks/copy_rc_files.yml"
+    job_type: "run"
+    fact_caching_enabled: "False"
+    concurrent_jobs_enabled: "False"
+    ask_scm_branch_on_launch: "False"
+    ask_tags_on_launch: "False"
+    ask_verbosity_on_launch: "False"
+    ask_variables_on_launch: "True"
+    ask_inventory_on_launch: "True"
+    execution_environment: "awx-base"
+    survey_enabled: False
+    survey_spec: {}
+...

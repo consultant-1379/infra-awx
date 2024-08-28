@@ -1,0 +1,29 @@
+---
+# Refer to https://github.com/redhat-cop/controller_configuration/tree/devel/roles/execution_environments#data-structure for further information
+# on how to add an execution environment to AWX
+controller_execution_environments:
+  - name: "Control Plane Execution Environment"
+    description: ""
+    image: "quay.io/ansible/awx-ee:latest"
+    pull: ""
+  - name: "AWX EE (latest)"
+    description: ""
+    image: "quay.io/ansible/awx-ee:latest"
+    pull: ""
+  - name: "awx-base"
+    description: "The base execution environment (EE) developed by theDE OpenStack Infra team. All other EEs are based on this."
+    image: "registry.infra-awx-k3s.athtem.eei.ericsson.se/awx-base:latest"
+    pull: ""
+  - name: "bmccd-ee"
+    description: "This EE is used for playbooks interacting with the baremetal CCD environments."
+    image: "registry.infra-awx-k3s.athtem.eei.ericsson.se/bmccd-ee:latest"
+    pull: ""
+  - name: "vmware-ee"
+    description: "This EE is used for playbooks interacting with VMware environments"
+    image: "registry.infra-awx-k3s.athtem.eei.ericsson.se/vmware-ee:latest"
+    pull: ""
+  - name: "cinder-ee"
+    description: "This EE is used for the cinder comparison job"
+    image: "registry.infra-awx-k3s.athtem.eei.ericsson.se/cinder-ee:latest"
+    pull: ""
+...

@@ -1,0 +1,74 @@
+
+- name: Taint all nodes
+  kubernetes.core.k8s_taint:
+    state: present
+    name: '{{ node }}'
+    taints:
+      - effect: NoSchedule
+        key: "node.cloudprovider.kubernetes.io/uninitialized"
+        value: "true"
+  loop: '{{ groups["k3s"] }}'
+  loop_control:
+    loop_var: node
+    label: '{{ node }}'
+
+- name: Set providerId on each node
+  kubernetes.core.k8s_json_patch:
+    kind: Node
+    name: "{{ item }}"
+    patch:
+      - op: add
+        path: /spec/providerId
+        value: 'vsphere://{{ item }}'
+  loop: '{{ groups["k3s"] }}'
+
+- name: Create vSphere Cloud Controller Manager
+  kubernetes.core.k8s:
+    definition: '{{ lookup("template","vsphere-cloud-controller-manager.yaml.j2") }}'
+    state: present
+
+- name: Create VMware CSI Namespace
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: vmware-system-csi
+
+- name: Create VMware CSI configuration
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Secret
+      type: Opaque
+      metadata:
+        name: vsphere-config-secret
+        namespace: vmware-system-csi
+      data:
+        csi-vsphere.conf: '{{ lookup("template","csi-vsphere.conf.j2") | b64encode }}'
+
+- name: Create VMware CSI driver
+  kubernetes.core.k8s:
+    src: vsphere-csi-driver.yaml
+    state: present
+
+- name: "Create 'vsphere-block' storage class"
+  kubernetes.core.k8s:
+    definition: '{{ lookup("template","storage-class.yaml.j2") }}'
+    state: present
+
+
+- name: Untaint all nodes
+  kubernetes.core.k8s_taint:
+    state: absent
+    name: '{{ node }}'
+    taints:
+      - effect: NoSchedule
+        key: "node.cloudprovider.kubernetes.io/uninitialized"
+        value: "true"
+  loop: '{{ groups["k3s"] }}'
+  loop_control:
+    loop_var: node
+    label: '{{ node }}'

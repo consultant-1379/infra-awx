@@ -1,0 +1,14 @@
+exec_envs:
+  - awx-base
+  - bmccd-ee
+  - cinder-ee
+  - vmware-ee
+download_files:
+  awx-base:
+    - helm
+    - terraform
+  bmccd-ee:
+    - kubectl
+  cinder-ee:
+    - libnsl.rpm
+    - naviseccli.rpm

@@ -1,0 +1,10 @@
+# ---
+# controller_groups:
+#   - name: "Compute"
+#     description: ""
+#     inventory: "cloud3a"
+#     variables:
+#       my_group_var: 'abc123'
+#     hosts:
+#       - myserver1
+#       - myserver2

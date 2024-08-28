@@ -1,0 +1,322 @@
+---
+# For the full list of variables that can be used for an inventory object see https://github.com/redhat-cop/controller_configuration/tree/devel/roles/inventories#data-structure
+# Here's an example inventory object that can be added to the controller_inventories list. The only mandatory variable is the inventory name.
+#
+#   - name: <inventory name>
+#     description: "<inventory description>"
+#     organization: DE
+#
+controller_inventories:
+  - name: awx_local
+    description: 'Inventory to run tasks on AWX itself'
+    organization: DE
+  - name: cloud3b
+    organization: "DE"
+  - name: cloud4a
+    organization: "DE"
+  - name: cloud4b
+    organization: "DE"
+  - name: cloud5a
+    organization: "DE"
+  - name: cloud5b
+    organization: "DE"
+  - name: cloud6a
+    organization: "DE"
+  - name: cloud6b
+    organization: "DE"
+  - name: cloud7b
+    organization: "DE"
+  - name: cloud10a
+    organization: "DE"
+  - name: cloud11a
+    organization: "DE"
+  - name: cloud12a
+    organization: "DE"
+  - name: cloud13a
+    organization: "DE"
+  - name: cloud14a
+    organization: "DE"
+  - name: cloud15a
+    organization: "DE"
+  - name: cloud16a
+    organization: "DE"
+  - name: cloud16b
+    organization: "DE"
+  - name: cloud16c
+    organization: "DE"
+  - name: clouddeva
+    organization: "DE"
+  - name: cloudenv1
+    organization: "DE"
+  - name: meteo_dev
+    organization: DE
+  - name: meteo_prod
+    organization: DE
+
+  - name: "bmccd0"
+    description: ""
+    organization: "DE"
+ 
+  - name: "bmccd0_CCD_deploy"
+    description: ""
+    organization: "DE"
+    variables:
+      calico_ip_autodetection_method: interface=internal
+      calico_ipv6_nat: true
+      ccd_licensing_enabled: false
+      container_registry_enabled: false
+      dns_server_ips:
+      - 159.107.173.12
+      - 159.107.173.3
+      ecfe_config_map_raw:
+        address-pools:
+        - addresses:
+          - 10.150.12.6-10.150.12.6
+          - 10.150.12.7-10.150.12.7
+          - 2001:1b70:82b9:123::10-2001:1b70:82b9:123::10
+          - 2001:1b70:82b9:123::11-2001:1b70:82b9:123::11
+          name: default
+          protocol: bgp
+        bgp-peers:
+        - my-asn: 4247257108
+          peer-address: 10.232.239.4
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 10.232.239.5
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 2001:1b70:82b9:101::4
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 2001:1b70:82b9:101::5
+          peer-asn: 4247257098
+      ecfe_enabled: true
+      etcd_election_timeout: 3000
+      etcd_grpc_keepalive_min_time: 10s
+      etcd_heartbeat_interval: 300
+      etcd_snapshot_count: 10000
+      ingressctrl_cluster_ip_defined: false
+      k8s_ip_version: dualstack
+      k8s_pod_cidr: 192.168.0.0/16,2001:db8:ffff:ccd::/64
+      k8s_service_cidr: 10.96.0.0/12,2002:db8:ffff:ccd::abcd:0/112
+      keepalived_virtual_router_id: 100
+      kube_api_ingress_host: api.bmccd0.athtem.eei.ericsson.se
+      kube_api_vip_enabled: true
+      kube_apiserver_ip: 10.232.238.134
+      kubernetes_interface_override: internal
+      nfs_provisioner_enabled: true
+      pm_monitoring_enabled: false
+      timezone: Europe/Dublin
+
+  - name: "bmccd1"
+    description: ""
+    organization: "DE"
+
+  - name: "bmccd1_CCD_deploy"
+    description: ""
+    organization: "DE"
+    variables:
+      calico_ip_autodetection_method: interface=internal
+      ccd_licensing_enabled: false
+      container_registry_enabled: false
+      dns_server_ips:
+      - 159.107.173.12
+      - 159.107.173.3
+      ecfe_config_map_raw:
+        address-pools:
+        - addresses:
+          - 10.150.10.198-10.150.10.198
+          - 10.150.10.199-10.150.10.199
+          name: default
+          protocol: bgp
+        bgp-peers:
+        - my-asn: 4247257108
+          peer-address: 10.232.150.4
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 10.232.150.5
+          peer-asn: 4247257098
+      ecfe_enabled: true
+      etcd_election_timeout: 3000
+      etcd_grpc_keepalive_min_time: 10s
+      etcd_heartbeat_interval: 300
+      etcd_snapshot_count: 10000
+      ingressctrl_cluster_ip_defined: false
+      keepalived_virtual_router_id: 100
+      kube_api_ingress_host: api.bmccd1.athtem.eei.ericsson.se
+      kube_api_vip_enabled: true
+      kube_apiserver_ip: 10.232.172.9
+      kubernetes_interface_override: internal
+      nfs_provisioner_enabled: true
+      pm_monitoring_enabled: false
+      timezone: Europe/Dublin
+
+  - name: "bmccd2"
+    description: ""
+    organization: "DE"
+
+  - name: "bmccd2_CCD_deploy"
+    description: ""
+    organization: "DE"
+    variables:
+      calico_ip_autodetection_method: interface=internal
+      ccd_licensing_enabled: false
+      container_registry_enabled: false
+      dns_server_ips:
+      - 159.107.173.12
+      - 159.107.173.3
+      ecfe_config_map_raw:
+        address-pools:
+        - addresses:
+          - 10.150.10.228-10.150.10.228
+          - 10.150.10.229-10.150.10.229
+          name: default
+          protocol: bgp
+        bgp-peers:
+        - my-asn: 4247257108
+          peer-address: 10.232.170.132
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 10.232.170.133
+          peer-asn: 4247257098
+      ecfe_enabled: true
+      etcd_election_timeout: 3000
+      etcd_grpc_keepalive_min_time: 10s
+      etcd_heartbeat_interval: 300
+      etcd_snapshot_count: 10000
+      ingressctrl_cluster_ip_defined: false
+      keepalived_virtual_router_id: 100
+      kube_api_ingress_host: api.bmccd2.athtem.eei.ericsson.se
+      kube_api_vip_enabled: true
+      kube_apiserver_ip: 10.232.171.138
+      kubernetes_interface_override: internal
+      nfs_provisioner_enabled: true
+      pm_monitoring_enabled: false
+      timezone: Europe/Dublin
+
+  - name: "bmccd3"
+    description: ""
+    organization: "DE"
+
+  - name: "bmccd3_CCD_deploy"
+    description: ""
+    organization: "DE"
+    variables:
+      calico_ip_autodetection_method: interface=internal
+      ccd_licensing_enabled: false
+      container_registry_enabled: false
+      dns_server_ips:
+      - 159.107.173.12
+      - 159.107.173.3
+      ecfe_config_map_raw:
+        address-pools:
+        - addresses:
+          - 10.150.22.132-10.150.22.132
+          - 10.150.22.133-10.150.22.133
+          - 2001:1b70:82b9:139::10-2001:1b70:82b9:139::10
+          - 2001:1b70:82b9:139::11-2001:1b70:82b9:139::11
+          name: default
+          protocol: bgp
+        bgp-peers:
+        - my-asn: 4247257108
+          peer-address: 10.232.210.132
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 10.232.210.133
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 2001:1b70:82b9:e2::4
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 2001:1b70:82b9:e2::5
+          peer-asn: 4247257098
+      ecfe_enabled: true
+      etcd_election_timeout: 3000
+      etcd_grpc_keepalive_min_time: 10s
+      etcd_heartbeat_interval: 300
+      etcd_snapshot_count: 10000
+      ingressctrl_cluster_ip_defined: false
+      k8s_ip_version: dualstack
+      k8s_pod_cidr: 192.168.0.0/16,2001:db8:ffff:ccd::/64
+      k8s_service_cidr: 10.96.0.0/12,2002:db8:ffff:ccd::abcd:0/112
+      keepalived_virtual_router_id: 100
+      kube_api_ingress_host: api.bmccd3.athtem.eei.ericsson.se
+      kube_api_vip_enabled: true
+      kube_apiserver_ip: 10.232.211.138
+      kubernetes_interface_override: internal
+      nfs_provisioner_enabled: true
+      pm_monitoring_enabled: false
+      timezone: Europe/Dublin
+
+  - name: "bmccd4"
+    description: ""
+    organization: "DE"
+
+  - name: "bmccd4_CCD_deploy"
+    description: ""
+    organization: "DE"
+    variables:
+      calico_ip_autodetection_method: interface=internal
+      ccd_licensing_enabled: false
+      container_registry_enabled: false
+      dns_server_ips:
+      - 159.107.173.12
+      - 159.107.173.3
+      ecfe_config_map_raw:
+        address-pools:
+        - addresses:
+          - 10.150.22.193-10.150.22.193
+          - 10.150.22.194-10.150.22.194
+          name: default
+          protocol: bgp
+        bgp-peers:
+        - my-asn: 4247257108
+          peer-address: 10.232.222.132
+          peer-asn: 4247257098
+        - my-asn: 4247257108
+          peer-address: 10.232.222.133
+          peer-asn: 4247257098
+      ecfe_enabled: true
+      etcd_election_timeout: 3000
+      etcd_grpc_keepalive_min_time: 10s
+      etcd_heartbeat_interval: 300
+      etcd_snapshot_count: 10000
+      ingressctrl_cluster_ip_defined: false
+      keepalived_virtual_router_id: 100
+      kube_api_ingress_host: api.bmccd4.athtem.eei.ericsson.se
+      kube_api_vip_enabled: true
+      kube_apiserver_ip: 10.232.203.138
+      kubernetes_interface_override: internal
+      nfs_provisioner_enabled: true
+      pm_monitoring_enabled: false
+      timezone: Europe/Dublin
+
+  - name: "bmccd5"
+    description: ""
+    organization: "DE"
+
+  - name: "bmccd5_CCD_deploy"
+    description: ""
+    organization: "DE"
+    variables:
+      calico_ip_autodetection_method: interface=internal
+      ccd_licensing_enabled: false
+      container_registry_enabled: false
+      dns_server_ips:
+      - 159.107.173.12
+      - 159.107.173.3
+      etcd_election_timeout: 3000
+      etcd_grpc_keepalive_min_time: 10s
+      etcd_heartbeat_interval: 300
+      etcd_snapshot_count: 10000
+      ingressctrl_cluster_ip_defined: false
+      keepalived_virtual_router_id: 100
+      kube_api_ingress_host: api.bmccd5.athtem.eei.ericsson.se
+      kube_api_vip_enabled: true
+      kube_apiserver_ip: 10.232.33.9
+      kubernetes_interface_override: internal
+      nfs_provisioner_enabled: true
+      pm_monitoring_enabled: false
+      timezone: Europe/Dublin
+
+...

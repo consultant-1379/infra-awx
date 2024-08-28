@@ -1,0 +1,185 @@
+---
+controller_hosts:
+  - name: "clouddeva-compute-std-0"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: 10.150.0.165
+      canonical_hostname: clouddeva-compute-std-0.localdomain
+      ctlplane_hostname: clouddeva-compute-std-0.ctlplane.localdomain
+      ctlplane_ip: 10.150.0.165
+      deploy_server_id: 624d0145-7fd6-493b-b9d9-7e81bcdf51f5
+      internal_api_hostname: clouddeva-compute-std-0.internalapi.localdomain
+      internal_api_ip: 10.150.0.19
+      storage_hostname: clouddeva-compute-std-0.storage.localdomain
+      storage_ip: 10.150.4.16
+      storage_mgmt_hostname: clouddeva-compute-std-0.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.4.144
+      storage_nfs_hostname: clouddeva-compute-std-0.storagenfs.localdomain
+      storage_nfs_ip: 10.150.5.15
+      tenant_hostname: clouddeva-compute-std-0.tenant.localdomain
+      tenant_ip: 10.150.1.143
+      ilo_ip: 10.232.63.159
+    enabled: true
+  - name: "clouddeva-compute-std-1"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: 10.150.0.149
+      canonical_hostname: clouddeva-compute-std-1.localdomain
+      ctlplane_hostname: clouddeva-compute-std-1.ctlplane.localdomain
+      ctlplane_ip: 10.150.0.149
+      deploy_server_id: cb8bc5e0-8fd6-493d-b060-209ce1dd8994
+      internal_api_hostname: clouddeva-compute-std-1.internalapi.localdomain
+      internal_api_ip: 10.150.0.20
+      storage_hostname: clouddeva-compute-std-1.storage.localdomain
+      storage_ip: 10.150.4.17
+      storage_mgmt_hostname: clouddeva-compute-std-1.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.4.145
+      storage_nfs_hostname: clouddeva-compute-std-1.storagenfs.localdomain
+      storage_nfs_ip: 10.150.5.16
+      tenant_hostname: clouddeva-compute-std-1.tenant.localdomain
+      tenant_ip: 10.150.1.144
+      ilo_ip: 10.232.63.160
+    enabled: true
+  - name: "clouddeva-compute-std-2"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: 10.150.0.169
+      canonical_hostname: clouddeva-compute-std-2.localdomain
+      ctlplane_hostname: clouddeva-compute-std-2.ctlplane.localdomain
+      ctlplane_ip: 10.150.0.169
+      deploy_server_id: 8a83c39d-d8fd-42fd-9764-a70520a84e00
+      internal_api_hostname: clouddeva-compute-std-2.internalapi.localdomain
+      internal_api_ip: 10.150.0.21
+      storage_hostname: clouddeva-compute-std-2.storage.localdomain
+      storage_ip: 10.150.4.18
+      storage_mgmt_hostname: clouddeva-compute-std-2.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.4.146
+      storage_nfs_hostname: clouddeva-compute-std-2.storagenfs.localdomain
+      storage_nfs_ip: 10.150.5.17
+      tenant_hostname: clouddeva-compute-std-2.tenant.localdomain
+      tenant_ip: 10.150.1.145
+      ilo_ip: 10.232.63.161
+    enabled: true
+  - name: "clouddeva-compute-std-3"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: 10.150.0.184
+      canonical_hostname: clouddeva-compute-std-3.localdomain
+      ctlplane_hostname: clouddeva-compute-std-3.ctlplane.localdomain
+      ctlplane_ip: 10.150.0.184
+      deploy_server_id: 55ffdd6b-71ec-4702-affe-408402b1e158
+      internal_api_hostname: clouddeva-compute-std-3.internalapi.localdomain
+      internal_api_ip: 10.150.0.22
+      storage_hostname: clouddeva-compute-std-3.storage.localdomain
+      storage_ip: 10.150.4.19
+      storage_mgmt_hostname: clouddeva-compute-std-3.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.4.147
+      storage_nfs_hostname: clouddeva-compute-std-3.storagenfs.localdomain
+      storage_nfs_ip: 10.150.5.18
+      tenant_hostname: clouddeva-compute-std-3.tenant.localdomain
+      tenant_ip: 10.150.1.146
+      ilo_ip: 10.232.63.162
+    enabled: true
+  - name: "clouddeva-compute-std-4"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: 10.150.0.177
+      canonical_hostname: clouddeva-compute-std-4.localdomain
+      ctlplane_hostname: clouddeva-compute-std-4.ctlplane.localdomain
+      ctlplane_ip: 10.150.0.177
+      deploy_server_id: 30f31652-c007-451a-a22a-8c52c02b1d81
+      internal_api_hostname: clouddeva-compute-std-4.internalapi.localdomain
+      internal_api_ip: 10.150.0.23
+      storage_hostname: clouddeva-compute-std-4.storage.localdomain
+      storage_ip: 10.150.4.20
+      storage_mgmt_hostname: clouddeva-compute-std-4.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.4.148
+      storage_nfs_hostname: clouddeva-compute-std-4.storagenfs.localdomain
+      storage_nfs_ip: 10.150.5.19
+      tenant_hostname: clouddeva-compute-std-4.tenant.localdomain
+      tenant_ip: 10.150.1.147
+      ilo_ip: 10.232.63.163
+    enabled: true
+
+  - name: "clouddeva-controller-0"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: 10.150.0.161
+      canonical_hostname: clouddeva-controller-0.localdomain
+      ctlplane_hostname: clouddeva-controller-0.ctlplane.localdomain
+      ctlplane_ip: 10.150.0.161
+      deploy_server_id: 5885a3cb-f85b-4d3a-b276-9183e1f2b80f
+      external_hostname: clouddeva-controller-0.external.localdomain
+      external_ip: 10.150.3.145
+      internal_api_hostname: clouddeva-controller-0.internalapi.localdomain
+      internal_api_ip: 10.150.0.16
+      storage_hostname: clouddeva-controller-0.storage.localdomain
+      storage_ip: 10.150.4.13
+      storage_mgmt_hostname: clouddeva-controller-0.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.4.141
+      storage_nfs_hostname: clouddeva-controller-0.storagenfs.localdomain
+      storage_nfs_ip: 10.150.5.12
+      tenant_hostname: clouddeva-controller-0.tenant.localdomain
+      tenant_ip: 10.150.1.140
+      ilo_ip: 10.232.63.156
+    enabled: true
+  - name: "clouddeva-controller-1"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: 10.150.0.175
+      canonical_hostname: clouddeva-controller-1.localdomain
+      ctlplane_hostname: clouddeva-controller-1.ctlplane.localdomain
+      ctlplane_ip: 10.150.0.175
+      deploy_server_id: 797e28b7-96c7-4ea9-84a7-b2c9b339e860
+      external_hostname: clouddeva-controller-1.external.localdomain
+      external_ip: 10.150.3.146
+      internal_api_hostname: clouddeva-controller-1.internalapi.localdomain
+      internal_api_ip: 10.150.0.17
+      storage_hostname: clouddeva-controller-1.storage.localdomain
+      storage_ip: 10.150.4.14
+      storage_mgmt_hostname: clouddeva-controller-1.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.4.142
+      storage_nfs_hostname: clouddeva-controller-1.storagenfs.localdomain
+      storage_nfs_ip: 10.150.5.13
+      tenant_hostname: clouddeva-controller-1.tenant.localdomain
+      tenant_ip: 10.150.1.141
+      ilo_ip: 10.232.63.157
+    enabled: true
+  - name: "clouddeva-controller-2"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: 10.150.0.185
+      canonical_hostname: clouddeva-controller-2.localdomain
+      ctlplane_hostname: clouddeva-controller-2.ctlplane.localdomain
+      ctlplane_ip: 10.150.0.185
+      deploy_server_id: a4fa8bf0-fd82-4647-b87b-60afae7c7cd5
+      external_hostname: clouddeva-controller-2.external.localdomain
+      external_ip: 10.150.3.147
+      internal_api_hostname: clouddeva-controller-2.internalapi.localdomain
+      internal_api_ip: 10.150.0.18
+      storage_hostname: clouddeva-controller-2.storage.localdomain
+      storage_ip: 10.150.4.15
+      storage_mgmt_hostname: clouddeva-controller-2.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.4.143
+      storage_nfs_hostname: clouddeva-controller-2.storagenfs.localdomain
+      storage_nfs_ip: 10.150.5.14
+      tenant_hostname: clouddeva-controller-2.tenant.localdomain
+      tenant_ip: 10.150.1.142
+      ilo_ip: 10.232.63.158
+    enabled: true
+  - name: "director"
+    description: ""
+    inventory: "clouddeva"
+    variables:
+      ansible_host: ieatrheldirdeva
+      vars:
+        ansible_ssh_common_args: -o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
+    enabled: true

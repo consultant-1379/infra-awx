@@ -1,0 +1,60 @@
+---
+controller_groups:
+  - name: "Compute"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirenv1 -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: 4dd0882e-b8a2-4759-99a7-3553647618d7
+      role_name: Compute
+      tripleo_role_name: Compute
+    hosts:
+      - cloudenv1-compute-std-0
+      - cloudenv1-compute-std-1
+      - cloudenv1-compute-std-10
+      - cloudenv1-compute-std-11
+      - cloudenv1-compute-std-12
+      - cloudenv1-compute-std-2
+      - cloudenv1-compute-std-3
+      - cloudenv1-compute-std-4
+      - cloudenv1-compute-std-5
+      - cloudenv1-compute-std-6
+      - cloudenv1-compute-std-7
+      - cloudenv1-compute-std-8
+      - cloudenv1-compute-std-9
+    children:
+      []
+  - name: "Controller"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirenv1 -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: 4dd0882e-b8a2-4759-99a7-3553647618d7
+      role_name: Controller
+      tripleo_role_name: Controller
+    hosts:
+      - cloudenv1-controller-0
+      - cloudenv1-controller-1
+      - cloudenv1-controller-2
+    children:
+      []
+  - name: "overcloud"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldirenv1 -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      ctlplane_vip: 10.232.14.155
+      external_vip: 10.232.16.10
+      internal_api_vip: 10.232.15.134
+      redis_vip: 10.232.15.135
+      storage_mgmt_vip: 10.232.15.70
+      storage_vip: 10.232.15.6
+    hosts:
+      []
+    children:
+      - Compute
+      - Controller
+...

@@ -1,0 +1,15 @@
+# ---
+# Refer to https://github.com/redhat-cop/controller_configuration/tree/devel/roles/hosts#data-structure for further information
+# controller_hosts:
+#   - name: "< my server name >"
+#     description: ""
+#     inventory: "< inventory name that contains this host >"
+#     variables:
+#       ansible_host: <IP address used by to run Ansible tasks on this host>
+#       my_custom_var: '<some value>'
+#   - name: "< my server name >"
+#     description: ""
+#     inventory: "< inventory name that contains this host >"
+#     variables:
+#       ansible_host: <IP address used by to run Ansible tasks on this host>
+#       my_custom_var: '<some value>'

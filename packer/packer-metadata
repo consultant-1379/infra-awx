@@ -1,0 +1,19 @@
+instance-id: "${hostname}"
+local-hostname: "${hostname}"
+public-keys-data: "${ssh_public_key}"
+network:
+  version: 1
+  config:
+    - type: physical
+      name: ens192
+      subnets:
+        - type: static
+          address: "${external_ip}"
+          gateway: "${gateway}"
+    - type: nameserver
+      address:
+        - 159.107.173.3
+        - 159.107.173.12
+      search:
+        - athtem.eei.ericsson.se
+        - ericsson.se

@@ -1,0 +1,56 @@
+- name: Install AWX on K3s
+  block:
+    - name: Configure helm repo for awx
+      kubernetes.core.helm_repository:
+        name: awx-operator
+        repo_url: https://ansible.github.io/awx-operator/
+
+    - name: Ensure awx namespace exists
+      kubernetes.core.k8s:
+        kind: Namespace
+        name: awx
+        state: present
+
+    - name: Install awx-operator
+      kubernetes.core.helm:
+        name: awx-operator
+        chart_ref: awx-operator/awx-operator
+        release_namespace: awx
+        update_repo_cache: yes
+
+    - name: Wait until the operator pod is created
+      kubernetes.core.k8s_info:
+        kind: Pod
+        wait: yes
+        label_selectors:
+          - "helm.sh/chart=awx-operator"
+        namespace: awx
+        wait_sleep: 10
+        wait_timeout: 600
+        wait_condition:
+            type: Ready
+            status: True
+      ignore_errors: true
+
+    - name: Deploy AWX components
+      kubernetes.core.k8s:
+        definition: "{{ lookup('template','awx-install.yml.j2') }}"
+        state: present
+      vars:
+        known_hosts: "{{ lookup('file','known_hosts') }}"
+
+    - name: Wait until the infra-awx-web pod is running
+      kubernetes.core.k8s_info:
+        kind: Pod
+        wait: yes
+        label_selectors:
+          - "app.kubernetes.io/name=infra-awx-web"
+        namespace: awx
+        wait_sleep: 10
+        wait_timeout: 900
+        wait_condition:
+            type: Ready
+            status: True
+      when: deploy_awx | default(true)
+  environment:
+    K8S_AUTH_KUBECONFIG: k3s_kubeconfig

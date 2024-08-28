@@ -1,0 +1,261 @@
+---
+controller_hosts:
+  - name: "ieatbmb7216-master-0"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.200
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.135
+        ipv6:
+          address: 2001:1b70:82b9:ff::7
+      bmc:
+        ip: 10.232.179.111
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: 8C:DC:D4:1C:81:40
+      nfs_ip: 10.232.239.70
+      storage1_ip: 10.232.239.134
+      storage2_ip: 10.232.239.198
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.6
+        ipv6:
+          address: 2001:1b70:82b9:101::7
+    enabled: true
+  - name: "ieatbmb7217-master-1"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.201
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.136
+        ipv6:
+          address: 2001:1b70:82b9:ff::8
+      bmc:
+        ip: 10.232.179.112
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: 58:20:B1:E5:72:90
+      nfs_ip: 10.232.239.71
+      storage1_ip: 10.232.239.135
+      storage2_ip: 10.232.239.199
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.7
+        ipv6:
+          address: 2001:1b70:82b9:101::8
+    enabled: true
+  - name: "ieatbmb7218-master-2"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.202
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.137
+        ipv6:
+          address: 2001:1b70:82b9:ff::9
+      bmc:
+        ip: 10.232.179.113
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: 58:20:B1:E5:6D:90
+      nfs_ip: 10.232.239.72
+      storage1_ip: 10.232.239.136
+      storage2_ip: 10.232.239.200
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.8
+        ipv6:
+          address: 2001:1b70:82b9:101::9
+    enabled: true
+  - name: "ieatbmb7219-worker-0"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.203
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.138
+        ipv6:
+          address: 2001:1b70:82b9:ff::a
+      bmc:
+        ip: 10.232.179.114
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: 9C:DC:71:65:6C:80
+      nfs_ip: 10.232.239.73
+      storage1_ip: 10.232.239.137
+      storage2_ip: 10.232.239.201
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.9
+        ipv6:
+          address: 2001:1b70:82b9:101::a
+    enabled: true
+  - name: "ieatbmb7220-worker-1"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.204
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.139
+        ipv6:
+          address: 2001:1b70:82b9:ff::b
+      bmc:
+        ip: 10.232.179.115
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: 9C:DC:71:65:71:20
+      nfs_ip: 10.232.239.74
+      storage1_ip: 10.232.239.138
+      storage2_ip: 10.232.239.202
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.10
+        ipv6:
+          address: 2001:1b70:82b9:101::b
+    enabled: true
+  - name: "ieatbmb7221-worker-2"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.205
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.140
+        ipv6:
+          address: 2001:1b70:82b9:ff::c
+      bmc:
+        ip: 10.232.179.116
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: 9C:DC:71:65:6F:90
+      nfs_ip: 10.232.239.75
+      storage1_ip: 10.232.239.139
+      storage2_ip: 10.232.239.203
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.11
+        ipv6:
+          address: 2001:1b70:82b9:101::c
+    enabled: true
+  - name: "ieatbmb7222-worker-3"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.206
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.141
+        ipv6:
+          address: 2001:1b70:82b9:ff::d
+      bmc:
+        ip: 10.232.179.117
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: 9C:DC:71:65:6F:C0
+      nfs_ip: 10.232.239.76
+      storage1_ip: 10.232.239.140
+      storage2_ip: 10.232.239.204
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.12
+        ipv6:
+          address: 2001:1b70:82b9:101::d
+    enabled: true
+  - name: "ieatbmb7223-worker-4"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.207
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.142
+        ipv6:
+          address: 2001:1b70:82b9:ff::e
+      bmc:
+        ip: 10.232.179.118
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: 9C:DC:71:65:6C:70
+      nfs_ip: 10.232.239.77
+      storage1_ip: 10.232.239.141
+      storage2_ip: 10.232.239.205
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.13
+        ipv6:
+          address: 2001:1b70:82b9:101::e
+    enabled: true
+  - name: "ieatbmb7224-worker-5"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.208
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.143
+        ipv6:
+          address: 2001:1b70:82b9:ff::f
+      bmc:
+        ip: 10.232.179.119
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: F4:03:43:A5:4C:10
+      nfs_ip: 10.232.239.78
+      storage1_ip: 10.232.239.142
+      storage2_ip: 10.232.239.206
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.14
+        ipv6:
+          address: 2001:1b70:82b9:101::f
+    enabled: true
+  - name: "ieatbmb7225-worker-6"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: 10.232.238.209
+      ansible_internal:
+        ipv4:
+          address: 10.232.238.144
+        ipv6:
+          address: 2001:1b70:82b9:ff::10
+      bmc:
+        ip: 10.232.179.120
+        password: cl0udroot
+        type: hp
+        user: cloud
+      mac: D0:67:26:B0:34:C0
+      nfs_ip: 10.232.239.79
+      storage1_ip: 10.232.239.143
+      storage2_ip: 10.232.239.207
+      traffic_ip:
+        ipv4:
+          address: 10.232.239.15
+        ipv6:
+          address: 2001:1b70:82b9:101::10
+    enabled: true
+  - name: "kickstart"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_host: bmccd0-ks
+      ansible_user: root
+      vars:
+        ansible_ssh_common_args: -o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
+    enabled: true

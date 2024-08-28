@@ -1,0 +1,25 @@
+---
+ansible-navigator:
+  color:
+    osc4: false
+  logging:
+    level: info
+  mode: stdout
+  execution-environment:
+    image: "registry.infra-awx-k3s.athtem.eei.ericsson.se/awx-base:0.1.0"
+    environment-variables:
+      pass:
+        - OS_USERNAME
+        - OS_PROJECT_NAME
+        - OS_USER_DOMAIN_NAME
+        - OS_PROJECT_DOMAIN_NAME
+        - OS_NO_CACHE
+        - OS_CLOUDNAME
+        - OS_AUTH_TYPE
+        - OS_PASSWORD
+        - OS_AUTH_URL
+        - OS_IDENTITY_API_VERSION
+        - OS_COMPUTE_API_VERSION
+        - OS_IMAGE_API_VERSION
+        - OS_VOLUME_API_VERSION
+        - OS_REGION_NAME

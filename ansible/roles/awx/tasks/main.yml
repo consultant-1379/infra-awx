@@ -1,0 +1,38 @@
+- name: Install AWX on K3s
+  import_tasks: operator.yml
+
+
+- name: Wait for AWX URL to be reachable
+  ansible.builtin.uri:
+    url: "https://{{ awx_host }}"
+  register: get_awx
+  until: get_awx.status == 200
+  retries: 60
+  delay: 5
+# Moved the team/org LDAP settings here so that they can be updated
+# without redeploying
+- name: Configure Organisation/Team mappings
+  awx.awx.settings:
+    controller_host: '{{ awx_host }}'
+    controller_username: admin
+    controller_password: '{{ awx_admin_password }}'
+    settings:
+      # Create AWX organisation with LDAP groups      # Map teams to LDAP groups
+      AUTH_LDAP_ORGANIZATION_MAP:
+        DE:
+          admins: "CN=PDLDEOPENS,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se"
+          remove_users: false
+          remove_admins: false
+          users:
+            - "CN=PDLDEOPENS,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se"
+            - "CN=PDLSTACKCE,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se"
+      # Map teams to LDAP groups
+      AUTH_LDAP_TEAM_MAP:
+        OpenStack_Infra:
+          remove: true
+          users: "CN=PDLDEOPENS,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se"
+          organization: "DE"
+        StackCentric:
+          remove: true
+          users: "CN=PDLSTACKCE,OU=PDL,OU=Distribution,OU=P001,OU=GRP,OU=Data,DC=ericsson,DC=se"
+          organization: "DE"

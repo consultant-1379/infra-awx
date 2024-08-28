@@ -1,0 +1,68 @@
+---
+controller_groups:
+  - name: "blades"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb7216-master-0
+      - ieatbmb7217-master-1
+      - ieatbmb7218-master-2
+      - ieatbmb7219-worker-0
+      - ieatbmb7220-worker-1
+      - ieatbmb7221-worker-2
+      - ieatbmb7222-worker-3
+      - ieatbmb7223-worker-4
+      - ieatbmb7224-worker-5
+      - ieatbmb7225-worker-6
+    children:
+      []
+  - name: "nodes"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      ansible_ssh_common_args: ' -o StrictHostKeyChecking=no '
+      ansible_user: bmadm
+    hosts:
+      []
+    children:
+      - blades
+  - name: "etcd"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb7216-master-0
+      - ieatbmb7217-master-1
+      - ieatbmb7218-master-2
+    children:
+      []
+  - name: "master"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb7216-master-0
+      - ieatbmb7217-master-1
+      - ieatbmb7218-master-2
+    children:
+      []
+  - name: "worker"
+    description: ""
+    inventory: "bmccd0_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb7219-worker-0
+      - ieatbmb7220-worker-1
+      - ieatbmb7221-worker-2
+      - ieatbmb7222-worker-3
+      - ieatbmb7223-worker-4
+      - ieatbmb7224-worker-5
+      - ieatbmb7225-worker-6
+    children:
+      []
+...

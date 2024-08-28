@@ -1,0 +1,125 @@
+---
+controller_groups:
+  - name: "overcloud_Compute"
+    description: ""
+    inventory: "cloud16a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: 3eb5a6f1-30f9-47fc-b30c-c03e02ae8413
+      serial: '1'
+      tripleo_role_name: Compute
+      tripleo_role_networks:
+      - ctlplane
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - cloud16a-compute-std-0
+      - cloud16a-compute-std-1
+      - cloud16a-compute-std-10
+      - cloud16a-compute-std-11
+      - cloud16a-compute-std-12
+      - cloud16a-compute-std-13
+      - cloud16a-compute-std-14
+      - cloud16a-compute-std-15
+      - cloud16a-compute-std-16
+      - cloud16a-compute-std-17
+      - cloud16a-compute-std-18
+      - cloud16a-compute-std-19
+      - cloud16a-compute-std-2
+      - cloud16a-compute-std-20
+      - cloud16a-compute-std-21
+      - cloud16a-compute-std-22
+      - cloud16a-compute-std-23
+      - cloud16a-compute-std-24
+      - cloud16a-compute-std-25
+      - cloud16a-compute-std-26
+      - cloud16a-compute-std-27
+      - cloud16a-compute-std-28
+      - cloud16a-compute-std-29
+      - cloud16a-compute-std-3
+      - cloud16a-compute-std-30
+      - cloud16a-compute-std-31
+      - cloud16a-compute-std-4
+      - cloud16a-compute-std-5
+      - cloud16a-compute-std-6
+      - cloud16a-compute-std-7
+      - cloud16a-compute-std-8
+      - cloud16a-compute-std-9
+    children:
+      []
+  - name: "overcloud_Controller"
+    description: ""
+    inventory: "cloud16a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      bootstrap_server_id: 3eb5a6f1-30f9-47fc-b30c-c03e02ae8413
+      serial: '1'
+      tripleo_role_name: Controller
+      tripleo_role_networks:
+      - ctlplane
+      - external
+      - internal_api
+      - storage
+      - storage_mgmt
+      - storage_nfs
+      - tenant
+    hosts:
+      - cloud16a-controller-0
+      - cloud16a-controller-1
+      - cloud16a-controller-2
+    children:
+      []
+  - name: "overcloud_allovercloud"
+    description: ""
+    inventory: "cloud16a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+      container_cli: podman
+      ctlplane_vip: 10.232.198.33
+      external_vip: 10.232.214.9
+      internal_api_vip: 10.232.197.14
+      redis_vip: 10.232.197.15
+      storage_mgmt_vip: 10.232.202.140
+      storage_vip: 10.232.202.12
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+      - overcloud_Controller
+  - name: "Compute"
+    description: ""
+    inventory: "cloud16a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Compute
+  - name: "Controller"
+    description: ""
+    inventory: "cloud16a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_Controller
+  - name: "overcloud"
+    description: ""
+    inventory: "cloud16a"
+    variables:
+      ansible_ssh_common_args: -o ProxyJump=awx@ieatrheldir16a -o StrictHostKeyChecking=no
+      ansible_ssh_user: awx
+    hosts:
+      []
+    children:
+      - overcloud_allovercloud
+...

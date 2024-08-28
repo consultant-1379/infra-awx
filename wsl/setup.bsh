@@ -1,0 +1,49 @@
+#!/bin/bash
+log() {
+  echo -e "\e[32m${1}\e[0m"
+}
+
+log "Removing /etc/resolv.conf"
+rm -f /etc/resolv.conf
+
+log "Disable resolv.conf generation by WSL"
+
+echo """[network]                 
+generateResolvConf = false""" > /etc/wsl.conf
+
+log "Creating new /etc/resolv.conf"
+echo """nameserver 159.107.173.3
+nameserver 159.107.173.12
+search athtem.eei.ericsson.se ericsson.se""" > /etc/resolv.conf
+
+log "Updating apt sources"
+apt -y update
+
+log "Update all packages to the latest (apt upgrade)"
+apt -y upgrade
+
+log "Podman specific packages"
+apt -y install curl wget gnupg2
+
+log "Create a sources.list file for podman"
+source /etc/os-release
+echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+
+log "Add key for podman repo"
+wget -nv https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_${VERSION_ID}/Release.key -O- | apt-key add -
+
+log "Updating apt sources for podman"
+apt -y update
+
+log "Updating /etc/sudoers"
+sed -i -r 's/(^%sudo.*) ALL/\1 NOPASSWD:ALL/g' /etc/sudoers
+
+log "Create /dev/mqueue directory for podman"
+bash /var/tmp/create-mqueue.sh
+
+log "Move create-mqueue.sh script to /etc/profile.d/"
+mv /var/tmp/create-mqueue.sh /etc/profile.d/create-mqueue.sh
+
+log "Installing required packages"
+apt -y install python3 python3-venv python3-pip build-essential podman git
+apt -y autoremove

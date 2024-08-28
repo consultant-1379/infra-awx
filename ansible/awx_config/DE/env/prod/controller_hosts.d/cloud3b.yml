@@ -1,0 +1,810 @@
+---
+controller_hosts:
+  - name: "cloud3b-compute-std-0"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.183
+      ctlplane_ip: 10.148.28.183
+      deploy_server_id: 7769390b-8ecb-43b3-8400-6dc925e774ec
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.183
+      ilo_ip: 10.141.4.112
+      internal_api_ip: 10.148.28.18
+      management_ip: 10.148.28.183
+      storage_ip: 10.148.29.143
+      storage_mgmt_ip: 10.148.29.15
+      storage_nfs_ip: 10.148.31.14
+      tenant_ip: 10.148.30.14
+    enabled: true
+  - name: "cloud3b-compute-std-1"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.167
+      ctlplane_ip: 10.148.28.167
+      deploy_server_id: c28925b2-c742-401d-ae7c-40bbc3de7c23
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.167
+      ilo_ip: 10.141.4.113
+      internal_api_ip: 10.148.28.19
+      management_ip: 10.148.28.167
+      storage_ip: 10.148.29.144
+      storage_mgmt_ip: 10.148.29.16
+      storage_nfs_ip: 10.148.31.15
+      tenant_ip: 10.148.30.15
+    enabled: true
+  - name: "cloud3b-compute-std-10"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.160
+      ctlplane_ip: 10.148.28.160
+      deploy_server_id: 65b1c69d-36fd-4ec1-a7c4-1e7862dc9bb2
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.160
+      ilo_ip: 10.141.4.135
+      internal_api_ip: 10.148.28.28
+      management_ip: 10.148.28.160
+      storage_ip: 10.148.29.153
+      storage_mgmt_ip: 10.148.29.25
+      storage_nfs_ip: 10.148.31.24
+      tenant_ip: 10.148.30.24
+    enabled: true
+  - name: "cloud3b-compute-std-11"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.149
+      ctlplane_ip: 10.148.28.149
+      deploy_server_id: e94aba09-ef0c-42e8-9988-b20c7e0a18dc
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.149
+      ilo_ip: 10.141.4.136
+      internal_api_ip: 10.148.28.29
+      management_ip: 10.148.28.149
+      storage_ip: 10.148.29.154
+      storage_mgmt_ip: 10.148.29.26
+      storage_nfs_ip: 10.148.31.25
+      tenant_ip: 10.148.30.25
+    enabled: true
+  - name: "cloud3b-compute-std-12"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.184
+      ctlplane_ip: 10.148.28.184
+      deploy_server_id: 0c0ecb23-6354-49e9-b20b-8bce1250e76f
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.184
+      ilo_ip: 10.141.4.137
+      internal_api_ip: 10.148.28.30
+      management_ip: 10.148.28.184
+      storage_ip: 10.148.29.155
+      storage_mgmt_ip: 10.148.29.27
+      storage_nfs_ip: 10.148.31.26
+      tenant_ip: 10.148.30.26
+    enabled: true
+  - name: "cloud3b-compute-std-13"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.173
+      ctlplane_ip: 10.148.28.173
+      deploy_server_id: 762348dd-a542-4751-a327-c8b191f4e666
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.173
+      ilo_ip: 10.141.4.138
+      internal_api_ip: 10.148.28.31
+      management_ip: 10.148.28.173
+      storage_ip: 10.148.29.156
+      storage_mgmt_ip: 10.148.29.28
+      storage_nfs_ip: 10.148.31.27
+      tenant_ip: 10.148.30.27
+    enabled: true
+  - name: "cloud3b-compute-std-14"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.150
+      ctlplane_ip: 10.148.28.150
+      deploy_server_id: b96281d5-f07d-4271-b901-dc6a9e02980e
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.150
+      ilo_ip: 10.141.4.152
+      internal_api_ip: 10.148.28.32
+      management_ip: 10.148.28.150
+      storage_ip: 10.148.29.157
+      storage_mgmt_ip: 10.148.29.29
+      storage_nfs_ip: 10.148.31.28
+      tenant_ip: 10.148.30.28
+    enabled: true
+  - name: "cloud3b-compute-std-15"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.156
+      ctlplane_ip: 10.148.28.156
+      deploy_server_id: cbecb229-5b1a-41e5-a606-5099da54f05f
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.156
+      ilo_ip: 10.141.4.153
+      internal_api_ip: 10.148.28.33
+      management_ip: 10.148.28.156
+      storage_ip: 10.148.29.158
+      storage_mgmt_ip: 10.148.29.30
+      storage_nfs_ip: 10.148.31.29
+      tenant_ip: 10.148.30.29
+    enabled: true
+  - name: "cloud3b-compute-std-16"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.145
+      ctlplane_ip: 10.148.28.145
+      deploy_server_id: ca8e9f57-d8e5-4e9b-afdb-3f58839a941a
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.145
+      ilo_ip: 10.141.4.154
+      internal_api_ip: 10.148.28.34
+      management_ip: 10.148.28.145
+      storage_ip: 10.148.29.159
+      storage_mgmt_ip: 10.148.29.31
+      storage_nfs_ip: 10.148.31.30
+      tenant_ip: 10.148.30.30
+    enabled: true
+  - name: "cloud3b-compute-std-17"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.157
+      ctlplane_ip: 10.148.28.157
+      deploy_server_id: 6d1ca7c2-21a6-4a3d-88d3-7ca3e54cc26a
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.157
+      ilo_ip: 10.141.4.155
+      internal_api_ip: 10.148.28.35
+      management_ip: 10.148.28.157
+      storage_ip: 10.148.29.160
+      storage_mgmt_ip: 10.148.29.32
+      storage_nfs_ip: 10.148.31.31
+      tenant_ip: 10.148.30.31
+    enabled: true
+  - name: "cloud3b-compute-std-18"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.178
+      ctlplane_ip: 10.148.28.178
+      deploy_server_id: 5ae555bb-e68a-42a8-96ab-735c248326f6
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.178
+      ilo_ip: 10.141.4.156
+      internal_api_ip: 10.148.28.36
+      management_ip: 10.148.28.178
+      storage_ip: 10.148.29.161
+      storage_mgmt_ip: 10.148.29.33
+      storage_nfs_ip: 10.148.31.32
+      tenant_ip: 10.148.30.32
+    enabled: true
+  - name: "cloud3b-compute-std-19"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.187
+      ctlplane_ip: 10.148.28.187
+      deploy_server_id: 494d05a1-5254-4f78-8a57-693b085f85ac
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.187
+      ilo_ip: 10.141.4.157
+      internal_api_ip: 10.148.28.37
+      management_ip: 10.148.28.187
+      storage_ip: 10.148.29.162
+      storage_mgmt_ip: 10.148.29.34
+      storage_nfs_ip: 10.148.31.33
+      tenant_ip: 10.148.30.33
+    enabled: true
+  - name: "cloud3b-compute-std-2"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.158
+      ctlplane_ip: 10.148.28.158
+      deploy_server_id: 4dce2ee6-3d23-4ad8-8dc1-f7408c0c072f
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.158
+      ilo_ip: 10.141.4.114
+      internal_api_ip: 10.148.28.20
+      management_ip: 10.148.28.158
+      storage_ip: 10.148.29.145
+      storage_mgmt_ip: 10.148.29.17
+      storage_nfs_ip: 10.148.31.16
+      tenant_ip: 10.148.30.16
+    enabled: true
+  - name: "cloud3b-compute-std-20"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.165
+      ctlplane_ip: 10.148.28.165
+      deploy_server_id: c26763de-9c39-4160-915d-a2f2cfa8c503
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.165
+      ilo_ip: 10.141.4.158
+      internal_api_ip: 10.148.28.38
+      management_ip: 10.148.28.165
+      storage_ip: 10.148.29.163
+      storage_mgmt_ip: 10.148.29.35
+      storage_nfs_ip: 10.148.31.34
+      tenant_ip: 10.148.30.34
+    enabled: true
+  - name: "cloud3b-compute-std-21"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.179
+      ctlplane_ip: 10.148.28.179
+      deploy_server_id: ef80b7c2-b78c-44f5-9668-264ba6a99ab0
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.179
+      ilo_ip: 10.141.4.172
+      internal_api_ip: 10.148.28.39
+      management_ip: 10.148.28.179
+      storage_ip: 10.148.29.164
+      storage_mgmt_ip: 10.148.29.36
+      storage_nfs_ip: 10.148.31.35
+      tenant_ip: 10.148.30.35
+    enabled: true
+  - name: "cloud3b-compute-std-22"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.180
+      ctlplane_ip: 10.148.28.180
+      deploy_server_id: 2a77bd64-23d2-4b7b-9001-6ec87ac25910
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.180
+      ilo_ip: 10.141.4.173
+      internal_api_ip: 10.148.28.40
+      management_ip: 10.148.28.180
+      storage_ip: 10.148.29.165
+      storage_mgmt_ip: 10.148.29.37
+      storage_nfs_ip: 10.148.31.36
+      tenant_ip: 10.148.30.36
+    enabled: true
+  - name: "cloud3b-compute-std-23"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.154
+      ctlplane_ip: 10.148.28.154
+      deploy_server_id: d19c7163-adff-433d-bafa-80630acf3dc8
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.154
+      ilo_ip: 10.141.4.174
+      internal_api_ip: 10.148.28.41
+      management_ip: 10.148.28.154
+      storage_ip: 10.148.29.166
+      storage_mgmt_ip: 10.148.29.38
+      storage_nfs_ip: 10.148.31.37
+      tenant_ip: 10.148.30.37
+    enabled: true
+  - name: "cloud3b-compute-std-24"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.152
+      ctlplane_ip: 10.148.28.152
+      deploy_server_id: 195310a4-56c3-486a-8128-bd581d03bc64
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.152
+      ilo_ip: 10.141.4.175
+      internal_api_ip: 10.148.28.42
+      management_ip: 10.148.28.152
+      storage_ip: 10.148.29.167
+      storage_mgmt_ip: 10.148.29.39
+      storage_nfs_ip: 10.148.31.38
+      tenant_ip: 10.148.30.38
+    enabled: true
+  - name: "cloud3b-compute-std-25"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.151
+      ctlplane_ip: 10.148.28.151
+      deploy_server_id: 28394b47-76d6-4307-93cf-a95804da163a
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.151
+      ilo_ip: 10.141.4.176
+      internal_api_ip: 10.148.28.43
+      management_ip: 10.148.28.151
+      storage_ip: 10.148.29.168
+      storage_mgmt_ip: 10.148.29.40
+      storage_nfs_ip: 10.148.31.39
+      tenant_ip: 10.148.30.39
+    enabled: true
+  - name: "cloud3b-compute-std-26"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.146
+      ctlplane_ip: 10.148.28.146
+      deploy_server_id: dae051b2-0c73-4730-bd8f-8792b24f11ed
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.146
+      ilo_ip: 10.141.4.177
+      internal_api_ip: 10.148.28.44
+      management_ip: 10.148.28.146
+      storage_ip: 10.148.29.169
+      storage_mgmt_ip: 10.148.29.41
+      storage_nfs_ip: 10.148.31.40
+      tenant_ip: 10.148.30.40
+    enabled: true
+  - name: "cloud3b-compute-std-27"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.169
+      ctlplane_ip: 10.148.28.169
+      deploy_server_id: a0d797ff-f775-4e5b-b5c3-7d9fa11f76b8
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.169
+      ilo_ip: 10.141.4.178
+      internal_api_ip: 10.148.28.45
+      management_ip: 10.148.28.169
+      storage_ip: 10.148.29.170
+      storage_mgmt_ip: 10.148.29.42
+      storage_nfs_ip: 10.148.31.41
+      tenant_ip: 10.148.30.41
+    enabled: true
+  - name: "cloud3b-compute-std-28"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.171
+      ctlplane_ip: 10.148.28.171
+      deploy_server_id: e02e8e3e-9067-405c-aef9-6f841101c79c
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.171
+      ilo_ip: 10.141.4.179
+      internal_api_ip: 10.148.28.46
+      management_ip: 10.148.28.171
+      storage_ip: 10.148.29.171
+      storage_mgmt_ip: 10.148.29.43
+      storage_nfs_ip: 10.148.31.42
+      tenant_ip: 10.148.30.42
+    enabled: true
+  - name: "cloud3b-compute-std-3"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.164
+      ctlplane_ip: 10.148.28.164
+      deploy_server_id: f0bed9ec-2488-4fd3-a7a6-6e6b4fc8113e
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.164
+      ilo_ip: 10.141.4.115
+      internal_api_ip: 10.148.28.21
+      management_ip: 10.148.28.164
+      storage_ip: 10.148.29.146
+      storage_mgmt_ip: 10.148.29.18
+      storage_nfs_ip: 10.148.31.17
+      tenant_ip: 10.148.30.17
+    enabled: true
+  - name: "cloud3b-compute-std-4"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.163
+      ctlplane_ip: 10.148.28.163
+      deploy_server_id: eed51d23-503e-450d-ac33-02ffa37a8ae5
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.163
+      ilo_ip: 10.141.4.116
+      internal_api_ip: 10.148.28.22
+      management_ip: 10.148.28.163
+      storage_ip: 10.148.29.147
+      storage_mgmt_ip: 10.148.29.19
+      storage_nfs_ip: 10.148.31.18
+      tenant_ip: 10.148.30.18
+    enabled: true
+  - name: "cloud3b-compute-std-5"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.161
+      ctlplane_ip: 10.148.28.161
+      deploy_server_id: e2ce56ed-edec-44d8-b7f0-b7b4f0d9832a
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.161
+      ilo_ip: 10.141.4.117
+      internal_api_ip: 10.148.28.23
+      management_ip: 10.148.28.161
+      storage_ip: 10.148.29.148
+      storage_mgmt_ip: 10.148.29.20
+      storage_nfs_ip: 10.148.31.19
+      tenant_ip: 10.148.30.19
+    enabled: true
+  - name: "cloud3b-compute-std-6"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.174
+      ctlplane_ip: 10.148.28.174
+      deploy_server_id: 84b97a52-3409-4e95-83a8-e1001bfce65e
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.174
+      ilo_ip: 10.141.4.118
+      internal_api_ip: 10.148.28.24
+      management_ip: 10.148.28.174
+      storage_ip: 10.148.29.149
+      storage_mgmt_ip: 10.148.29.21
+      storage_nfs_ip: 10.148.31.20
+      tenant_ip: 10.148.30.20
+    enabled: true
+  - name: "cloud3b-compute-std-7"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.168
+      ctlplane_ip: 10.148.28.168
+      deploy_server_id: e442797e-cf13-4468-8996-ca7da1175331
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.168
+      ilo_ip: 10.141.4.132
+      internal_api_ip: 10.148.28.25
+      management_ip: 10.148.28.168
+      storage_ip: 10.148.29.150
+      storage_mgmt_ip: 10.148.29.22
+      storage_nfs_ip: 10.148.31.21
+      tenant_ip: 10.148.30.21
+    enabled: true
+  - name: "cloud3b-compute-std-8"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.153
+      ctlplane_ip: 10.148.28.153
+      deploy_server_id: 41fb0911-5f38-45df-98e9-d9c0d74b8336
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.153
+      ilo_ip: 10.141.4.133
+      internal_api_ip: 10.148.28.26
+      management_ip: 10.148.28.153
+      storage_ip: 10.148.29.151
+      storage_mgmt_ip: 10.148.29.23
+      storage_nfs_ip: 10.148.31.22
+      tenant_ip: 10.148.30.22
+    enabled: true
+  - name: "cloud3b-compute-std-9"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.166
+      ctlplane_ip: 10.148.28.166
+      deploy_server_id: c81e5b16-d5d5-47b7-aa1f-07125696e274
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 10.148.28.166
+      ilo_ip: 10.141.4.134
+      internal_api_ip: 10.148.28.27
+      management_ip: 10.148.28.166
+      storage_ip: 10.148.29.152
+      storage_mgmt_ip: 10.148.29.24
+      storage_nfs_ip: 10.148.31.23
+      tenant_ip: 10.148.30.23
+    enabled: true
+  - name: "cloud3b-controller-0"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.159
+      ctlplane_ip: 10.148.28.159
+      deploy_server_id: 512bd50e-ed57-4599-9cae-acc1ce305353
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 131.160.194.49
+      ilo_ip: 10.141.4.119
+      internal_api_ip: 10.148.28.15
+      management_ip: 10.148.28.159
+      storage_ip: 10.148.29.140
+      storage_mgmt_ip: 10.148.29.12
+      storage_nfs_ip: 10.148.31.11
+      tenant_ip: 10.148.30.11
+    enabled: true
+  - name: "cloud3b-controller-1"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.147
+      ctlplane_ip: 10.148.28.147
+      deploy_server_id: 3a2ebe12-0a9a-494b-9c7f-588731444443
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 131.160.194.50
+      ilo_ip: 10.141.4.139
+      internal_api_ip: 10.148.28.16
+      management_ip: 10.148.28.147
+      storage_ip: 10.148.29.141
+      storage_mgmt_ip: 10.148.29.13
+      storage_nfs_ip: 10.148.31.12
+      tenant_ip: 10.148.30.12
+    enabled: true
+  - name: "cloud3b-controller-2"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: 10.148.28.148
+      ctlplane_ip: 10.148.28.148
+      deploy_server_id: 9cadda59-2edd-4e83-beef-87ed9b9088a5
+      enabled_networks:
+      - management
+      - internal_api
+      - storage
+      - ctlplane
+      - external
+      - storage_nfs
+      - storage_mgmt
+      - tenant
+      external_ip: 131.160.194.51
+      ilo_ip: 10.141.4.159
+      internal_api_ip: 10.148.28.17
+      management_ip: 10.148.28.148
+      storage_ip: 10.148.29.142
+      storage_mgmt_ip: 10.148.29.14
+      storage_nfs_ip: 10.148.31.13
+      tenant_ip: 10.148.30.13
+    enabled: true
+  - name: "director"
+    description: ""
+    inventory: "cloud3b"
+    variables:
+      ansible_host: ieatrheldir3b
+      vars:
+        ansible_ssh_common_args: -o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
+    enabled: true

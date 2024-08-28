@@ -1,0 +1,89 @@
+
+- name: Read OpenStack inventory
+  include_tasks: openstack.yml
+  vars:
+    cloud: '{{ inventory_name }}'
+  when: inventory_type == 'openstack'
+
+- name: Read CCD inventory
+  include_tasks: ccd.yml
+  when: inventory_type == 'ccd'
+
+- name: Import Inventory to AWX
+  block:
+    - name: Create inventory
+      awx.awx.inventory:
+        name: '{{ inventory_name }}'
+        state: present
+        organization: 'DE'
+        variables: '{{ new_inventory["all"]["vars"] if "all" in new_inventory else {} }}'
+
+    - name: Create hostlist
+      set_fact:
+        hostlist: '{{ hostlist| default([]) + [ item.value["hosts"] |dict2items  ] }}'
+      loop: '{{  new_inventory | dict2items | selectattr("key","in",inventory_groups)| rejectattr("value.hosts","undefined") |list }}'
+      when: '"hosts" in item.value'
+      loop_control:
+        label: '{{ item.key }}'
+
+    - name: Filter out null values from hostlist
+      set_fact:
+        hostlist: '{{ hostlist |flatten | rejectattr("value","none")}}'
+
+    - name: Create hosts in the {{ inventory_name }} inventory
+      awx.awx.host:
+        name: '{{ item.key }}'
+        state: present
+        inventory: '{{ inventory_name }}'
+        variables: '{{ item.value }}'
+        enabled: true
+      loop: '{{ hostlist + [ first_host_inventory_item ] }}'
+      loop_control:
+        label: '{{ item.key }}'
+
+    # Due to https://github.com/ansible/awx/issues/11687
+    # have to create group first and then add hosts/children
+    # when preserve_existing_children=True or preserve_existing_hosts=True
+    - name: Create Groups
+      awx.awx.group:
+        name: '{{ item }}'
+        inventory: '{{ inventory_name }}'
+        variables: '{{ new_inventory[item]["vars"] if "vars" in new_inventory[item] else {} }}'
+      loop: '{{ inventory_groups }}'
+
+
+    - name: Add hosts to groups
+      awx.awx.group:
+        name: '{{ item }}'
+        inventory: '{{ inventory_name }}'
+        preserve_existing_hosts: true
+        preserve_existing_children: true
+        hosts: '{{ new_inventory[item]["hosts"].keys() if "hosts" in new_inventory[item] }}'
+      loop: '{{ inventory_groups }}'
+      when: '"children" not in new_inventory[item]'
+
+    - name: Add group children
+      awx.awx.group:
+        name: '{{ item }}'
+        inventory: '{{ inventory_name }}'
+        preserve_existing_hosts: true
+        preserve_existing_children: true
+        children: '{{ new_inventory[item]["children"].keys() | select("in",inventory_groups) | list if "children" in new_inventory[item]  }}'
+      loop: '{{ inventory_groups }}'
+      when: '"children" in new_inventory[item]'
+
+    - name: OpenStack - Launch ssh access job
+      awx.awx.job_launch:
+        job_template: 'OpenStack Nodes - SSH Access'
+        inventory: '{{ inventory_name }}'
+      register: ssh_access_job
+      when: inventory_type == 'openstack'
+
+    - name: OpenStack - Print link to ssh access job
+      debug:
+        msg: 'https://infra-awx.athtem.eei.ericsson.se/#/jobs/playbook/{{ ssh_access_job.id }}/output'
+      when: inventory_type == 'openstack'
+  environment:
+    CONTROLLER_USERNAME: '{{ awx_user }}'
+    CONTROLLER_PASSWORD: '{{ awx_password }}'
+    CONTROLLER_HOST: '{{ awx_host }}'

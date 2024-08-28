@@ -1,0 +1,15 @@
+---
+controller_hosts:
+  - name: "phost"
+    description: "physical server where the kickstart VM runs"
+    inventory: "bmccd5"
+    variables:
+      ansible_host: 10.210.242.157
+      ansible_user: root
+    enabled: true
+  - name: "kickstart"
+    inventory: "bmccd5"
+    variables:
+      ansible_host: 10.232.32.5
+      ansible_user: root
+    enabled: true

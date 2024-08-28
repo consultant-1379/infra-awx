@@ -1,0 +1,12 @@
+---
+version: 1
+build_arg_defaults:
+  EE_BASE_IMAGE: 'registry.infra-awx-k3s.athtem.eei.ericsson.se/awx-base:latest'
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+additional_build_steps:
+  append:
+    - COPY kubectl /usr/local/bin/kubectl
+    - RUN chmod 755 /usr/local/bin/kubectl

@@ -1,0 +1,12 @@
+---
+- name: Build Ansible Execution Environment image
+  hosts: buildhost
+  gather_facts: false
+  pre_tasks:
+    - assert:
+        that: image in exec_envs
+        fail_msg: 'The execution environment {{ image }} image must be one of {{ exec_envs | join(",") }}'
+  roles:
+    - build_ee
+  vars:
+    ee: '{{ image }}'

@@ -1,0 +1,144 @@
+---
+controller_groups:
+  - name: "blades"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb4723-worker-15
+      - ieatbmb4724-worker-16
+      - ieatbmb6594-master-0
+      - ieatbmb6595-master-1
+      - ieatbmb6596-master-2
+      - ieatbmb6597-worker-0
+      - ieatbmb6598-worker-1
+      - ieatbmb6599-worker-2
+      - ieatbmb6600-worker-3
+      - ieatbmb6601-worker-4
+      - ieatbmb6602-worker-5
+      - ieatbmb6603-worker-6
+      - ieatbmb6604-worker-7
+      - ieatbmb6605-worker-8
+      - ieatbmb6606-worker-9
+      - ieatbmb6607-worker-10
+      - ieatbmb6608-worker-11
+      - ieatbmb6609-worker-12
+      - ieatbmb6636-worker-13
+      - ieatbmb6640-worker-14
+    children:
+      []
+  - name: "ceph_racks"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmx7699-worker-17
+      - ieatbmx7700-worker-18
+      - ieatbmx7701-worker-19
+      - ieatbmx7702-worker-20
+      - ieatbmx7703-worker-21
+      - ieatbmx7704-worker-22
+      - ieatbmx7705-worker-23
+    children:
+      []
+  - name: "nodes"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      ansible_ssh_common_args: ' -o StrictHostKeyChecking=no '
+      ansible_user: bmadm
+    hosts:
+      []
+    children:
+      - blades
+      - ceph_racks
+  - name: "etcd"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb6594-master-0
+      - ieatbmb6595-master-1
+      - ieatbmb6596-master-2
+    children:
+      []
+  - name: "master"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb6594-master-0
+      - ieatbmb6595-master-1
+      - ieatbmb6596-master-2
+    children:
+      []
+  - name: "worker"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb4723-worker-15
+      - ieatbmb4724-worker-16
+      - ieatbmb6597-worker-0
+      - ieatbmb6598-worker-1
+      - ieatbmb6599-worker-2
+      - ieatbmb6600-worker-3
+      - ieatbmb6601-worker-4
+      - ieatbmb6602-worker-5
+      - ieatbmb6603-worker-6
+      - ieatbmb6604-worker-7
+      - ieatbmb6605-worker-8
+      - ieatbmb6606-worker-9
+      - ieatbmb6607-worker-10
+      - ieatbmb6608-worker-11
+      - ieatbmb6609-worker-12
+      - ieatbmb6636-worker-13
+      - ieatbmb6640-worker-14
+      - ieatbmx7699-worker-17
+      - ieatbmx7700-worker-18
+      - ieatbmx7701-worker-19
+      - ieatbmx7702-worker-20
+      - ieatbmx7703-worker-21
+      - ieatbmx7704-worker-22
+      - ieatbmx7705-worker-23
+    children:
+      []
+  - name: "storage_mon"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmx7699-worker-17
+      - ieatbmx7700-worker-18
+      - ieatbmx7701-worker-19
+    children:
+      []
+  - name: "storage_osd"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmx7702-worker-20
+      - ieatbmx7703-worker-21
+      - ieatbmx7704-worker-22
+      - ieatbmx7705-worker-23
+    children:
+      []
+  - name: "ccm_lb"
+    description: ""
+    inventory: "bmccd5_CCD_deploy"
+    variables:
+      {}
+    hosts:
+      - ieatbmb6599-worker-2
+      - ieatbmb6600-worker-3
+    children:
+      []
+...

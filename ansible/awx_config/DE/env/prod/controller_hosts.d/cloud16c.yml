@@ -1,0 +1,688 @@
+---
+controller_hosts:
+  - name: "cloud16c-compute-std-0"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.44
+      canonical_hostname: cloud16c-compute-std-0.localdomain
+      ctlplane_hostname: cloud16c-compute-std-0.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.44
+      deploy_server_id: a969649d-13df-4c96-8572-d34b9a6dc9b6
+      ilo_ip: 10.150.37.42
+      internal_api_hostname: cloud16c-compute-std-0.internalapi.localdomain
+      internal_api_ip: 10.150.50.19
+      storage_hostname: cloud16c-compute-std-0.storage.localdomain
+      storage_ip: 10.150.47.8
+      storage_mgmt_hostname: cloud16c-compute-std-0.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.8
+      storage_nfs_hostname: cloud16c-compute-std-0.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.7
+      tenant_hostname: cloud16c-compute-std-0.tenant.localdomain
+      tenant_ip: 10.150.53.15
+    enabled: true
+  - name: "cloud16c-compute-std-1"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.58
+      canonical_hostname: cloud16c-compute-std-1.localdomain
+      ctlplane_hostname: cloud16c-compute-std-1.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.58
+      deploy_server_id: 80a11a8c-e7f2-437e-bf1e-213b8113ef13
+      ilo_ip: 10.150.37.43
+      internal_api_hostname: cloud16c-compute-std-1.internalapi.localdomain
+      internal_api_ip: 10.150.50.20
+      storage_hostname: cloud16c-compute-std-1.storage.localdomain
+      storage_ip: 10.150.47.9
+      storage_mgmt_hostname: cloud16c-compute-std-1.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.9
+      storage_nfs_hostname: cloud16c-compute-std-1.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.8
+      tenant_hostname: cloud16c-compute-std-1.tenant.localdomain
+      tenant_ip: 10.150.53.16
+    enabled: true
+  - name: "cloud16c-compute-std-10"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.124
+      canonical_hostname: cloud16c-compute-std-10.localdomain
+      ctlplane_hostname: cloud16c-compute-std-10.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.124
+      deploy_server_id: 5c746788-4a8c-458b-ae32-f3044f3f46c2
+      ilo_ip: 10.150.37.52
+      internal_api_hostname: cloud16c-compute-std-10.internalapi.localdomain
+      internal_api_ip: 10.150.50.29
+      storage_hostname: cloud16c-compute-std-10.storage.localdomain
+      storage_ip: 10.150.47.18
+      storage_mgmt_hostname: cloud16c-compute-std-10.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.18
+      storage_nfs_hostname: cloud16c-compute-std-10.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.17
+      tenant_hostname: cloud16c-compute-std-10.tenant.localdomain
+      tenant_ip: 10.150.53.25
+    enabled: true
+  - name: "cloud16c-compute-std-11"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.66
+      canonical_hostname: cloud16c-compute-std-11.localdomain
+      ctlplane_hostname: cloud16c-compute-std-11.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.66
+      deploy_server_id: 41f2ce50-7ae3-4978-a25b-2015fcab229d
+      ilo_ip: 10.150.37.53
+      internal_api_hostname: cloud16c-compute-std-11.internalapi.localdomain
+      internal_api_ip: 10.150.50.30
+      storage_hostname: cloud16c-compute-std-11.storage.localdomain
+      storage_ip: 10.150.47.19
+      storage_mgmt_hostname: cloud16c-compute-std-11.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.19
+      storage_nfs_hostname: cloud16c-compute-std-11.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.18
+      tenant_hostname: cloud16c-compute-std-11.tenant.localdomain
+      tenant_ip: 10.150.53.26
+    enabled: true
+  - name: "cloud16c-compute-std-12"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.122
+      canonical_hostname: cloud16c-compute-std-12.localdomain
+      ctlplane_hostname: cloud16c-compute-std-12.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.122
+      deploy_server_id: 92313ba1-6e51-4a66-8c6d-95435220ea3c
+      ilo_ip: 10.150.37.54
+      internal_api_hostname: cloud16c-compute-std-12.internalapi.localdomain
+      internal_api_ip: 10.150.50.31
+      storage_hostname: cloud16c-compute-std-12.storage.localdomain
+      storage_ip: 10.150.47.20
+      storage_mgmt_hostname: cloud16c-compute-std-12.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.20
+      storage_nfs_hostname: cloud16c-compute-std-12.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.19
+      tenant_hostname: cloud16c-compute-std-12.tenant.localdomain
+      tenant_ip: 10.150.53.27
+    enabled: true
+  - name: "cloud16c-compute-std-13"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.116
+      canonical_hostname: cloud16c-compute-std-13.localdomain
+      ctlplane_hostname: cloud16c-compute-std-13.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.116
+      deploy_server_id: 6912bd82-0dbc-425c-b71c-b3d58aae9af4
+      ilo_ip: 10.150.37.55
+      internal_api_hostname: cloud16c-compute-std-13.internalapi.localdomain
+      internal_api_ip: 10.150.50.32
+      storage_hostname: cloud16c-compute-std-13.storage.localdomain
+      storage_ip: 10.150.47.21
+      storage_mgmt_hostname: cloud16c-compute-std-13.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.21
+      storage_nfs_hostname: cloud16c-compute-std-13.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.20
+      tenant_hostname: cloud16c-compute-std-13.tenant.localdomain
+      tenant_ip: 10.150.53.28
+    enabled: true
+  - name: "cloud16c-compute-std-14"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.114
+      canonical_hostname: cloud16c-compute-std-14.localdomain
+      ctlplane_hostname: cloud16c-compute-std-14.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.114
+      deploy_server_id: 49ea6669-ca2f-4970-9b9a-4d0e71b30458
+      ilo_ip: 10.150.37.56
+      internal_api_hostname: cloud16c-compute-std-14.internalapi.localdomain
+      internal_api_ip: 10.150.50.33
+      storage_hostname: cloud16c-compute-std-14.storage.localdomain
+      storage_ip: 10.150.47.22
+      storage_mgmt_hostname: cloud16c-compute-std-14.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.22
+      storage_nfs_hostname: cloud16c-compute-std-14.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.21
+      tenant_hostname: cloud16c-compute-std-14.tenant.localdomain
+      tenant_ip: 10.150.53.29
+    enabled: true
+  - name: "cloud16c-compute-std-15"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.119
+      canonical_hostname: cloud16c-compute-std-15.localdomain
+      ctlplane_hostname: cloud16c-compute-std-15.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.119
+      deploy_server_id: c4bd55ca-6a23-4445-848d-969fbb4b5af7
+      ilo_ip: 10.150.37.57
+      internal_api_hostname: cloud16c-compute-std-15.internalapi.localdomain
+      internal_api_ip: 10.150.50.34
+      storage_hostname: cloud16c-compute-std-15.storage.localdomain
+      storage_ip: 10.150.47.23
+      storage_mgmt_hostname: cloud16c-compute-std-15.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.23
+      storage_nfs_hostname: cloud16c-compute-std-15.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.22
+      tenant_hostname: cloud16c-compute-std-15.tenant.localdomain
+      tenant_ip: 10.150.53.30
+    enabled: true
+  - name: "cloud16c-compute-std-16"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.102
+      canonical_hostname: cloud16c-compute-std-16.localdomain
+      ctlplane_hostname: cloud16c-compute-std-16.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.102
+      deploy_server_id: 51d25027-9425-46e7-b9e5-902227201f34
+      ilo_ip: 10.150.37.58
+      internal_api_hostname: cloud16c-compute-std-16.internalapi.localdomain
+      internal_api_ip: 10.150.50.35
+      storage_hostname: cloud16c-compute-std-16.storage.localdomain
+      storage_ip: 10.150.47.24
+      storage_mgmt_hostname: cloud16c-compute-std-16.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.24
+      storage_nfs_hostname: cloud16c-compute-std-16.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.23
+      tenant_hostname: cloud16c-compute-std-16.tenant.localdomain
+      tenant_ip: 10.150.53.31
+    enabled: true
+  - name: "cloud16c-compute-std-17"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.46
+      canonical_hostname: cloud16c-compute-std-17.localdomain
+      ctlplane_hostname: cloud16c-compute-std-17.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.46
+      deploy_server_id: 798c389d-9d86-4e6a-ad3f-7e120c1ecea0
+      ilo_ip: 10.150.37.59
+      internal_api_hostname: cloud16c-compute-std-17.internalapi.localdomain
+      internal_api_ip: 10.150.50.36
+      storage_hostname: cloud16c-compute-std-17.storage.localdomain
+      storage_ip: 10.150.47.25
+      storage_mgmt_hostname: cloud16c-compute-std-17.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.25
+      storage_nfs_hostname: cloud16c-compute-std-17.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.24
+      tenant_hostname: cloud16c-compute-std-17.tenant.localdomain
+      tenant_ip: 10.150.53.32
+    enabled: true
+  - name: "cloud16c-compute-std-18"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.81
+      canonical_hostname: cloud16c-compute-std-18.localdomain
+      ctlplane_hostname: cloud16c-compute-std-18.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.81
+      deploy_server_id: cea0cccd-1e51-4e85-9e81-9ffab2c07728
+      ilo_ip: 10.150.37.60
+      internal_api_hostname: cloud16c-compute-std-18.internalapi.localdomain
+      internal_api_ip: 10.150.50.37
+      storage_hostname: cloud16c-compute-std-18.storage.localdomain
+      storage_ip: 10.150.47.26
+      storage_mgmt_hostname: cloud16c-compute-std-18.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.26
+      storage_nfs_hostname: cloud16c-compute-std-18.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.25
+      tenant_hostname: cloud16c-compute-std-18.tenant.localdomain
+      tenant_ip: 10.150.53.33
+    enabled: true
+  - name: "cloud16c-compute-std-19"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.24
+      canonical_hostname: cloud16c-compute-std-19.localdomain
+      ctlplane_hostname: cloud16c-compute-std-19.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.24
+      deploy_server_id: 15e759f0-be2c-4c63-9cc5-4d9f4b2fbcf5
+      ilo_ip: 10.150.37.61
+      internal_api_hostname: cloud16c-compute-std-19.internalapi.localdomain
+      internal_api_ip: 10.150.50.38
+      storage_hostname: cloud16c-compute-std-19.storage.localdomain
+      storage_ip: 10.150.47.27
+      storage_mgmt_hostname: cloud16c-compute-std-19.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.27
+      storage_nfs_hostname: cloud16c-compute-std-19.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.26
+      tenant_hostname: cloud16c-compute-std-19.tenant.localdomain
+      tenant_ip: 10.150.53.34
+    enabled: true
+  - name: "cloud16c-compute-std-2"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.12
+      canonical_hostname: cloud16c-compute-std-2.localdomain
+      ctlplane_hostname: cloud16c-compute-std-2.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.12
+      deploy_server_id: 06a5636a-2a34-4f90-84a8-71d119837084
+      ilo_ip: 10.150.37.44
+      internal_api_hostname: cloud16c-compute-std-2.internalapi.localdomain
+      internal_api_ip: 10.150.50.21
+      storage_hostname: cloud16c-compute-std-2.storage.localdomain
+      storage_ip: 10.150.47.10
+      storage_mgmt_hostname: cloud16c-compute-std-2.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.10
+      storage_nfs_hostname: cloud16c-compute-std-2.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.9
+      tenant_hostname: cloud16c-compute-std-2.tenant.localdomain
+      tenant_ip: 10.150.53.17
+    enabled: true
+  - name: "cloud16c-compute-std-20"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.36
+      canonical_hostname: cloud16c-compute-std-20.localdomain
+      ctlplane_hostname: cloud16c-compute-std-20.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.36
+      deploy_server_id: 4d9b50af-d361-4f35-ab3c-223e4c42f397
+      ilo_ip: 10.150.37.62
+      internal_api_hostname: cloud16c-compute-std-20.internalapi.localdomain
+      internal_api_ip: 10.150.50.39
+      storage_hostname: cloud16c-compute-std-20.storage.localdomain
+      storage_ip: 10.150.47.28
+      storage_mgmt_hostname: cloud16c-compute-std-20.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.28
+      storage_nfs_hostname: cloud16c-compute-std-20.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.27
+      tenant_hostname: cloud16c-compute-std-20.tenant.localdomain
+      tenant_ip: 10.150.53.35
+    enabled: true
+  - name: "cloud16c-compute-std-21"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.61
+      canonical_hostname: cloud16c-compute-std-21.localdomain
+      ctlplane_hostname: cloud16c-compute-std-21.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.61
+      deploy_server_id: 54f2ff44-03ea-40c7-b43f-b5a3be289cb3
+      ilo_ip: 10.150.37.63
+      internal_api_hostname: cloud16c-compute-std-21.internalapi.localdomain
+      internal_api_ip: 10.150.50.40
+      storage_hostname: cloud16c-compute-std-21.storage.localdomain
+      storage_ip: 10.150.47.29
+      storage_mgmt_hostname: cloud16c-compute-std-21.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.29
+      storage_nfs_hostname: cloud16c-compute-std-21.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.28
+      tenant_hostname: cloud16c-compute-std-21.tenant.localdomain
+      tenant_ip: 10.150.53.36
+    enabled: true
+  - name: "cloud16c-compute-std-22"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.118
+      canonical_hostname: cloud16c-compute-std-22.localdomain
+      ctlplane_hostname: cloud16c-compute-std-22.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.118
+      deploy_server_id: a5008c73-eb31-4c79-8a6c-e9eda5408e4c
+      ilo_ip: 10.150.37.64
+      internal_api_hostname: cloud16c-compute-std-22.internalapi.localdomain
+      internal_api_ip: 10.150.50.41
+      storage_hostname: cloud16c-compute-std-22.storage.localdomain
+      storage_ip: 10.150.47.30
+      storage_mgmt_hostname: cloud16c-compute-std-22.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.30
+      storage_nfs_hostname: cloud16c-compute-std-22.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.29
+      tenant_hostname: cloud16c-compute-std-22.tenant.localdomain
+      tenant_ip: 10.150.53.37
+    enabled: true
+  - name: "cloud16c-compute-std-23"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.84
+      canonical_hostname: cloud16c-compute-std-23.localdomain
+      ctlplane_hostname: cloud16c-compute-std-23.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.84
+      deploy_server_id: fce881d1-a9db-43c6-8995-ce7b565dba7b
+      ilo_ip: 10.150.37.65
+      internal_api_hostname: cloud16c-compute-std-23.internalapi.localdomain
+      internal_api_ip: 10.150.50.42
+      storage_hostname: cloud16c-compute-std-23.storage.localdomain
+      storage_ip: 10.150.47.31
+      storage_mgmt_hostname: cloud16c-compute-std-23.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.31
+      storage_nfs_hostname: cloud16c-compute-std-23.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.30
+      tenant_hostname: cloud16c-compute-std-23.tenant.localdomain
+      tenant_ip: 10.150.53.38
+    enabled: true
+  - name: "cloud16c-compute-std-24"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.41
+      canonical_hostname: cloud16c-compute-std-24.localdomain
+      ctlplane_hostname: cloud16c-compute-std-24.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.41
+      deploy_server_id: 46ded6ee-0f6a-44df-8cec-cf04fa13d708
+      ilo_ip: 10.150.37.66
+      internal_api_hostname: cloud16c-compute-std-24.internalapi.localdomain
+      internal_api_ip: 10.150.50.43
+      storage_hostname: cloud16c-compute-std-24.storage.localdomain
+      storage_ip: 10.150.47.32
+      storage_mgmt_hostname: cloud16c-compute-std-24.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.32
+      storage_nfs_hostname: cloud16c-compute-std-24.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.31
+      tenant_hostname: cloud16c-compute-std-24.tenant.localdomain
+      tenant_ip: 10.150.53.39
+    enabled: true
+  - name: "cloud16c-compute-std-25"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.71
+      canonical_hostname: cloud16c-compute-std-25.localdomain
+      ctlplane_hostname: cloud16c-compute-std-25.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.71
+      deploy_server_id: 0de7a599-9ae2-4396-8a93-2a76744db717
+      ilo_ip: 10.150.37.67
+      internal_api_hostname: cloud16c-compute-std-25.internalapi.localdomain
+      internal_api_ip: 10.150.50.44
+      storage_hostname: cloud16c-compute-std-25.storage.localdomain
+      storage_ip: 10.150.47.33
+      storage_mgmt_hostname: cloud16c-compute-std-25.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.33
+      storage_nfs_hostname: cloud16c-compute-std-25.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.32
+      tenant_hostname: cloud16c-compute-std-25.tenant.localdomain
+      tenant_ip: 10.150.53.40
+    enabled: true
+  - name: "cloud16c-compute-std-26"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.54
+      canonical_hostname: cloud16c-compute-std-26.localdomain
+      ctlplane_hostname: cloud16c-compute-std-26.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.54
+      deploy_server_id: f6f2ac80-c168-4152-9d21-2c9a08a9d701
+      ilo_ip: 10.150.37.68
+      internal_api_hostname: cloud16c-compute-std-26.internalapi.localdomain
+      internal_api_ip: 10.150.50.45
+      storage_hostname: cloud16c-compute-std-26.storage.localdomain
+      storage_ip: 10.150.47.34
+      storage_mgmt_hostname: cloud16c-compute-std-26.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.34
+      storage_nfs_hostname: cloud16c-compute-std-26.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.33
+      tenant_hostname: cloud16c-compute-std-26.tenant.localdomain
+      tenant_ip: 10.150.53.41
+    enabled: true
+  - name: "cloud16c-compute-std-27"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.104
+      canonical_hostname: cloud16c-compute-std-27.localdomain
+      ctlplane_hostname: cloud16c-compute-std-27.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.104
+      deploy_server_id: 19a68321-e140-431d-9434-bd3e214e5846
+      ilo_ip: 10.150.37.69
+      internal_api_hostname: cloud16c-compute-std-27.internalapi.localdomain
+      internal_api_ip: 10.150.50.46
+      storage_hostname: cloud16c-compute-std-27.storage.localdomain
+      storage_ip: 10.150.47.35
+      storage_mgmt_hostname: cloud16c-compute-std-27.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.35
+      storage_nfs_hostname: cloud16c-compute-std-27.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.34
+      tenant_hostname: cloud16c-compute-std-27.tenant.localdomain
+      tenant_ip: 10.150.53.42
+    enabled: true
+  - name: "cloud16c-compute-std-28"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.55
+      canonical_hostname: cloud16c-compute-std-28.localdomain
+      ctlplane_hostname: cloud16c-compute-std-28.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.55
+      deploy_server_id: a0fb4e94-1db6-418a-b616-98e9970b4efe
+      ilo_ip: 10.150.37.70
+      internal_api_hostname: cloud16c-compute-std-28.internalapi.localdomain
+      internal_api_ip: 10.150.50.47
+      storage_hostname: cloud16c-compute-std-28.storage.localdomain
+      storage_ip: 10.150.47.36
+      storage_mgmt_hostname: cloud16c-compute-std-28.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.36
+      storage_nfs_hostname: cloud16c-compute-std-28.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.35
+      tenant_hostname: cloud16c-compute-std-28.tenant.localdomain
+      tenant_ip: 10.150.53.43
+    enabled: true
+  - name: "cloud16c-compute-std-3"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.77
+      canonical_hostname: cloud16c-compute-std-3.localdomain
+      ctlplane_hostname: cloud16c-compute-std-3.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.77
+      deploy_server_id: 89d2afc0-771d-4b2a-99d6-5c0bb07e9f58
+      ilo_ip: 10.150.37.45
+      internal_api_hostname: cloud16c-compute-std-3.internalapi.localdomain
+      internal_api_ip: 10.150.50.22
+      storage_hostname: cloud16c-compute-std-3.storage.localdomain
+      storage_ip: 10.150.47.11
+      storage_mgmt_hostname: cloud16c-compute-std-3.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.11
+      storage_nfs_hostname: cloud16c-compute-std-3.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.10
+      tenant_hostname: cloud16c-compute-std-3.tenant.localdomain
+      tenant_ip: 10.150.53.18
+    enabled: true
+  - name: "cloud16c-compute-std-4"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.90
+      canonical_hostname: cloud16c-compute-std-4.localdomain
+      ctlplane_hostname: cloud16c-compute-std-4.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.90
+      deploy_server_id: b9a19c41-7b62-4623-9f6d-8189d261b0f4
+      ilo_ip: 10.150.37.46
+      internal_api_hostname: cloud16c-compute-std-4.internalapi.localdomain
+      internal_api_ip: 10.150.50.23
+      storage_hostname: cloud16c-compute-std-4.storage.localdomain
+      storage_ip: 10.150.47.12
+      storage_mgmt_hostname: cloud16c-compute-std-4.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.12
+      storage_nfs_hostname: cloud16c-compute-std-4.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.11
+      tenant_hostname: cloud16c-compute-std-4.tenant.localdomain
+      tenant_ip: 10.150.53.19
+    enabled: true
+  - name: "cloud16c-compute-std-5"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.17
+      canonical_hostname: cloud16c-compute-std-5.localdomain
+      ctlplane_hostname: cloud16c-compute-std-5.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.17
+      deploy_server_id: 2fd6c645-87f0-4486-986e-a4fd6c62d368
+      ilo_ip: 10.150.37.47
+      internal_api_hostname: cloud16c-compute-std-5.internalapi.localdomain
+      internal_api_ip: 10.150.50.24
+      storage_hostname: cloud16c-compute-std-5.storage.localdomain
+      storage_ip: 10.150.47.13
+      storage_mgmt_hostname: cloud16c-compute-std-5.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.13
+      storage_nfs_hostname: cloud16c-compute-std-5.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.12
+      tenant_hostname: cloud16c-compute-std-5.tenant.localdomain
+      tenant_ip: 10.150.53.20
+    enabled: true
+  - name: "cloud16c-compute-std-6"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.125
+      canonical_hostname: cloud16c-compute-std-6.localdomain
+      ctlplane_hostname: cloud16c-compute-std-6.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.125
+      deploy_server_id: 7d7e22c3-38cc-4bb2-b9dc-6cc2a6fadbd7
+      ilo_ip: 10.150.37.48
+      internal_api_hostname: cloud16c-compute-std-6.internalapi.localdomain
+      internal_api_ip: 10.150.50.25
+      storage_hostname: cloud16c-compute-std-6.storage.localdomain
+      storage_ip: 10.150.47.14
+      storage_mgmt_hostname: cloud16c-compute-std-6.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.14
+      storage_nfs_hostname: cloud16c-compute-std-6.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.13
+      tenant_hostname: cloud16c-compute-std-6.tenant.localdomain
+      tenant_ip: 10.150.53.21
+    enabled: true
+  - name: "cloud16c-compute-std-7"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.38
+      canonical_hostname: cloud16c-compute-std-7.localdomain
+      ctlplane_hostname: cloud16c-compute-std-7.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.38
+      deploy_server_id: 4c593faf-d9bc-4f5f-8f43-995c7670e463
+      ilo_ip: 10.150.37.49
+      internal_api_hostname: cloud16c-compute-std-7.internalapi.localdomain
+      internal_api_ip: 10.150.50.26
+      storage_hostname: cloud16c-compute-std-7.storage.localdomain
+      storage_ip: 10.150.47.15
+      storage_mgmt_hostname: cloud16c-compute-std-7.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.15
+      storage_nfs_hostname: cloud16c-compute-std-7.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.14
+      tenant_hostname: cloud16c-compute-std-7.tenant.localdomain
+      tenant_ip: 10.150.53.22
+    enabled: true
+  - name: "cloud16c-compute-std-8"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.82
+      canonical_hostname: cloud16c-compute-std-8.localdomain
+      ctlplane_hostname: cloud16c-compute-std-8.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.82
+      deploy_server_id: bb9e0eea-1541-4256-a14c-922c870edd2e
+      ilo_ip: 10.150.37.50
+      internal_api_hostname: cloud16c-compute-std-8.internalapi.localdomain
+      internal_api_ip: 10.150.50.27
+      storage_hostname: cloud16c-compute-std-8.storage.localdomain
+      storage_ip: 10.150.47.16
+      storage_mgmt_hostname: cloud16c-compute-std-8.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.16
+      storage_nfs_hostname: cloud16c-compute-std-8.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.15
+      tenant_hostname: cloud16c-compute-std-8.tenant.localdomain
+      tenant_ip: 10.150.53.23
+    enabled: true
+  - name: "cloud16c-compute-std-9"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.72
+      canonical_hostname: cloud16c-compute-std-9.localdomain
+      ctlplane_hostname: cloud16c-compute-std-9.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.72
+      deploy_server_id: 7c6a2827-cf5f-4daf-8ced-a38f78339ad4
+      ilo_ip: 10.150.37.51
+      internal_api_hostname: cloud16c-compute-std-9.internalapi.localdomain
+      internal_api_ip: 10.150.50.28
+      storage_hostname: cloud16c-compute-std-9.storage.localdomain
+      storage_ip: 10.150.47.17
+      storage_mgmt_hostname: cloud16c-compute-std-9.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.17
+      storage_nfs_hostname: cloud16c-compute-std-9.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.16
+      tenant_hostname: cloud16c-compute-std-9.tenant.localdomain
+      tenant_ip: 10.150.53.24
+    enabled: true
+  - name: "cloud16c-controller-0"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.123
+      canonical_hostname: cloud16c-controller-0.localdomain
+      ctlplane_hostname: cloud16c-controller-0.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.123
+      deploy_server_id: de3162e8-0a8a-497e-801f-ff53ecc331ee
+      external_hostname: cloud16c-controller-0.external.localdomain
+      external_ip: 10.150.56.15
+      ilo_ip: 10.150.37.39
+      internal_api_hostname: cloud16c-controller-0.internalapi.localdomain
+      internal_api_ip: 10.150.50.16
+      storage_hostname: cloud16c-controller-0.storage.localdomain
+      storage_ip: 10.150.47.5
+      storage_mgmt_hostname: cloud16c-controller-0.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.5
+      storage_nfs_hostname: cloud16c-controller-0.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.4
+      tenant_hostname: cloud16c-controller-0.tenant.localdomain
+      tenant_ip: 10.150.53.12
+    enabled: true
+  - name: "cloud16c-controller-1"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.103
+      canonical_hostname: cloud16c-controller-1.localdomain
+      ctlplane_hostname: cloud16c-controller-1.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.103
+      deploy_server_id: 7dd4f905-4b63-4ad7-8097-b0fc3c3b9ae4
+      external_hostname: cloud16c-controller-1.external.localdomain
+      external_ip: 10.150.56.16
+      ilo_ip: 10.150.37.40
+      internal_api_hostname: cloud16c-controller-1.internalapi.localdomain
+      internal_api_ip: 10.150.50.17
+      storage_hostname: cloud16c-controller-1.storage.localdomain
+      storage_ip: 10.150.47.6
+      storage_mgmt_hostname: cloud16c-controller-1.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.6
+      storage_nfs_hostname: cloud16c-controller-1.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.5
+      tenant_hostname: cloud16c-controller-1.tenant.localdomain
+      tenant_ip: 10.150.53.13
+    enabled: true
+  - name: "cloud16c-controller-2"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: 10.150.51.40
+      canonical_hostname: cloud16c-controller-2.localdomain
+      ctlplane_hostname: cloud16c-controller-2.ctlplane.localdomain
+      ctlplane_ip: 10.150.51.40
+      deploy_server_id: a9efd27f-5d13-4293-81d2-db8981ce0ede
+      external_hostname: cloud16c-controller-2.external.localdomain
+      external_ip: 10.150.56.17
+      ilo_ip: 10.150.37.41
+      internal_api_hostname: cloud16c-controller-2.internalapi.localdomain
+      internal_api_ip: 10.150.50.18
+      storage_hostname: cloud16c-controller-2.storage.localdomain
+      storage_ip: 10.150.47.7
+      storage_mgmt_hostname: cloud16c-controller-2.storagemgmt.localdomain
+      storage_mgmt_ip: 10.150.48.7
+      storage_nfs_hostname: cloud16c-controller-2.storagenfs.localdomain
+      storage_nfs_ip: 10.150.49.6
+      tenant_hostname: cloud16c-controller-2.tenant.localdomain
+      tenant_ip: 10.150.53.14
+    enabled: true
+  - name: "director"
+    description: ""
+    inventory: "cloud16c"
+    variables:
+      ansible_host: ieatrheldir16c
+      vars:
+        ansible_ssh_common_args: -o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
+    enabled: true

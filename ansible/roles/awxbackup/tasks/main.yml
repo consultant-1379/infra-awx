@@ -1,0 +1,7 @@
+- name: Configure AWX Backup
+  kubernetes.core.k8s:
+    state: present
+    definition: '{{ lookup("template","backup-restore-config.yml.j2") | from_yaml_all }}'
+  vars:
+    backup_playbook: "{{ lookup('file','backup.yml') | to_yaml }}"
+    transfer_backup_jobspec: "{{ lookup('file','transfer-backup-job.yml') | to_yaml }}"

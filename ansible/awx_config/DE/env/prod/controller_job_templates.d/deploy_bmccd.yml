@@ -1,0 +1,39 @@
+---
+controller_templates:
+  - name: "Deploy bmccd"
+    description: "Deploy Pre-Provisioned CCD on baremetal servers"
+    organization: "DE"
+    project: "infra-baremetal"
+    playbook: "site.yml"
+    job_type: "run"
+    credentials:
+      - "awx_ssh_as_root"
+      - "deployment_password"
+    concurrent_jobs_enabled: "True"
+    ask_variables_on_launch: "False"
+    ask_inventory_on_launch: "True"
+    ask_skip_tags_on_launch: "True"
+    execution_environment: "bmccd-ee"
+    survey_enabled: True
+    survey_spec:
+      description: ''
+      name: 'BMCCD Deployment Parameters'
+      spec:
+        - question_name: 'What CCD version do you want to deploy?'
+          question_description: ''
+          required: true
+          type: float
+          variable: ccd_install_version
+          new_question: true
+        - question_name: 'Enter the name of the deployment to install:'
+          question_description: ''
+          required: true
+          type: text
+          variable: deployment_name
+          new_question: true
+        - question_name: 'Enter the network deployment type:'
+          question_description: 'Enter "dualstack" for dualstack, otherwise leave this blank'
+          required: false
+          type: text
+          variable: network_deployment_type
+          new_question: true

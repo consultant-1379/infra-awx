@@ -1,0 +1,60 @@
+
+- name: "OpenStack: Add director to the inventory"
+  add_host:
+    name: '{{ first_host }}'
+    ansible_user: stack
+
+- name: "OpenStack: Get inventory file from the director"
+  slurp:
+    path: /home/stack/ansible/inventory.yaml
+  register: cloud_inventory
+  delegate_to: "{{ first_host }}"
+
+- name: "OpenStack: Get instackenv.json file from the director"
+  slurp:
+    path: /home/stack/{{ cloud }}/undercloud/instackenv.json
+  register: instackenv_json
+  delegate_to: "{{ first_host }}"
+
+- name: "OpenStack: Read inventory file and instackenv.json"
+  set_fact:
+    new_inventory: '{{ cloud_inventory["content"]|b64decode |from_yaml }}'
+    ilos: '{{ instackenv_json["content"] |b64decode |from_json | json_query(q) }}'
+  vars:
+    q: 'nodes[*].{ "name": capabilities,"ilo_ip":pm_addr}'
+
+- name: Set the name of controller and compute groups
+  set_fact:
+    controller_group: '{{ "Controller" if "hosts" in new_inventory["Controller"] else "overcloud_Controller" }}'
+    compute_group: '{{ "Compute" if "hosts" in new_inventory["Compute"] else "overcloud_Compute" }}'
+
+- name: "OpenStack: Add iLO/iDRAC IP address to the inventory"
+  set_fact:
+    new_inventory: '{{ new_inventory | combine({ group: { "hosts": { name: {"ilo_ip": item.ilo_ip } } }},recursive=True) }}'
+  loop: '{{ ilos }}'
+  loop_control:
+    label: '{{ name }}'
+  vars:
+    name: '{{ item.name | regex_replace("node:(compute|controller)\-node(.*\d+),.*",cloud + "-\1\2") }}'
+    group: '{{ controller_group if "controller" in item.name else compute_group }}'
+
+- name: "OpenStack: Set inventory_groups fact"
+  set_fact:
+    inventory_groups: '{{ new_inventory.keys() |list | select("in",groups_to_include["openstack"]) | list  }}'
+
+- name: "OpenStack: Add SSH parameters to groups"
+  set_fact:
+    new_inventory: '{{ new_inventory | combine({ group_name : { "vars": ssh_vars } },recursive=True) }}'
+  loop: '{{ inventory_groups }}'
+  loop_control:
+    loop_var: group_name
+    label: '{{ group_name }}'
+
+- name: "OpenStack: Create inventory item for the director"
+  set_fact:
+    first_host_inventory_item:
+      key: "director"
+      value:
+        ansible_host: "{{ first_host }}"
+        vars:
+          ansible_ssh_common_args: '-o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null'

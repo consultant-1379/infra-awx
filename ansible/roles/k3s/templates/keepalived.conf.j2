@@ -1,0 +1,26 @@
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+vrrp_instance worker_vip {
+    state {{ "MASTER" if inventory_hostname == groups["k3s_servers"][0] else "BACKUP" }}
+    interface {{ ansible_default_ipv4["interface"] }}
+    virtual_router_id 101
+    priority {{ "101" if inventory_hostname == groups["k3s_servers"][0] else "100" }}
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 2d7f82aa51714ff3b491d8c047389683
+    }
+    virtual_ipaddress {
+         {{ k3s_vip }}
+    }
+    unicast_src_ip {{ hostvars[inventory_hostname]["ansible_host"]}}
+    unicast_peer {
+        {% for server in groups["k3s_servers"] %}
+        {% if server == inventory_hostname %}
+        {% else %}
+        {{ hostvars[server]["ansible_host"] }}
+        {% endif %}
+        {% endfor %}
+    }
+
+}
+

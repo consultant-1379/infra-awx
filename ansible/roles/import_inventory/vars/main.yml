@@ -1,0 +1,34 @@
+groups_to_include:
+  ccd:
+    - blades
+    - racks
+    - ceph_racks
+    - nodes
+    - etcd
+    - master
+    - worker
+    - storage_mon
+    - storage_osd
+    - ccm_lb
+  openstack:
+    - overcloud_Compute
+    - overcloud_Controller
+    - overcloud_allovercloud
+    - Compute
+    - Controller
+    - overcloud
+
+
+ssh_vars:
+  ansible_ssh_common_args: "-o ProxyJump=awx@{{first_host}} -o StrictHostKeyChecking=no"
+  ansible_ssh_user: awx
+
+awx_user: admin
+awx_password: !vault |
+              $ANSIBLE_VAULT;1.1;AES256
+              33383435646532616334323032346532643530343336366337616334663561666433363463386163
+              3633653561336537393932356463303335303339646437610a313864356334316266363134643961
+              36646132353139383136393930306432326431343432366663393532363562353663376562636339
+              3539613237616633630a336462346330623430343261376336393235326130356238303639313231
+              61643733626231336135653337343231303437656562346665623536373135333264
+awx_host: infra-awx.athtem.eei.ericsson.se

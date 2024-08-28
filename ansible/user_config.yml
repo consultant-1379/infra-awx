@@ -1,0 +1,28 @@
+# Do not run this playbook directly
+# It must be run on the director as part of the config_ssh_access.yml playbook
+---
+- hosts: overcloud
+  gather_facts: false
+  become: yes
+  remote_user: heat-admin
+  tasks:
+    - name: Create awx user
+      user:
+        name: awx
+        password: $6$omu6IQS6.C6jcJqV$7ktgP/5F6eaUr2hFIWK52R1NNIV/RnqEogGCt7jRuVSfqePqHV5rA6IchnLVSg7atcODxvfQzOtcuBkPoCXUA1
+        state: present
+
+    - name: "Add awx user's public key to authorized_keys file"
+      authorized_key:
+        user: awx
+        state: present
+        key: '{{ lookup("file",keyfile) }}'
+        comment: key from awx_ssh credential in AWX
+
+    - name: 'Create sudoers file for awx'
+      copy:
+        content: 'awx ALL=(root) NOPASSWD:ALL'
+        dest: '/etc/sudoers.d/awx'
+
+    - name: Check node is accessible
+      ping:

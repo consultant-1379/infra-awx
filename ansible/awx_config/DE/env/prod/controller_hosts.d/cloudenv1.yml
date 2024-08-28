@@ -1,0 +1,327 @@
+---
+controller_hosts:
+  - name: "cloudenv1-compute-std-0"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.154
+      ctlplane_ip: 10.232.14.154
+      deploy_server_id: 578f50c4-d6cb-423e-963f-07e19ca7b6d6
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.154
+      ilo_ip: 10.149.84.225
+      internal_api_ip: 10.232.15.149
+      management_ip: 10.232.14.154
+      storage_ip: 10.232.15.20
+      storage_mgmt_ip: 10.232.15.84
+      tenant_ip: 10.232.14.211
+    enabled: true
+  - name: "cloudenv1-compute-std-1"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.150
+      ctlplane_ip: 10.232.14.150
+      deploy_server_id: 8b208363-cdab-478e-8fd7-2134b10a2040
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.150
+      ilo_ip: 10.149.84.226
+      internal_api_ip: 10.232.15.150
+      management_ip: 10.232.14.150
+      storage_ip: 10.232.15.21
+      storage_mgmt_ip: 10.232.15.85
+      tenant_ip: 10.232.14.212
+    enabled: true
+  - name: "cloudenv1-compute-std-10"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ilo_ip: 10.149.84.235
+    enabled: true
+  - name: "cloudenv1-compute-std-11"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ilo_ip: 10.149.84.236
+    enabled: true
+  - name: "cloudenv1-compute-std-12"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ilo_ip: 10.149.84.237
+    enabled: true
+  - name: "cloudenv1-compute-std-2"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.144
+      ctlplane_ip: 10.232.14.144
+      deploy_server_id: 0ef2f28e-7110-451b-88bd-5fc1bad4d937
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.144
+      ilo_ip: 10.149.84.227
+      internal_api_ip: 10.232.15.151
+      management_ip: 10.232.14.144
+      storage_ip: 10.232.15.22
+      storage_mgmt_ip: 10.232.15.86
+      tenant_ip: 10.232.14.213
+    enabled: true
+  - name: "cloudenv1-compute-std-3"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.137
+      ctlplane_ip: 10.232.14.137
+      deploy_server_id: ddd602a6-12ff-4724-966b-3d116c92f39b
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.137
+      ilo_ip: 10.149.84.228
+      internal_api_ip: 10.232.15.152
+      management_ip: 10.232.14.137
+      storage_ip: 10.232.15.23
+      storage_mgmt_ip: 10.232.15.87
+      tenant_ip: 10.232.14.214
+    enabled: true
+  - name: "cloudenv1-compute-std-4"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.145
+      ctlplane_ip: 10.232.14.145
+      deploy_server_id: 5f9f917b-e791-4926-a1fc-67b222b3ab5c
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.145
+      ilo_ip: 10.149.84.229
+      internal_api_ip: 10.232.15.153
+      management_ip: 10.232.14.145
+      storage_ip: 10.232.15.24
+      storage_mgmt_ip: 10.232.15.88
+      tenant_ip: 10.232.14.215
+    enabled: true
+  - name: "cloudenv1-compute-std-5"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.148
+      ctlplane_ip: 10.232.14.148
+      deploy_server_id: 6687a65c-6df1-4d0b-83c0-0764c6fa413e
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.148
+      ilo_ip: 10.149.84.230
+      internal_api_ip: 10.232.15.154
+      management_ip: 10.232.14.148
+      storage_ip: 10.232.15.25
+      storage_mgmt_ip: 10.232.15.89
+      tenant_ip: 10.232.14.216
+    enabled: true
+  - name: "cloudenv1-compute-std-6"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.149
+      ctlplane_ip: 10.232.14.149
+      deploy_server_id: b8f6f3a6-2677-45fb-9a50-3e2480dde7de
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.149
+      ilo_ip: 10.149.84.231
+      internal_api_ip: 10.232.15.155
+      management_ip: 10.232.14.149
+      storage_ip: 10.232.15.26
+      storage_mgmt_ip: 10.232.15.90
+      tenant_ip: 10.232.14.217
+    enabled: true
+  - name: "cloudenv1-compute-std-7"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.142
+      ctlplane_ip: 10.232.14.142
+      deploy_server_id: 653fd6b5-17f5-4bde-8269-7dee21bd4a95
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.142
+      ilo_ip: 10.149.84.232
+      internal_api_ip: 10.232.15.156
+      management_ip: 10.232.14.142
+      storage_ip: 10.232.15.27
+      storage_mgmt_ip: 10.232.15.91
+      tenant_ip: 10.232.14.218
+    enabled: true
+  - name: "cloudenv1-compute-std-8"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.136
+      ctlplane_ip: 10.232.14.136
+      deploy_server_id: 3e2bfaa7-f21f-4f59-9346-2f4693cc07d5
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.136
+      ilo_ip: 10.149.84.233
+      internal_api_ip: 10.232.15.157
+      management_ip: 10.232.14.136
+      storage_ip: 10.232.15.28
+      storage_mgmt_ip: 10.232.15.92
+      tenant_ip: 10.232.14.219
+    enabled: true
+  - name: "cloudenv1-compute-std-9"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.146
+      ctlplane_ip: 10.232.14.146
+      deploy_server_id: 81f0c01c-5cea-44f2-8e91-a17990f5ebd7
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.14.146
+      ilo_ip: 10.149.84.234
+      internal_api_ip: 10.232.15.158
+      management_ip: 10.232.14.146
+      storage_ip: 10.232.15.29
+      storage_mgmt_ip: 10.232.15.93
+      tenant_ip: 10.232.14.220
+    enabled: true
+  - name: "cloudenv1-controller-0"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.151
+      ctlplane_ip: 10.232.14.151
+      deploy_server_id: 4dd0882e-b8a2-4759-99a7-3553647618d7
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.16.11
+      ilo_ip: 10.149.84.222
+      internal_api_ip: 10.232.15.136
+      management_ip: 10.232.14.151
+      storage_ip: 10.232.15.7
+      storage_mgmt_ip: 10.232.15.71
+      tenant_ip: 10.232.14.198
+    enabled: true
+  - name: "cloudenv1-controller-1"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.140
+      ctlplane_ip: 10.232.14.140
+      deploy_server_id: 37ea971d-4bbf-41e9-bef7-e5800810d068
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.16.12
+      ilo_ip: 10.149.84.223
+      internal_api_ip: 10.232.15.137
+      management_ip: 10.232.14.140
+      storage_ip: 10.232.15.8
+      storage_mgmt_ip: 10.232.15.72
+      tenant_ip: 10.232.14.199
+    enabled: true
+  - name: "cloudenv1-controller-2"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: 10.232.14.152
+      ctlplane_ip: 10.232.14.152
+      deploy_server_id: c273c52e-f56c-4bc6-a634-720a12dbd9d5
+      enabled_networks:
+      - management
+      - storage
+      - ctlplane
+      - external
+      - internal_api
+      - storage_mgmt
+      - tenant
+      external_ip: 10.232.16.13
+      ilo_ip: 10.149.84.224
+      internal_api_ip: 10.232.15.138
+      management_ip: 10.232.14.152
+      storage_ip: 10.232.15.9
+      storage_mgmt_ip: 10.232.15.73
+      tenant_ip: 10.232.14.200
+    enabled: true
+  - name: "director"
+    description: ""
+    inventory: "cloudenv1"
+    variables:
+      ansible_host: ieatrheldirenv1
+      vars:
+        ansible_ssh_common_args: -o StrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
+    enabled: true

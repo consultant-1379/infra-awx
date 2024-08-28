@@ -1,0 +1,9 @@
+---
+controller_teams:
+  - name: "OpenStack_Infra"
+    description: ""
+    organization: "DE"
+  - name: "StackCentric"
+    description: ""
+    organization: "DE"
+...

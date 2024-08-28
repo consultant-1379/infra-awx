@@ -1,0 +1,6 @@
+dnspython
+jmespath
+Jinja2
+netaddr
+python-hpilo
+lxml

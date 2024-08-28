@@ -1,0 +1,25 @@
+---
+controller_templates:
+  - name: "Cinder Compare"
+    description: ""
+    organization: "DE"
+    project: "infra-openstack"
+    inventory: "awx_local"
+    playbook: "cloud_automation/utils/cinder/cinder_compare.yml"
+    job_type: "run"
+    credentials:
+      - "awx_ssh"
+      - "deployment_password"
+    extra_vars:
+      delete: 'yes'
+    fact_caching_enabled: "False"
+    concurrent_jobs_enabled: "True"
+    ask_inventory_on_launch: "True"
+    ask_credential_on_launch: "True"
+    ask_scm_branch_on_launch: "False"
+    ask_tags_on_launch: "False"
+    ask_verbosity_on_launch: "False"
+    execution_environment: "cinder-ee"
+    survey_enabled: False
+    survey_spec: {}
+...
